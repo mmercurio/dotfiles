@@ -5,10 +5,12 @@
 umask 022
 
 # bash completion
-#if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#    . $(brew --prefix)/etc/bash_completion
-#    . ~/.git-completion.bash
-#fi
+if command -v brew  &> /dev/null; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+      . ~/.git-completion.bash
+    fi
+fi
 
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
