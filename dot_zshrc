@@ -123,6 +123,10 @@ autoload -U zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
 
+chezmoi-cd() {
+    cd $(chezmoi source-path)
+}
+
 # macOS: Enable additional iTerm2 support
 [[ ! -f "{HOME}/.iterm2_shell_integration.zsh" ]] || source "${HOME}/.iterm2_shell_integration.zsh"
 
