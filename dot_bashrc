@@ -1,0 +1,53 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# If running interactively, then:
+if [ "$PS1" ]; then
+
+    # don't put duplicate lines in the history. See bash(1) for more options
+    # export HISTCONTROL=ignoredups
+
+    # enable color support of ls and also add handy aliases
+    alias c=clear
+    alias cdc="clear; cd $*"
+    #alias ec='emacsclient -a emacs --no-wait'
+
+    # some more ls aliases
+    #alias ll='ls -l'
+    #alias la='ls -A'
+    alias ls='ls -FG'
+    alias ldot='ls -da .*'
+
+    # set a fancy prompt
+    if [ -f ~/.git-completion.bash ]; then
+        source ~/.git-completion.bash
+        PS1='\u@\h:\w $(__git_ps1 "(%s)")
+\$ '
+    else
+        PS1='\u@\h:\w "(%s)")
+\$ '
+
+        __git_ps1() {
+		return
+	}
+    fi
+
+    # If this is an xterm set the title to user@host:dir
+    case $TERM in
+    xterm*)
+#          PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+	PS1='\[\033]0;\h: \w\007
+\033[32m\]\u@\h \[\033[33m\w\033[0m\] $(__git_ps1 "(%s)")
+$ '
+
+   #     . ~/.xtitle
+        ;;
+    *)
+        ;;
+    esac
+
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+

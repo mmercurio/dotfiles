@@ -1,0 +1,47 @@
+set number
+set ai
+set cursorline
+set mouse=a
+syntax enable
+
+" Create highlight group for extra whitespace
+"   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+" Show trailing whitespace:
+" match ExtraWhitespace /\s\+$/
+" Show trailing whitespace, except when typing at the end of a line:
+match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Switch off using :match
+
+" vim-plug: https://github.com/junegunn/vim-plug
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins [Note, this may slow startup]
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation-of-missing-plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'wojciechkepka/vim-github-dark'
+
+" Initialize plugin system
+call plug#end()
+
+" Do NOT change background color:
+"    https://vi.stackexchange.com/a/18221
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+
+colorscheme ghdark
