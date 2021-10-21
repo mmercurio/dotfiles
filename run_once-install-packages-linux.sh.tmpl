@@ -1,0 +1,24 @@
+{{ if (eq .chezmoi.os "linux") -}}
+{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+packages=(
+	curl
+	jq
+	net-tools
+	openssh-server
+	python3
+	python3-venv
+	tmux
+	top
+	vim
+	zsh
+)
+
+sudo apt update
+
+sudo apt install -y ${packages[@]}
+
+{{ end -}}
