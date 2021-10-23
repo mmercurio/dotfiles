@@ -3,6 +3,9 @@
 
 set -eufo pipefail
 
+# Ask for the administrator password upfront
+sudo -v
+
 # Disable Resume system-wide
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
@@ -65,7 +68,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+#chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
@@ -106,5 +109,7 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/iTerm2
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 {{ end -}}
