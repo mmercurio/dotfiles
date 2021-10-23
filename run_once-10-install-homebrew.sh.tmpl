@@ -10,7 +10,7 @@ if [[ $(command -v brew) ]]; then
 	echo "Run 'brew update' to update Homebrew."
 else
 	echo "Installing Homebrew..."
-	bash -c $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 {{ end -}}
