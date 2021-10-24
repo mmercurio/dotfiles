@@ -73,6 +73,8 @@ DEFAULT_USER=$USER # Do not display user@host for default user in prompt
 #plugins=(git)
 plugins=(
   osx
+  git
+  bundler
   zsh-autosuggestions
   zsh-syntax-highlighting # Must be last
 )
