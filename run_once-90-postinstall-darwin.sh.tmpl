@@ -109,9 +109,7 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/iTerm2
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-for app in "cfprefsd" \
-	"Dock" \
-	"Finder" \
+for app in "cfprefsd" "Dock" "Finder"; do
 	killall "${app}" &> /dev/null
 done
 
