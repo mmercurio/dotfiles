@@ -21,8 +21,8 @@ fi
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
 if [ -f "$script_dir/install.sh" ]; then
-  echo exec "$chezmoi" init --apply "--source=$script_dir"
+  exec "$chezmoi" init --apply "--source=$script_dir"
 else
-  echo exec "$chezmoi" init --apply mmercurio
+  exec "$chezmoi" init --apply mmercurio
 fi
 
