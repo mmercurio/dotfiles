@@ -1,0 +1,15 @@
+# Used to customize configuration when doing a `chezmoi init`.
+#
+# This template file will trigger prompts to fill-in machine-specific
+# templateable values. The resulting file is then created at
+# `~/.config/chezmoi/chezmoi.toml`
+# See https://www.chezmoi.io/docs/reference/#special-files-and-directories
+#
+
+{{- $email := promptString "Git email address" }}
+{{- $name := "Michael Mercurio" }}
+
+[data]
+  email = {{ $email | quote }}
+  name = {{ $name | quote }}
+

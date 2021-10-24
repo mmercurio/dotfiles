@@ -1,0 +1,16 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+echo "Checking for Homebrew..."
+if [[ $(command -v brew) ]]; then
+	echo "Homebrew already installed"
+	brew -v
+	echo "Run 'brew update' to update Homebrew."
+else
+	echo "Installing Homebrew..."
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+{{ end -}}

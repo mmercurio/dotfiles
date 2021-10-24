@@ -1,0 +1,120 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Disable Resume system-wide
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+
+# Disable automatic capitalization as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable automatic period substitution as it’s annoying when typing code
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+###############################################################################
+# Screen                                                                      #
+###############################################################################
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Finder: show hidden files by default
+#defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Show the ~/Library folder
+#chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+
+###############################################################################
+# Dock, Dashboard, and hot corners                                            #
+###############################################################################
+
+# Set the icon size of Dock items to 36 pixels
+#defaults write com.apple.dock tilesize -int 36
+
+# Remove the auto-hiding Dock delay
+#defaults write com.apple.dock autohide-delay -float 0
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Enable “focus follows mouse” for Terminal.app and all X11 apps
+# i.e. hover over a window and start typing in it without clicking first
+defaults write com.apple.terminal FocusFollowsMouse -bool true
+#defaults write org.x.X11 wm_ffm -bool true
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# Specify iTerm2 preferences directory
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/iTerm2"
+
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+for app in "cfprefsd" \
+	"Dock" \
+	"Finder" \
+	killall "${app}" &> /dev/null
+done
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+{{ end -}}

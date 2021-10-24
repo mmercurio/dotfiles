@@ -1,0 +1,51 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "automake"
+     "bash"
+     "bash-completion2"
+     "binutils"
+     "curl"
+     "findutils"
+     "gh"
+     "git"
+     "gnupg"
+     "gnu-sed"
+     "grep"
+     "htop"
+     "imagemagick"
+     "iperf3"
+     "jq"
+     "openssh"
+     "ssh-copy-id"
+     "tesseract"
+     "tmux"
+     "wget"
+     "zlib" -}}
+{{ $casks := list
+     "alfred"
+     "fantastical"
+     "cardhop"
+     "google-chrome"
+     "iterm2"
+     "1password-cli"
+     "signal"
+     "visual-studio-code" -}}
+
+{{ if eq .chezmoi.arch "amd64" -}}
+{{   $brews = concat $brews (list
+       "shellcheck") -}}
+{{ end -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
+{{ end -}}
