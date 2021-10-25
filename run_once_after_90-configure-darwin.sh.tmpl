@@ -21,6 +21,12 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
+# Set the Trackpad to tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+
+# Set the Trackpod to enable three-finger drag
+defaults write TrackpadThreeFingerDrag -boot true
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -86,7 +92,6 @@ sudo chflags nohidden /Volumes
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
-
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
