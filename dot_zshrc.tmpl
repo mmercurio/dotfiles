@@ -72,7 +72,9 @@ DEFAULT_USER=$USER # Do not display user@host for default user in prompt
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git)
 plugins=(
+{{- if eq .chezmoi.os "darwin" }}
   osx
+{{- end }}
   git
   bundler
   zsh-autosuggestions
@@ -88,6 +90,13 @@ source $ZSH/oh-my-zsh.sh
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+{{- if eq .chezmoi.os "darwin" }}
+{{-   if stat "/opt/homebrew/bin/brew" }}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{-   else if stat "/usr/local/bin/brew" }}
+eval "$(/usr/local/bin/brew shellenv)"
+{{-   end }}
+{{- end }}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -117,9 +126,6 @@ export EDITOR=vim
 alias ldot='ls -da .*'
 alias cdc='clear; cd'
 alias gitlog='git --no-pager log -n20 --graph --decorate --pretty=oneline --abbrev-commit'
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-alias manp=man-preview
 
 autoload -U zmv
 alias zcp='zmv -C'
@@ -129,8 +135,13 @@ chezmoi-cd() {
     cd $(chezmoi source-path)
 }
 
+{{- if eq .chezmoi.os "darwin" }}
+
+alias manp=man-preview
+
 # macOS: Enable additional iTerm2 support
 [[ ! -f "{HOME}/.iterm2_shell_integration.zsh" ]] || source "${HOME}/.iterm2_shell_integration.zsh"
+{{- end }}
 
 ############  Dev Stuff here  ############
 

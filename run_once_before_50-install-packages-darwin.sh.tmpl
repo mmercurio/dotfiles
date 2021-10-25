@@ -3,6 +3,13 @@
 
 set -eufo pipefail
 
+{{ if stat "/opt/homebrew/bin/brew" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ else if stat "/usr/local/bin/brew" -}}
+eval "$(/usr/local/bin/brew shellenv)"
+{{ end -}}
+
+
 {{ $brews := list
      "automake"
      "bash"
