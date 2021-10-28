@@ -131,9 +131,7 @@ autoload -U zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
 
-chezmoi-cd() {
-    cd $(chezmoi source-path)
-}
+alias chezmoicd="cd $(chezmoi source-path)"
 
 {{- if eq .chezmoi.os "darwin" }}
 
