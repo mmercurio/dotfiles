@@ -6,10 +6,9 @@
 # See https://www.chezmoi.io/docs/reference/#special-files-and-directories
 #
 
-{{- $email := promptString "Git email address" }}
-{{- $name := "Michael Mercurio" }}
+{{ $email := promptString "Git email address" }}
+{{ $name := "Michael Mercurio" }}
 
 [data]
   email = {{ $email | quote }}
   name = {{ $name | quote }}
-
