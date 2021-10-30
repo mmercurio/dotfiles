@@ -9,22 +9,22 @@ install.ps1
 .bashrc
 .git-completion.bash
 .iterm2*
-{{ end -}}
+{{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
 .local/share/fonts
-{{ end -}}
+{{- end }}
 
 {{- if ne .chezmoi.os "windows" }}
 Documents
-{{ else }}
+{{- else }}
 .oh-my-zsh
 .p10k.zsh
 .tmux.conf
 .vim
 .vimrc
 .zshrc
-{{ end -}}
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 *.DS_Store
