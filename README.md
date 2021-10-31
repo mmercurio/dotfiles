@@ -16,10 +16,10 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply mmercurio
 
 For best results on Windows, first ensure the latest version of [PowerShell (7.x) is installed](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.1):
 
+```
+(iwr https://git.io/chezmoi.ps1).Content | pwsh -c -
+```
 
-```
-'$params="init --apply mmercurio"', (iwr https://git.io/chezmoi.ps1).Content | pwsh -c -
-```
 
 
 ### Windows Todos
