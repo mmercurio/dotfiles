@@ -12,6 +12,10 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+{{- if eq .chezmoi.os "windows" }}
+	autocrlf = true
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{- end }}
 
 [diff]
 	tool = vscode-diff
