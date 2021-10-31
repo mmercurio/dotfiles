@@ -49,3 +49,4 @@ function Invoke-RunAsAdmin { Start-Process -Verb RunAs (Get-Process -Id $PID).Pa
   Set-Alias psadmin Invoke-RunAsAdmin
 
 $Env:Path="$HOME\bin;$Env:Path"
+function chezmoicd { cd $(chezmoi source-path) }
