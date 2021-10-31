@@ -5,8 +5,7 @@ Import-Module -Name PSReadLine
 Import-Module oh-my-posh
 
 oh-my-posh --init --shell pwsh --config ~/jandedobbeleer.omp.json | Invoke-Expression
-
-Set-PoshPrompt -Theme Paradox
+Set-PoshPrompt -Theme paradox
 
 # Ensure git uses OpenSSH instead of the ssh that comes with git
 # This can be set using global git config: core.sshcommand
