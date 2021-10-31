@@ -1,0 +1,47 @@
+{{- if (eq .chezmoi.os "windows") -}}
+
+# If winget is not available, fallback to Chocolatey as the legacy package manager.
+
+# Winget packages
+{{ $winget_packages := list
+    "Git.Git"
+    "Microsoft.PowerShell"
+    "JanDeDobbeleer.OhMyPosh"
+    "Microsoft.VisualStudioCode"
+    "Microsoft.PowerToys"
+    "Google.Chrome"
+    "Mozilla.Firefox"
+    "Lexikos.AutoHotkey"
+    "OpenWhisperSystems.Signal"
+    "7zip.7zip"
+    "Notepad++.Notepad++"
+    "WiresharkFoundation.Wireshark" -}}
+
+
+# Chocolatey packages
+{{ $choco_packages := list
+    "git"
+    "pwsh"
+    "googlechrome"
+    "vscode"
+    "autohotkey" -}}
+
+
+if (Get-Command "winget" -errorAction SilentlyContinue)
+{
+    Write-Host -ForegroundColor Green "Nice! Installing packages via Winget."
+
+{{- range ($winget_packages | uniq) }}
+    winget install {{ . }} --silent --accept-package-agreements
+{{- end }}
+
+    exit 0
+}
+
+Write-Host "Installing packages via Chocolatey."
+
+{{- range ($choco_packages | uniq) }}
+choco install {{ . }} -y
+{{- end }}
+
+{{- end }}

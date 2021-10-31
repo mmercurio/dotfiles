@@ -1,0 +1,16 @@
+{{ if (eq .chezmoi.os "windows") -}}
+
+# NOTE: This only to support legacy versions of Windows. Modern versions will use winget.
+
+# If winget is not available, fallback to Chocolatey as the legacy package manager.
+if (Get-Command "winget" -errorAction SilentlyContinue)
+{
+    Write-Host -ForegroundColor Green "Nice! winget installed."
+    exit 0
+}
+
+Write-Host "Installing Chocolatey because winget is not available."
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
+(iwr https://community.chocolatey.org/install.ps1).Content | powershell -c -
+
+{{ end }}
