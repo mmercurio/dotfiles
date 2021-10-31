@@ -47,3 +47,5 @@ function Invoke-RunAsAdmin { Start-Process -Verb RunAs (Get-Process -Id $PID).Pa
 
 # Alias for the function:
   Set-Alias psadmin Invoke-RunAsAdmin
+
+$Env:Path="$HOME\bin;$Env:Path"
