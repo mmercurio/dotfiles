@@ -27,7 +27,7 @@
 {{- else if eq .chezmoi.os "linux" }}
 {{-   $fontDir = ".local/share/fonts" }}
 {{- else if eq .chezmoi.os "windows" }}
-{{-   $fontDir = "Downloads/Fonts" }}
+{{-   $fontDir = "Downloads" }}
 {{- end }}
 ["{{ $fontDir }}/MesloLGS NF Regular.ttf"]
     type = "file"
