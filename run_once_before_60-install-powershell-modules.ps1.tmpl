@@ -1,0 +1,25 @@
+{{- if (eq .chezmoi.os "windows") -}}
+
+# Install PowerShell modules
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
+{{ $modules := list
+    "oh-my-posh"
+    "Terminal-Icons"
+    "PSReadLine"
+    "posh-git" -}}
+
+{{ range ($modules | uniq) -}}
+Install-Module -Name '{{ . }}' -Scope CurrentUser -Repository PSGallery
+{{ end }}
+
+# Install modules for latest PowerShell Version
+if ($PSVersionTable.PSVersion -lt [Version]"7.1") {
+    $version=($PSVersionTable.PSVersion) -Join "."
+    Write-Host "PowerShell version $version"
+    Write-Host -ForegroundColor Blue "Relaunching under PowerShell Core (pwsh) 7.1 or later..."
+    pwsh -NoProfile -File $PSCommandPath
+    exit
+}
+
+{{ end }}

@@ -26,6 +26,8 @@
 {{-   $fontDir = "Library/Fonts" }}
 {{- else if eq .chezmoi.os "linux" }}
 {{-   $fontDir = ".local/share/fonts" }}
+{{- else if eq .chezmoi.os "windows" }}
+{{-   $fontDir = "Downloads" }}
 {{- end }}
 ["{{ $fontDir }}/MesloLGS NF Regular.ttf"]
     type = "file"
@@ -45,6 +47,5 @@
     refreshPeriod = "168h"
 ["{{ $fontDir }}/Caskaydia Cove Regular Nerd Font Complete.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/blob/2.1.0/patched-fonts/CascadiaCode/complete/Caskaydia Cove Nerd Font Complete.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/CascadiaCode/complete/Caskaydia Cove Nerd Font Complete.ttf"
     refreshPeriod = "168h"
-
