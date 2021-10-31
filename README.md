@@ -15,11 +15,11 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply mmercurio
 
 ## Windows Todos
 
-- [ ] Install additional Nerd Fonts
-- [ ] Configure PowerShell profile and prompt, including upgrading to pwsh Core
+- [ ] Install additional Nerd Fonts (downloaded, but not yet installed)
+- [x] Configure PowerShell profile and prompt, including upgrading to pwsh Core
 - [x] Install and configure git
-- [ ] Use winget on Windows 11
+- [x] Use winget on Windows 11
 - [ ] Configure Windows Terminal
-- [ ] Install extra apps (likely via Chocoaltey)
+- [x] Install extra apps (winget with fallback to Chocolately)
 - [ ] One-line install from GitHub repo
 - [ ] Configure Windows defaults (themes, fonts, default apps, etc.)
