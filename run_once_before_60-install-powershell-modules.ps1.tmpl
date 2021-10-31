@@ -4,12 +4,13 @@
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 
 {{ $modules := list
+    "oh-my-posh"
     "Terminal-Icons"
     "PSReadLine"
     "posh-git" -}}
 
 {{ range ($modules | uniq) -}}
-Install-Module -Name '{{ . }}' -Repository PSGallery
+Install-Module -Name '{{ . }}' -Scope CurrentUser -Repository PSGallery
 {{ end }}
 
 # Install modules for latest PowerShell Version
