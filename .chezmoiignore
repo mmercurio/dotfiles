@@ -27,6 +27,7 @@ Documents
 .vim
 .vimrc
 .zshrc
+.zprofile
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
