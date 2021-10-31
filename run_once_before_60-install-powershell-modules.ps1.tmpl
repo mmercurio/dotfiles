@@ -14,7 +14,9 @@ Install-Module -Name '{{ . }}' -Repository PSGallery
 
 # Install modules for latest PowerShell Version
 if ($PSVersionTable.PSVersion -lt [Version]"7.1") {
-    Write-Host -ForegroundColor Blue "Relaunching under PowerShell Core (pwsh)..."
+    $version=($PSVersionTable.PSVersion) -Join "."
+    Write-Host "PowerShell version $version"
+    Write-Host -ForegroundColor Blue "Relaunching under PowerShell Core (pwsh) 7.1 or later..."
     pwsh -NoProfile -File $PSCommandPath
     exit
 }

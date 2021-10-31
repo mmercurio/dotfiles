@@ -26,7 +26,7 @@ if (Get-Command "winget" -errorAction SilentlyContinue)
     Write-Host -ForegroundColor Green "Nice! Installing packages via Winget."
 
 {{- range ($winget_packages | uniq) }}
-    winget install {{ . }}
+    winget install {{ . }} --silent --accept-package-agreements
 {{- end }}
 
     exit 0
