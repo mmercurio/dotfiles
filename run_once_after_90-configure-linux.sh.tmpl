@@ -3,5 +3,8 @@
 
 set -eufo pipefail
 
-chsh -s /usr/bin/zsh
+loginshell=$(getent passwd $LOGNAME | cut -d: -f7)
+if [ "$loginshell" != "/usr/bin/zsh" ]; then
+  chsh -s /usr/bin/zsh
+fi
 {{ end -}}
