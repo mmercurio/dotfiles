@@ -142,6 +142,12 @@ alias manp=man-preview
 [[ ! -f "{HOME}/.iterm2_shell_integration.zsh" ]] || source "${HOME}/.iterm2_shell_integration.zsh"
 {{- end }}
 
+{{- if eq .chezmoi.os "linux" }}
+# For loading SSH keys
+/usr/bin/keychain -q --inherit any --nogui $HOME/.ssh/id_ed25519
+source $HOME/.keychain/$HOST-sh
+{{- end }}
+
 ############  Dev Stuff here  ############
 
 # Using rvm with ruby
