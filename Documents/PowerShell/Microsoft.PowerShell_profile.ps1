@@ -12,7 +12,13 @@ Set-PoshPrompt -Theme paradox
 $Env:GIT_SSH='C:\WINDOWS\System32\OpenSSH\ssh.exe'
 
 # Function to run as Admin:
-function Invoke-RunAsAdmin { Start-Process -Verb RunAs (Get-Process -Id $PID).Path }
+function Invoke-RunAsAdmin {
+    # Specify what to run or relaunch current process by default.
+    Param(
+        [string] $FilePath = (Get-Process -Id $PID).Path
+    )
+    Start-Process -Verb RunAs $FilePath
+}
 
 # Alias for the function:
 Set-Alias psadmin Invoke-RunAsAdmin
