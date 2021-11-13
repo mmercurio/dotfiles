@@ -74,7 +74,7 @@ DISABLE_AUTO_UPDATE="true"
 #plugins=(git)
 plugins=(
 {{- if eq .chezmoi.os "darwin" }}
-  osx
+  macos
 {{- end }}
   git
   bundler
