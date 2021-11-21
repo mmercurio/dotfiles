@@ -94,7 +94,7 @@ sudo chflags nohidden /Volumes
 defaults write com.apple.dock autohide -bool true
 
 ###############################################################################
-# Terminal & iTerm 2                                                          #
+# Terminal                                                                    #
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
@@ -104,6 +104,15 @@ defaults write com.apple.terminal StringEncodings -array 4
 # i.e. hover over a window and start typing in it without clicking first
 defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
+
+# Load profiles and set default profile
+open -g -a Terminal.app {{ .chezmoi.sourceDir }}/.macos/Alien.terminal
+defaults write com.apple.Terminal "Default Window Settings" "Alien"
+defaults write com.apple.Terminal "Startup Window Settings" "Alien"
+
+###############################################################################
+# iTerm 2                                                                     #
+###############################################################################
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
