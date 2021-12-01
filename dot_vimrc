@@ -2,6 +2,7 @@ set number
 set ai
 set cursorline
 set mouse=a
+set clipboard=autoselect
 syntax enable
 
 " Create highlight group for extra whitespace

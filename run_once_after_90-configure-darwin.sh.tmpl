@@ -93,8 +93,16 @@ sudo chflags nohidden /Volumes
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
+# Remove all itema and then re-add just a few
+dockutil --remove all --no-restart
+dockutil --add /System/Applications/Launchpad.app --no-restart
+dockutil --add /Applications/iTerm.app --no-restart
+dockutil --add /Applications/Safari.app --no-restart
+dockutil --add /Applications/Google\ Chrome.app --no-restart
+dockutil --add '~/Downloads' --display folder --view fan --sort datemodified
+
 ###############################################################################
-# Terminal & iTerm 2                                                          #
+# Terminal                                                                    #
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
@@ -105,6 +113,15 @@ defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
+# Load profiles and set default profile
+open -g -a Terminal.app {{ .chezmoi.sourceDir }}/.macos/Alien.terminal
+defaults write com.apple.Terminal "Default Window Settings" "Alien"
+defaults write com.apple.Terminal "Startup Window Settings" "Alien"
+
+###############################################################################
+# iTerm 2                                                                     #
+###############################################################################
+
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
@@ -113,6 +130,17 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.iterm2/iTerm2
 
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+###############################################################################
+# flux                                                                        #
+###############################################################################
+
+defaults write org.herf.Flux location -string "42.900000,-71.900000"
+defaults write org.herf.Flux locationTextField -string "42.9,-71.9"
+defaults write org.herf.Flux wakeTime -int 390 # 6:30 AM
+defaults write org.herf.Flux dayColorTemp -float 4700
+defaults write org.herf.Flux disableFullscreen -int 1
+
 
 for app in "cfprefsd" "Dock" "Finder"; do
 	killall "${app}" &> /dev/null
