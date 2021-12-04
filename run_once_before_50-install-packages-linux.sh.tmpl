@@ -1,5 +1,5 @@
 {{ if (eq .chezmoi.os "linux") -}}
-{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+{{ if (or (eq .chezmoi.osRelease.id "debian" "ubuntu") (eq .chezmoi.osRelease.idLike "debian" "ubuntu")) -}}
 #!/usr/bin/env bash
 
 set -eufo pipefail
