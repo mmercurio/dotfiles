@@ -18,6 +18,7 @@ install.ps1
 {{- if ne .chezmoi.os "windows" }}
 Documents
 {{- else }}
+.nvm
 .oh-my-zsh
 .oh-my-zsh/custom/plugins/zsh-autosuggestions
 .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
