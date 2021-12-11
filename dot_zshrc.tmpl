@@ -144,7 +144,8 @@ alias manp=man-preview
 
 {{- if eq .chezmoi.os "linux" }}
 # For loading SSH keys
-/usr/bin/keychain -q --inherit any --nogui $HOME/.ssh/id_ed25519
+/usr/bin/keychain -q --inherit any
+
 source $HOME/.keychain/$HOST-sh
 {{- end }}
 
