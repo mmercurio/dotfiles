@@ -57,8 +57,10 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
-{{ range ($casks | sortAlpha | uniq) -}}
+{{ if .brewcasks }}
+{{   range ($casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
+{{   end }}
 {{ end -}}
 EOF
 {{ end -}}
