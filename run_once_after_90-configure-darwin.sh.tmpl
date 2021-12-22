@@ -141,6 +141,10 @@ defaults write org.herf.Flux wakeTime -int 390 # 6:30 AM
 defaults write org.herf.Flux dayColorTemp -float 4700
 defaults write org.herf.Flux disableFullscreen -int 1
 
+# Fix for macOS Monterey on Apple Silicon wierd cyan screen
+#  https://forum.justgetflux.com/topic/8032/v41-9-beta-new-macbook-pro-miniled-turns-cyan-with-monterey-12-0-1-and-12-1b3-has-overflow-artifacts-on-m1
+defaults write org.herf.Flux montereyswizzle 1
+
 
 for app in "cfprefsd" "Dock" "Finder"; do
 	killall "${app}" &> /dev/null
