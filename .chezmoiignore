@@ -12,6 +12,7 @@ install.ps1
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
+.config/terminator
 .local/share/fonts
 {{- end }}
 
