@@ -21,6 +21,12 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+[".nvm"]
+    type = "archive"
+    url = "https://github.com/nvm-sh/nvm/archive/master.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "672h"
 {{- $fontDir := "" }}
 {{- if eq .chezmoi.os "darwin" }}
 {{-   $fontDir = "Library/Fonts" }}

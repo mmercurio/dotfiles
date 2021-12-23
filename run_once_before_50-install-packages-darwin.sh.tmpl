@@ -26,8 +26,11 @@ eval "$(/usr/local/bin/brew shellenv)"
      "htop"
      "imagemagick"
      "iperf3"
+     "libffi"
+     "libpq"
      "jq"
-     "openssh"
+     "readline"
+     "ruby-build"
      "ssh-copy-id"
      "tesseract"
      "tmux"
@@ -54,8 +57,10 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
-{{ range ($casks | sortAlpha | uniq) -}}
+{{ if .brewcasks }}
+{{   range ($casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
+{{   end }}
 {{ end -}}
 EOF
 {{ end -}}

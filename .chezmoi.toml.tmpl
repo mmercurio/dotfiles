@@ -6,9 +6,17 @@
 # See https://www.chezmoi.io/docs/reference/#special-files-and-directories
 #
 
+{{/* boolean feature tags */}}
+{{- $brewcasks := true -}}{{/* true to install brew casks on macOS */}}
+
 {{ $email := promptString "Git email address" }}
 {{ $name := "Michael Mercurio" }}
+
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $brewcasks = promptBool "Install brew casks" true -}}
+{{- end -}}
 
 [data]
   email = {{ $email | quote }}
   name = {{ $name | quote }}
+  brewcasks = {{ $brewcasks }}
