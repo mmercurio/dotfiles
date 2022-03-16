@@ -15,8 +15,8 @@
   "mouseScrollInitialSpeed": 10,
   "mouseScrollAcceleration": 10,
   "mouseScrollDeceleratedSpeed": 7,
-  "mouseScrollBaseSpeed": 10,
-  "mouseScrollAcceleratedSpeed": 12,
+  "mouseScrollBaseSpeed": 80,
+  "mouseScrollAcceleratedSpeed": 95,
   "moduleConfigurations": [],
   "keymaps": [
     {
@@ -850,11 +850,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -866,15 +866,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -885,7 +885,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
@@ -1849,11 +1849,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -1865,15 +1865,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -1884,7 +1884,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
@@ -2839,11 +2839,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -2861,15 +2861,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -2880,7 +2880,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
@@ -3838,11 +3838,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -3860,15 +3860,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -3879,7 +3879,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
@@ -4843,11 +4843,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -4859,15 +4859,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -4878,7 +4878,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
@@ -5841,11 +5841,11 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollLeft"
+                  "mouseAction": "scrollDown"
                 },
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "moveUp"
+                  "mouseAction": "scrollUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -5857,15 +5857,15 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollUp"
-                },
-                {
-                  "keyActionType": "mouse",
-                  "mouseAction": "moveLeft"
+                  "mouseAction": "scrollLeft"
                 },
                 {
                   "keyActionType": "mouse",
                   "mouseAction": "moveDown"
+                },
+                {
+                  "keyActionType": "mouse",
+                  "mouseAction": "moveUp"
                 },
                 {
                   "keyActionType": "mouse",
@@ -5876,7 +5876,7 @@
                 null,
                 {
                   "keyActionType": "mouse",
-                  "mouseAction": "scrollDown"
+                  "mouseAction": "moveLeft"
                 },
                 null,
                 null,
