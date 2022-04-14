@@ -164,4 +164,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#    https://github.com/rvm/rvm/issues/4306#issuecomment-591677076
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to path for scripting (to manage Ruby versions)
+export PATH="$GEM_HOME/bin:$PATH"
+[[ ! -s "$HOME/.rvm/scripts/rvm" ]] || source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
