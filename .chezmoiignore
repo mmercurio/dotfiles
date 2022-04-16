@@ -12,6 +12,7 @@ install.ps1
 .bashrc
 .git-completion.bash
 .iterm2*
+Library
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
