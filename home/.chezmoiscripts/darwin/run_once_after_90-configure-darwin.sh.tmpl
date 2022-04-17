@@ -114,6 +114,8 @@ defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true
 
 # Load profiles and set default profile
+# Alien.terminal hash: {{ include ".macos/Alien.terminal" | sha256sum }}
+# ^^^ forces this script to rerun if the contents of Alient.terminal changes.
 open -g -a Terminal.app {{ .chezmoi.sourceDir }}/.macos/Alien.terminal
 defaults write com.apple.Terminal "Default Window Settings" "Alien"
 defaults write com.apple.Terminal "Startup Window Settings" "Alien"
