@@ -7,6 +7,7 @@
 {{- if ne .chezmoi.os "darwin" }}
 .bash_profile
 .bashrc
+.finicky.js
 .git-completion.bash
 .iterm2*
 Library
