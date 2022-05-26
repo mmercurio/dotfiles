@@ -63,6 +63,18 @@ DISABLE_AUTO_UPDATE="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+# oh-my-zsh history settings
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+
+# Do NOT share history beween shells -- I hate this; extremely annoying
+#setopt share_history          # share command history data
+setopt no_share_history
+unsetopt share_history
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -86,9 +98,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# zsh-syntax-highlighting is SUPER SLOW when pasting longer lines.
+export ZSH_HIGHLIGHT_MAXLENGTH=60
+
 # LSCOLORS: symlinks are bright orange, dir are steel blue
 #export LSCOLORS=exBxhxDxfxhxhxhxhxcxcx
-export LSCOLORS=GxFxCxDxBxegedabagaced
+#export LSCOLORS=GxFxCxDxBxegedabagaced
+export LSCOLORS=ExFxCxDxBxegedabagaced
 
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 {{- if eq .chezmoi.os "darwin" }}
@@ -164,4 +180,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#    https://github.com/rvm/rvm/issues/4306#issuecomment-591677076
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to path for scripting (to manage Ruby versions)
+export PATH="$GEM_HOME/bin:$PATH"
+[[ ! -s "$HOME/.rvm/scripts/rvm" ]] || source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*

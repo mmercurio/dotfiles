@@ -1,6 +1,3 @@
-README.md
-install.sh
-install.ps1
 .oh-my-zsh/cache/**
 .oh-my-zsh/custom/themes/powerlevel10k/**/*.zwc
 .nvm/.cache
@@ -10,8 +7,10 @@ install.ps1
 {{- if ne .chezmoi.os "darwin" }}
 .bash_profile
 .bashrc
+.finicky.js
 .git-completion.bash
 .iterm2*
+Library
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
