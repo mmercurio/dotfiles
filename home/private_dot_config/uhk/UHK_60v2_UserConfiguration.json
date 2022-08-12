@@ -4425,7 +4425,12 @@
                   "type": "basic",
                   "scancode": 72
                 },
-                null,
+                {
+                  "keyActionType": "keystroke",
+                  "type": "basic",
+                  "scancode": 49,
+                  "modifierMask": 8
+                },
                 {
                   "keyActionType": "keystroke",
                   "type": "basic",
