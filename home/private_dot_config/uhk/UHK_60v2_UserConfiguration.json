@@ -4610,7 +4610,12 @@
                   "modifierMask": 1
                 },
                 null,
-                null,
+                {
+                  "keyActionType": "keystroke",
+                  "type": "basic",
+                  "scancode": 82,
+                  "modifierMask": 1
+                },
                 {
                   "keyActionType": "keystroke",
                   "type": "basic",
@@ -4939,13 +4944,13 @@
                 null,
                 null,
                 null,
+                null,
                 {
                   "keyActionType": "keystroke",
                   "type": "basic",
                   "scancode": 82,
                   "modifierMask": 1
                 },
-                null,
                 null,
                 null,
                 null,
