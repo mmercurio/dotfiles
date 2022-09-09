@@ -6,14 +6,13 @@ module.exports = {
   handlers: [
     {
       match: [
-        "*.grubhub.com*", "grubhub.com*",
-        "*.thelevelup.com/*", "*.staging-levelup.com/*",
+        "*.grubhub.com/*", "grubhub.com/*", "*.ghbeta.com/*",
+        "grubhub.okta.com",
+        "*.thelevelup.com/*", "*.staging-levelup.com/*", "*.sandbox-levelup.com/*",
         "*.heroku.com/*",
         "*.datadoghq.com/*",
         "*.newrelic.com/*",
-        "*github.com/TheLevelUp/*", "*github.com/GrubHubProd/*",
-        "grubhub.okta.com",
-        "levelup.atlassian.net/*"
+        "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
       ],
       browser: GH
     },
