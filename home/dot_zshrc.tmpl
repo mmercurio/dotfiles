@@ -155,7 +155,10 @@ alias chezmoicd="cd $(chezmoi source-path)"
 alias manp=man-preview
 
 # macOS: Enable additional iTerm2 support
-[[ ! -f "{HOME}/.iterm2_shell_integration.zsh" ]] || source "${HOME}/.iterm2_shell_integration.zsh"
+[[ ! -f ~/.iterm2_shell_integration.zsh ]] || source ~/.iterm2_shell_integration.zsh
+
+# macOS: setup SSH to use 1Password as SSH Agent
+[[ ! -f ~/.ssh/env ]] | source ~/.ssh/env
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
