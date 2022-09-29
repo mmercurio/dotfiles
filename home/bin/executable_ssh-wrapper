@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Wrapper for ssh to load additional environment vars.
+# Needed for 1password to work with ssh-agent and agent forwarding
+# executed directly from apps such as iterm2.
+[ -f ~/.ssh/env ] && source ~/.ssh/env
+exec /usr/bin/ssh $*
