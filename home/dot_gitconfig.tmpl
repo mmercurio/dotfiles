@@ -1,6 +1,14 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHujLfoZWksndFOY4ZJNgfVtiSOmf9vVZ+J8ECccPAFe
+
+[gpg]
+        format = ssh
+
+[commit]
+        gpgsign = true
+
 [pull]
 	ff = only
 
