@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+#
+# Wraps ssh with additional environment vars (SSH_AUTH_SOCK).
+# Needed for 1password to work as ssh-agent with apps such as iTerm2.
+[ -f ~/.ssh/env ] && source ~/.ssh/env
+exec /usr/bin/ssh $*
