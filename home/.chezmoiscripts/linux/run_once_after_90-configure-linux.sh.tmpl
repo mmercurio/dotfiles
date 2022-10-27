@@ -5,6 +5,7 @@ set -eufo pipefail
 
 loginshell=$(getent passwd $LOGNAME | cut -d: -f7)
 if [ "$loginshell" != "/usr/bin/zsh" ]; then
-  chsh -s /usr/bin/zsh
+  echo 'chsh to zsh...'
+  ( set -x; chsh -s /usr/bin/zsh )
 fi
 {{ end -}}
