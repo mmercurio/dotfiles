@@ -19,8 +19,9 @@ packages=(
 	zsh
 )
 
+echo 'Installing packages...'
+set -x
 sudo apt update
-
 sudo apt install -y ${packages[@]}
 
 {{ end -}}
