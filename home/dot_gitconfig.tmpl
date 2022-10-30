@@ -9,7 +9,8 @@
 {{ if eq .chezmoi.os "darwin" -}}
 [gpg "ssh"]
 	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-{{- end }}
+
+{{ end -}}
 
 [commit]
 	gpgsign = true
@@ -56,7 +57,8 @@
 {{ if ne .chezmoi.os "windows" -}}
 [interactive]
 	diffFilter = diff-so-fancy --patch
-{{- end }}
+
+{{ end -}}
 
 [color]
 	ui = true
