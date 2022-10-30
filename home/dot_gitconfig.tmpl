@@ -4,16 +4,16 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHujLfoZWksndFOY4ZJNgfVtiSOmf9vVZ+J8ECccPAFe
 
 [gpg]
-        format = ssh
+	format = ssh
 
 [commit]
-        gpgsign = true
-
-[pull]
-	ff = only
+	gpgsign = true
 
 [push]
 	autoSetupRemote = true
+
+[pull]
+	ff = only
 
 [alias]
 	lo = !git --no-pager  log -n20 --graph --decorate --pretty=oneline --abbrev-commit
@@ -50,26 +50,26 @@
 
 {{ if ne .chezmoi.os "windows" }}
 [interactive]
-        diffFilter = diff-so-fancy --patch
+	diffFilter = diff-so-fancy --patch
 {{ end }}
 
 [color]
-        ui = true
+	ui = true
 
 [color "diff-highlight"]
-        oldNormal = red bold
-        oldHighlight = red bold 52
-        newNormal = green bold
-        newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 
 [color "diff"]
-        meta = 11
-        frag = magenta bold
-        func = 146 bold
-        commit = yellow bold
-        old = red bold
-        new = green bold
-        whitespace = red reverse
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
 [url "git@github.com:mmercurio/"]
-        insteadOf = https://github.com/mmercurio/
+	insteadOf = https://github.com/mmercurio/
