@@ -6,7 +6,6 @@ set -eufo pipefail
 
 packages=(
 	curl
-	diff-so-fancy
 	git
 	gh
 	httpie
@@ -27,7 +26,6 @@ packages=(
 
 echo 'Installing packages...'
 set -x
-sudo add-apt-repository -y ppa:aos1/diff-so-fancy
 sudo apt update
 sudo apt install -y ${packages[@]}
 
