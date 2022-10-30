@@ -6,6 +6,11 @@
 [gpg]
 	format = ssh # requires git 2.34 of later
 
+{{ if eq .chezmoi.os "darwin" -}}
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
+
 [commit]
 	gpgsign = true
 
@@ -23,10 +28,11 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
 {{- if eq .chezmoi.os "windows" }}
 	autocrlf = true
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{- else }}
+	pager = diff-so-fancy | less --tabs=4 -RFX
 {{- end }}
 
 [diff]
@@ -47,8 +53,10 @@
 [mergetool "vscode-merge"]
 	cmd = code --wait $MERGED
 
+{{ if ne .chezmoi.os "windows" -}}
 [interactive]
 	diffFilter = diff-so-fancy --patch
+{{- end }}
 
 [color]
 	ui = true
