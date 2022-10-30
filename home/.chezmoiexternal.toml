@@ -27,6 +27,14 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "672h"
+{{- if eq .chezmoi.os "linux" }}
+[".diff-so-fancy"]
+    type = "archive"
+    url = "https://github.com/so-fancy/diff-so-fancy/archive/master.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "672h"
+{{- end }}
 {{- $fontDir := "" }}
 {{- if eq .chezmoi.os "darwin" }}
 {{-   $fontDir = "Library/Fonts" }}
