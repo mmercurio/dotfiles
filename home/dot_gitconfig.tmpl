@@ -33,10 +33,11 @@
 	autocrlf = true
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 {{- else }}
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 {{- end }}
 
 [diff]
+	colorMoved = default
 	tool = vscode-diff
 
 [difftool]
@@ -47,6 +48,7 @@
 
 [merge]
 	tool = vscode-merge
+	conflictstyle = diff3
 
 [mergetool]
 	keepBackup = false
@@ -56,7 +58,7 @@
 
 {{ if ne .chezmoi.os "windows" -}}
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
 
 {{ end -}}
 
@@ -78,3 +80,11 @@
 	new = green bold
 	whitespace = red reverse
 
+[delta]
+	# https://dandavison.github.io/delta/
+	features = line-numbers decorations navigate
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow
+	hunk-header-decoration-style = cyan box ul
