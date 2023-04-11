@@ -1,4 +1,4 @@
-const GH = "Microsoft Edge"
+const GH = "Google Chrome"
 const PERSONAL = "Safari"
 
 module.exports = {
@@ -12,13 +12,14 @@ module.exports = {
         "*.heroku.com/*",
         "*.datadoghq.com/*",
         "*.newrelic.com/*",
+        "github.com/TheLevelUp/*", "github.com/GrubHubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
       ],
       browser: GH
     },
     {
       match: [
-        "*github.com/mmercurio/*",
+        "github.com/mmercurio/*", "*.github.com/mmercurio/*",
         "*.icloud.com*",
         "*.cloudspotter.org*"
       ],
