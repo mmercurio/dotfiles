@@ -673,15 +673,18 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20552,
+        "label": {
+          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
+          "base": "Back"
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 20498,
+        "code": 20546,
         "label": {
-          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
-          "base": "Down"
+          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
+          "base": "Right"
         },
         "categories": ["mousekeys"]
       },
@@ -754,6 +757,11 @@
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
+      },
+      {
+        "code": 20497,
+        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
+        "categories": ["mousekeys"]
       },
       {
         "code": 20545,
@@ -761,11 +769,6 @@
           "hint": {"full": "Mouse Button", "1u": "M.Btn"},
           "base": "Left"
         },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20497,
-        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
         "categories": ["mousekeys"]
       },
       {
@@ -851,10 +854,10 @@
         "categories": ["blanks"]
       },
       {
-        "code": 20546,
+        "code": 20498,
         "label": {
-          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Right"
+          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
+          "base": "Down"
         },
         "categories": ["mousekeys"]
       },
@@ -940,17 +943,17 @@
         "categories": ["blanks"]
       },
       {
-        "code": 20548,
+        "code": 20560,
         "label": {
           "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Middle"
+          "base": "Forward"
         },
         "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20497,
+        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
+        "categories": ["mousekeys"]
       },
       {
         "code": 65535,
