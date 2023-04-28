@@ -1,4 +1,4 @@
 Host github.com
-  HostName github.com
-  User git
-  ForwardAgent no
+	HostName github.com
+	User git
+	ForwardAgent no
