@@ -156,16 +156,10 @@ alias manp=man-preview
 
 # macOS: Enable additional iTerm2 support
 [[ ! -f ~/.iterm2_shell_integration.zsh ]] || source ~/.iterm2_shell_integration.zsh
-
-# macOS: setup SSH to use 1Password as SSH Agent
-[[ ! -f ~/.ssh/env ]] | source ~/.ssh/env
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }}
 # For loading SSH keys
-/usr/bin/keychain -q --inherit any --nogui
-source $HOME/.keychain/$HOST-sh
-{{- end }}
+[[ ! -f ~/.ssh/env ]] | source ~/.ssh/env
 
 ############  Dev Stuff here  ############
 
@@ -191,3 +185,7 @@ export PATH="$GEM_HOME/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] || source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Do NOT share history beween shells. NEVER. EVER!
+setopt no_share_history
+unsetopt share_history

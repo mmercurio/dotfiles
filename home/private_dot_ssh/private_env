@@ -1,0 +1,4 @@
+# Set SSH_AUTH_SOCK to use 1Password as SSH Agent when not SSH'd in remotely.
+if [[ -z "$SSH_CONNECTION" ]] ; then
+    SSH_AUTH_SOCK="$HOME/.1password/agent.sock"; export SSH_AUTH_SOCK
+fi
