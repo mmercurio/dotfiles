@@ -6,12 +6,6 @@
 [gpg]
 	format = ssh # requires git 2.34 of later
 
-{{ if eq .chezmoi.os "darwin" -}}
-[gpg "ssh"]
-	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
-{{ end -}}
-
 [commit]
 	gpgsign = true
 
