@@ -26,6 +26,7 @@
 	br = !git --no-pager branch
 	loa = log --all --graph --decorate --pretty=oneline --abbrev-commit
 	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+	diffwords = diff --color-words=.
 
 [core]
 	excludesfile = ~/.gitignore_global
