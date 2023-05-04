@@ -1,6 +1,6 @@
 Host *
 	IdentityFile ~/.ssh/id_ed25519.pub
-	IdentitiesOnly yes
+	PasswordAuthentication no
 	ForwardAgent yes
 
 Host github.com
