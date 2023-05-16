@@ -6,13 +6,14 @@
   [[default]]
     visible_bell = True
     background_color = "#0f1610"
+    background_darkness = 0.96
+    background_type = transparent
     cursor_blink = False
     cursor_color = "#73fa91"
     cursor_color_fg = False
     font = MesloLGS NF 10
     foreground_color = "#637d75"
     scrollback_lines = 5000
-    scroll_on_keystroke = True
     palette = "#112616:#7f2b27:#2f7e25:#717f24:#2f6a7f:#47587f:#327f77:#647d75:#3c4812:#e08009:#18e000:#bde000:#00aae0:#0058e0:#00e0c4:#73fa91"
     use_system_font = False
     copy_on_selection = True
@@ -22,7 +23,6 @@
     cursor_color = "#8ff0a4"
     cursor_color_fg = False
     font = MesloLGS NF 10
-    scroll_on_keystroke = True
     scrollback_lines = 5000
     palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     use_system_font = False
@@ -35,7 +35,6 @@
     cursor_color_fg = False
     font = MesloLGS NF 10
     scrollback_lines = 5000
-    scroll_on_keystroke = True
     palette = "#112616:#7f2b27:#2f7e25:#717f24:#2f6a7f:#47587f:#327f77:#647d75:#3c4812:#e08009:#18e000:#bde000:#00aae0:#0058e0:#00e0c4:#73fa91"
     use_system_font = False
     copy_on_selection = True
