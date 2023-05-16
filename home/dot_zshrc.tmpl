@@ -162,6 +162,13 @@ alias manp=man-preview
 
 ############  Dev Stuff here  ############
 
+{{- if eq .chezmoi.os "darwin" }}
+
+# Docker Desktop
+[[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
+
+{{ end -}}
+
 # Using rvm with ruby
 [[ ! -f ~/.rvm/scripts/rvm ]] || source ~/.rvm/scripts/rvm
 #eval $(/usr/libexec/path_helper -s)
