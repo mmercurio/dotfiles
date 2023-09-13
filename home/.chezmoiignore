@@ -16,6 +16,7 @@ Library
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
+.config/gtk-3.0/gtk.css
 .config/terminator
 .local/share/fonts
 {{- end }}
