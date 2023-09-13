@@ -142,13 +142,11 @@ alias manp=man-preview
 
 ############  Dev Stuff here  ############
 
-{{- if eq .chezmoi.os "darwin" }}
-
+{{ if eq .chezmoi.os "darwin" -}}
 # Docker Desktop
 [[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
 
 {{ end -}}
-
 # Load additional dev environment
 [[ -z $DEVENV ]] || source $DEVENV
 
