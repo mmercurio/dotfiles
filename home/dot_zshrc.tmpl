@@ -105,27 +105,10 @@ export ZSH_HIGHLIGHT_MAXLENGTH=60
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 export LSCOLORS=ExFxCxDxBxegedabagaced
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-{{- if eq .chezmoi.os "darwin" }}
-{{-   if stat "/opt/homebrew/bin/brew" }}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{-   else if stat "/usr/local/bin/brew" }}
-eval "$(/usr/local/bin/brew shellenv)"
-{{-   end }}
-{{- end }}
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 export EDITOR=vim
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -157,29 +140,18 @@ alias manp=man-preview
 [[ ! -f ~/.iterm2_shell_integration.zsh ]] || source ~/.iterm2_shell_integration.zsh
 {{- end }}
 
-# For loading SSH keys
-[[ ! -f ~/.ssh/env ]] | source ~/.ssh/env
-
 ############  Dev Stuff here  ############
 
-{{- if eq .chezmoi.os "darwin" }}
-
+{{ if eq .chezmoi.os "darwin" -}}
 # Docker Desktop
 [[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
 
 {{ end -}}
-
-# Using rvm with ruby
-[[ ! -f ~/.rvm/scripts/rvm ]] || source ~/.rvm/scripts/rvm
-#eval $(/usr/libexec/path_helper -s)
-
-# NVM for Node.js version management
-# https://github.com/nvm-sh/nvm#installing-and-updating
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Load additional dev environment
+[[ -z $DEVENV ]] || source $DEVENV
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

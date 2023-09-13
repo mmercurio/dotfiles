@@ -1,9 +1,11 @@
 {{ if eq .chezmoi.os "darwin" -}}
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 {{   if stat "/opt/homebrew/bin/brew" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{   else if stat "/usr/local/bin/brew" -}}
 eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
-# macOS: setup SSH to use 1Password as SSH Agent
-[[ ! -f ~/.ssh/env ]] | source ~/.ssh/env
 {{ end -}}
+[[ ! -d ~/bin ]] || PATH="$HOME/bin:$PATH"
+
+[[ ! -f ~/.ssh/env ]] || source ~/.ssh/env
