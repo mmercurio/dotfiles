@@ -3,6 +3,9 @@
 .nvm/.cache
 .nvm/alias
 .nvm/versions
+.pyenv/cache
+.pyenv/shims
+.pyenv/versions
 
 {{- if ne .chezmoi.os "darwin" }}
 .bash_profile
