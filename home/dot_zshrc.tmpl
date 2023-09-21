@@ -132,6 +132,9 @@ alias zln='zmv -L'
 
 alias chezmoicd="cd $(chezmoi source-path)"
 
+# Load SSH agent and environment
+[[ ! -f ~/.ssh/env ]] || source ~/.ssh/env
+
 {{- if eq .chezmoi.os "darwin" }}
 
 alias manp=man-preview
