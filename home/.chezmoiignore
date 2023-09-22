@@ -3,6 +3,9 @@
 .nvm/.cache
 .nvm/alias
 .nvm/versions
+.pyenv/cache
+.pyenv/shims
+.pyenv/versions
 
 {{- if ne .chezmoi.os "darwin" }}
 .bash_profile
@@ -16,6 +19,7 @@ Library
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
+.config/gtk-3.0
 .config/terminator
 .local/share/fonts
 {{- end }}
