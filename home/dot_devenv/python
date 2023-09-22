@@ -1,3 +1,9 @@
+# DEVENV_NAME identifies the dev env defined by this file and
+# should meatch the filename.
+# Ideally one env per project (github repo) to avoid dependency conflicts
+# between projects. Very common for Python projects.
+DEVENV_NAME=python
+
 # Using pyenv-virtualenv to manage python environments
 # https://github.com/pyenv/pyenv-virtualenv
 
@@ -5,7 +11,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || PATH="$PYENV_ROOT/bin:$PATH"
 
 # Default python environment
-PYENV_VERSION=python3.8
+export PYENV_VERSION=$DEVENV_NAME
 
 # To create virtualenv for python version x.y (needed first time)
 # pyenv virtualenv x.y $PYENV_VERSION
@@ -19,4 +25,5 @@ pyenv activate $PYENV_VERSION
 # to deactivate:
 # pyenv deactivate
 
-export DEVENV=~/.devenv/python
+# used to load env in new subshells
+export DEVENV=~/.devenv/$DEVENV_NAME

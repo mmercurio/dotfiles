@@ -34,6 +34,18 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "672h"
+[".pyenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv/archive/master.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "672h"
+ [".pyenv/plugins/pyenv-virtualenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv-virtualenv/archive/master.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "672h"
 {{- end }}
 {{- $fontDir := "" }}
 {{- if eq .chezmoi.os "darwin" }}
