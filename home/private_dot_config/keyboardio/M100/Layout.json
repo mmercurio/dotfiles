@@ -35,13 +35,7 @@
       {"code": 37, "label": {"base": "8", "shifted": "*"}},
       {"code": 38, "label": {"base": "9", "shifted": "("}},
       {"code": 39, "label": {"base": "0", "shifted": ")"}},
-      {
-        "code": 17409,
-        "label": {"hint": "LockTo", "base": "#1"},
-        "target": 1,
-        "rangeStart": 17408,
-        "categories": ["layer", "locktolayer"]
-      },
+      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
       {"code": 53, "label": {"base": "`", "shifted": "~"}},
       {"code": 20, "label": {"base": "q", "shifted": "Q"}},
       {"code": 26, "label": {"base": "w", "shifted": "W"}},
@@ -839,19 +833,25 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20517,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "North-West", "1u": "NW"}
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20521,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "North-East", "1u": "NE"}
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20576,
+        "label": {"hint": {"full": "Mouse Warp", "1u": "Warp"}, "base": "End"},
+        "categories": ["mousekeys"]
       },
       {
         "code": 20498,
@@ -928,14 +928,20 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20518,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-West", "1u": "SW"}
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20522,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-East", "1u": "SE"}
+        },
+        "categories": ["mousekeys"]
       },
       {
         "code": 65535,
@@ -1210,14 +1216,20 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 53592,
+        "label": {
+          "hint": {"full": "SpaceCadet", "1u": "SC"},
+          "base": {"full": "Enable", "1u": "On"}
+        },
+        "categories": ["spacecadet"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 53593,
+        "label": {
+          "hint": {"full": "SpaceCadet", "1u": "SC"},
+          "base": {"full": "Disable", "1u": "Off"}
+        },
+        "categories": ["spacecadet"]
       },
       {
         "code": 65535,
