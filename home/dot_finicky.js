@@ -7,7 +7,7 @@ module.exports = {
     {
       match: [
         "*.grubhub.com/*", "grubhub.com/*", "*.ghbeta.com/*",
-        "grubhub.okta.com",
+        "grubhub.okta.com/*",
         "*.thelevelup.com/*", "*.staging-levelup.com/*", "*.sandbox-levelup.com/*",
         "*.heroku.com/*",
         "*.datadoghq.com/*",
