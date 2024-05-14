@@ -126,6 +126,9 @@ alias ldot='ls -da .*'
 alias cdc='clear; cd'
 alias gitlog='git --no-pager log -n20 --graph --decorate --pretty=oneline --abbrev-commit'
 
+# worddiff using git diff: wd file1 file2
+alias wd='git diff -U0 --word-diff --word-diff-regex=. --no-index -- '
+
 autoload -U zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
