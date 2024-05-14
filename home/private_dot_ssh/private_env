@@ -1,4 +1,11 @@
 # Set SSH_AUTH_SOCK to use 1Password as SSH Agent when not SSH'd in remotely.
 if [[ -z "$SSH_CONNECTION" ]] ; then
     SSH_AUTH_SOCK="$HOME/.1password/agent.sock"; export SSH_AUTH_SOCK
+    if command -v op > /dev/null; then
+        # if running locally and 1Password CLI is availavle set LC_DESKTOP_HOST
+        export LC_DESKTOP_HOST=$(hostname -s)
+    fi
+elif [[ -n "$LC_DESKTOP_HOST" && "$LC_DESKTOP_HOST" != "$(hostname -s)" ]] ; then
+    # not running locally and LC_DESKOP_HOST is defined, execute op over SSH to desktop host
+    alias op="ssh $LC_DESKTOP_HOST ./bin/op"
 fi
