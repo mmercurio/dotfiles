@@ -27,6 +27,7 @@ Library
 {{- if ne .chezmoi.os "windows" }}
 Documents
 {{- else }}
+.asdf
 .nvm
 .rvm
 .oh-my-zsh

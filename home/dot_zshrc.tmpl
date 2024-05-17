@@ -139,6 +139,9 @@ alias chezmoicd="cd $(chezmoi source-path)"
 # Load SSH agent and environment
 [[ ! -f ~/.ssh/env ]] || source ~/.ssh/env
 
+# Load asdf version manager
+[[ ! -f ~/.asdf/asdf.sh ]] || source ~/.asdf/asdf.sh
+
 {{- if eq .chezmoi.os "darwin" }}
 
 alias manp=man-preview
