@@ -135,8 +135,8 @@ alias zln='zmv -L'
 
 alias chezmoicd="cd $(chezmoi source-path)"
 
-# Load SSH agent and environment
-[[ ! -f ~/.ssh/env ]] || source ~/.ssh/env
+# Load 1Password SSH environment
+[[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
 
 {{- if eq .chezmoi.os "darwin" }}
 
