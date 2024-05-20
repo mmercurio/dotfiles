@@ -9,13 +9,13 @@
     url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
     exact = true
     stripComponents = 1
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
     exact = true
     stripComponents = 1
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
     type = "archive"
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
@@ -58,20 +58,20 @@
 ["{{ $fontDir }}/MesloLGS NF Regular.ttf"]
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf"
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 ["{{ $fontDir }}/MesloLGS NF Bold.ttf"]
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf"
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 ["{{ $fontDir }}/MesloLGS NF Italic.ttf"]
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf"
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 ["{{ $fontDir }}/MesloLGS NF Bold Italic.ttf"]
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
 ["{{ $fontDir }}/Caskaydia Cove Regular Nerd Font Complete.ttf"]
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/CascadiaCode/complete/Caskaydia Cove Nerd Font Complete.ttf"
-    refreshPeriod = "168h"
+    refreshPeriod = "672h"
