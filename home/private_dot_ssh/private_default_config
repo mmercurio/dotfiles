@@ -1,7 +1,9 @@
 Host *
 	IdentityFile ~/.ssh/id_ed25519.pub
+    IdentitiesOnly yes
 	PasswordAuthentication no
 	ForwardAgent yes
+    SendEnv LC_DESKTOP_HOST
 
 Host github.com
 	HostName github.com

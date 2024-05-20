@@ -1,6 +1,23 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
-# Wraps ssh with additional environment vars (SSH_AUTH_SOCK).
-# Needed for 1password to work as ssh-agent with apps such as iTerm2.
-[ -f ~/.ssh/env ] && source ~/.ssh/env
+# ssh wrapper for iTerm2
+#
+# Wraps ssh with additional environment to use
+# 1Password SSH Agent and CLI over SSH sessions.
+#
+# Why is this needed?
+#
+# It's needed when launching ssh directly from Iterm2 Profiles
+# because iTerm2 uses a very limited environment for non-login
+# shells. (e.g., PATH=/usr/bin:/bin:/usr/sbin:/sbin and no
+# user environment is loaded.)
+
+set -efo pipefail
+
+# I need at least ~/bin in PATH
+PATH="$HOME/bin:$PATH"
+
+# Load in additional env for 1Password over SSH
+[[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
+
 exec /usr/bin/ssh $*
