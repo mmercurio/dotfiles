@@ -21,7 +21,7 @@ This repo includes customization to support 1Password + SSH + tmux use cases I h
 
 Although I don't yet use [Chezmoi's support for 1Password](https://www.chezmoi.io/user-guide/password-managers/1password/), I make heavy use of 1Password, including [1Password SSH Agent](https://developer.1password.com/docs/ssh/agent/) and accessing secrets from scripts using the [1Password CLI](https://developer.1password.com/docs/cli). I also tend to login remotely via SSH to both Linux and macOS systems, including sessions managed by [tmux](https://github.com/tmux/tmux).
 
-I've found that out of the box, 1Password SSH Agent and CLI don't provide the best user experience over SSH, especially when long-lived tmux sessions on are involved.
+I've found that out of the box, 1Password SSH Agent and CLI don't provide the best user experience over SSH, especially when long-lived tmux sessions are involved.
 
 ### Use Case
 
@@ -49,8 +49,8 @@ Most of this is accomplished via [`~/.ssh/env_1password`](home/private_dot_ssh/p
 
 Additionally:
 
-- on macOS, `~/.1password/agent.sock` is symlinked to the 1Password SSH Agent socket (typically `~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock` by default) so that this is consistent between macOS and Linux.
-- `~/bin/op` is symlinked to 1Password CLI executable so this is consistent across all SSH sessions on all macOS and Linux hosts.
+- on macOS, [`~/.1password/agent.sock`](home/private_dot_1password/symlink_agent.sock) is symlinked to the 1Password SSH Agent socket so that this is consistent between macOS and Linux.
+- [`~/bin/op`](home/bin/symlink_op.tmpl) is symlinked to 1Password CLI executable so this is consistent across all SSH sessions on all macOS and Linux hosts.
 - [`~/.ssh/config`](home/private_dot_ssh/private_default_config) includes the option `SendEnv LC_DESKTOP_HOST`.
 - [`~/.tmux.conf`](home/dot_tmux.conf) is configured to add `LC_DESKTOP_HOST` to the list of environment variables copied into the session via `update-environment`, so this works properly over tmux when reattaching to a session from a different desktop.
 
