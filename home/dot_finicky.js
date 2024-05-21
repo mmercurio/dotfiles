@@ -14,6 +14,7 @@ module.exports = {
         "*.newrelic.com/*",
         "github.com/TheLevelUp/*", "github.com/GrubHubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
+        "grubhub.slack.com/*",
       ],
       browser: GH
     },
