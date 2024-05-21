@@ -43,7 +43,7 @@ This works well enough, but I want to proxy the 1Passwrord CLI `op` command over
 
 In order to accomplish this I set up a wrapper for the  `op` command when I'm logged in remotely over SSH and I keep track of the desktop host where I'm logged in locally with an environment variable (`LC_DESKTOP_HOST`) which is forwarded to remote SSH sessions.
 
-- **Note:** It's important to use a variable name beginning with `LC_` because the SSH server must be configured to accept additional environment variables from the client. Most OpenSSH server configurations (`/etc/sshd_config`) allow the client to send variable names beginning with `LC_` to support localization across SSH sessions.
+- **Note:** It's important to use a variable name beginning with `LC_` because the SSH server must be configured to accept environment variables from the client. Most OpenSSH server configurations (`/etc/ssh/sshd_config`) accept environment variable names beginning with `LC_` to support localization across SSH sessions. Likewise, by default, OpenSSH clients are typically configured (`/etc/ssh/ssh_config`) to send all environment variables beginning with `LC_`.
 
 Most of this is accomplished via [`~/.ssh/env_1password`](home/private_dot_ssh/private_env_1password) which is sourced by the login shell.
 
@@ -51,7 +51,6 @@ Additionally:
 
 - on macOS, [`~/.1password/agent.sock`](home/private_dot_1password/symlink_agent.sock) is symlinked to the 1Password SSH Agent socket so that this is consistent between macOS and Linux.
 - [`~/bin/op`](home/bin/symlink_op.tmpl) is symlinked to 1Password CLI executable so this is consistent across all SSH sessions on all macOS and Linux hosts.
-- [`~/.ssh/config`](home/private_dot_ssh/private_default_config) includes the option `SendEnv LC_DESKTOP_HOST`.
 - [`~/.tmux.conf`](home/dot_tmux.conf) is configured to add `LC_DESKTOP_HOST` to the list of environment variables copied into the session via `update-environment`, so this works properly over tmux when reattaching to a session from a different desktop.
 
 Now scripts using `op` to read secrets will continue to work as expected and the authorization will be sent to the 1Password app running on the desktop where I'm logged in locally. This has the added benefit of allowing `op` to work via SSH on remote systems where 1Password is not installed.
