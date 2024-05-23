@@ -6,6 +6,12 @@ module.exports = {
   handlers: [
     {
       match: [
+        "meet.google.com/*"
+      ],
+      browser: "Google Chrome"
+    },
+    {
+      match: [
         "*.grubhub.com/*", "grubhub.com/*", "*.ghbeta.com/*",
         "grubhub.okta.com/*",
         "*.thelevelup.com/*", "*.staging-levelup.com/*", "*.sandbox-levelup.com/*",
@@ -31,8 +37,8 @@ module.exports = {
       match: ({ sourceProcessPath }) =>
         sourceProcessPath &&
         (sourceProcessPath.startsWith("/Applications/Zulip.app") ||
-         sourceProcessPath.startsWith("/Applications/Slack.app")),
-     browser: GH
+        sourceProcessPath.startsWith("/Applications/Slack.app")),
+      browser: GH
     },
   ]
 }
