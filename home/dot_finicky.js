@@ -1,5 +1,8 @@
-const GH = "Google Chrome"
 const PERSONAL = "Safari"
+const GH = {
+  name: "Google Chrome",
+  profile: "Profile 1", // on MBP and Air
+}
 
 module.exports = {
   defaultBrowser: "Browserosaurus", // "Safari"
@@ -22,7 +25,7 @@ module.exports = {
         "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
         "grubhub.slack.com/*",
       ],
-      browser: GH
+      browser: GH,
     },
     {
       match: [
