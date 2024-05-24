@@ -43,7 +43,8 @@ This works well enough, but I want to proxy the 1Passwrord CLI `op` command over
 
 In order to accomplish this I set up a wrapper for the  `op` command when I'm logged in remotely over SSH and I keep track of the desktop host where I'm logged in locally with an environment variable (`LC_DESKTOP_HOST`) which is forwarded to remote SSH sessions.
 
-- **Note:** It's important to use a variable name beginning with `LC_` because the SSH server must be configured to accept environment variables from the client. Most OpenSSH server configurations (`/etc/ssh/sshd_config`) accept environment variable names beginning with `LC_` to support localization across SSH sessions. Likewise, by default, OpenSSH clients are typically configured (`/etc/ssh/ssh_config`) to send all environment variables beginning with `LC_`.
+> [!NOTE]
+> It's important to use a variable name beginning with `LC_` because the SSH server must be configured to accept environment variables from the client. Most OpenSSH server configurations (`/etc/ssh/sshd_config`) accept environment variable names beginning with `LC_` to support localization across SSH sessions. Likewise, by default, OpenSSH clients are typically configured (`/etc/ssh/ssh_config`) to send all environment variables beginning with `LC_`.
 
 Most of this is accomplished via [`~/.ssh/env_1password`](home/private_dot_ssh/private_env_1password) which is sourced by the login shell.
 
