@@ -7,7 +7,3 @@ eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
 {{ end -}}
 [[ ! -d ~/bin ]] || PATH="$HOME/bin:$PATH"
-{{ if eq .chezmoi.os "darwin" -}}
-# Added by OrbStack: command-line tools and integration
-[[ ! -f ~/.orbstack/shell/init.zsh ]] || source ~/.orbstack/shell/init.zsh 2>/dev/null || :
-{{ end -}}
