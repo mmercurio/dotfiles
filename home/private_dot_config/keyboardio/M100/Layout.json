@@ -2,9 +2,11 @@
   "keymaps": [
     [
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17409,
+        "label": {"hint": "LockTo", "base": "#1"},
+        "target": 1,
+        "rangeStart": 17408,
+        "categories": ["layer", "locktolayer"]
       },
       {"code": 30, "label": {"base": "1", "shifted": "!"}},
       {"code": 31, "label": {"base": "2", "shifted": "@"}},
@@ -19,9 +21,9 @@
         "categories": ["modifier"]
       },
       {
-        "code": 228,
-        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
-        "location": "right",
+        "code": 226,
+        "label": {"base": "Alt"},
+        "location": "left",
         "categories": ["modifier"]
       },
       {
@@ -35,13 +37,7 @@
       {"code": 37, "label": {"base": "8", "shifted": "*"}},
       {"code": 38, "label": {"base": "9", "shifted": "("}},
       {"code": 39, "label": {"base": "0", "shifted": ")"}},
-      {
-        "code": 17409,
-        "label": {"hint": "LockTo", "base": "#1"},
-        "target": 1,
-        "rangeStart": 17408,
-        "categories": ["layer", "locktolayer"]
-      },
+      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
       {"code": 53, "label": {"base": "`", "shifted": "~"}},
       {"code": 20, "label": {"base": "q", "shifted": "Q"}},
       {"code": 26, "label": {"base": "w", "shifted": "W"}},
@@ -67,21 +63,16 @@
       {"code": 41, "label": {"base": "Esc"}},
       {
         "code": 227,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "Cm"}},
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
         "location": "left",
         "categories": ["modifier"]
       },
+      {"code": 40, "label": {"base": "Enter"}},
       {
-        "code": 226,
-        "label": {"base": "Alt"},
-        "location": "left",
-        "categories": ["modifier"]
-      },
-      {
-        "code": 230,
-        "label": {"base": {"full": "AltGr", "1u": "AGr"}},
-        "location": "right",
-        "categories": ["modifier"]
+        "code": 556,
+        "label": {"hint": {"full": "Alt+", "1u": "A+"}, "base": "Space"},
+        "categories": ["with-modifiers", "alt"],
+        "baseCode": 44
       },
       {"code": 11, "label": {"base": "h", "shifted": "H"}},
       {"code": 13, "label": {"base": "j", "shifted": "J"}},
@@ -167,9 +158,12 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17154,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Toggle", "1u": "Togg."}
+        },
+        "categories": ["ledkeys"]
       },
       {
         "code": 65535,
@@ -202,9 +196,11 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17499,
+        "label": {"hint": "MoveTo", "base": "#7"},
+        "target": 7,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
       },
       {
         "code": 65535,
@@ -216,11 +212,7 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
+      {"code": 82, "label": {"base": {"full": "Up Arrow", "1u": "↑"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -275,21 +267,9 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
+      {"code": 80, "label": {"base": {"full": "Left Arrow", "1u": "←"}}},
+      {"code": 81, "label": {"base": {"full": "Down Arrow", "1u": "↓"}}},
+      {"code": 79, "label": {"base": {"full": "Right Arrow", "1u": "→"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -413,10 +393,9 @@
         "categories": ["blanks"]
       },
       {
-        "code": 18614,
-        "legacyCode": 22710,
-        "label": {"base": {"full": "Previous track", "1u": "⏮"}},
-        "categories": ["consumer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {"code": 63, "label": {"base": "F6"}},
       {"code": 64, "label": {"base": "F7"}},
@@ -464,26 +443,24 @@
       {"code": 76, "label": {"base": {"full": "Delete", "1u": "Del"}}},
       {"code": 40, "label": {"base": "Enter"}},
       {
-        "code": 18637,
-        "legacyCode": 22733,
-        "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
-        "categories": ["consumer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 18613,
-        "legacyCode": 22709,
-        "label": {"base": {"full": "Next track", "1u": "⏭"}},
-        "categories": ["consumer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
         "code": 2095,
-        "label": {"hint": null, "base": "{"},
+        "label": {"hint": {"full": "", "1u": ""}, "base": "{"},
         "categories": ["with-modifiers", "shift"],
         "baseCode": 47
       },
       {
         "code": 2096,
-        "label": {"hint": null, "base": "}"},
+        "label": {"hint": {"full": "", "1u": ""}, "base": "}"},
         "categories": ["with-modifiers", "shift"],
         "baseCode": 48
       },
@@ -599,15 +576,9 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 18658,
-        "legacyCode": 19682,
-        "label": {"base": "Mute"},
-        "categories": ["consumer"]
-      },
+      {"code": 18658, "label": {"base": "Mute"}, "categories": ["consumer"]},
       {
         "code": 18666,
-        "legacyCode": 23786,
         "label": {
           "hint": {"full": "Volume", "1u": "Vol."},
           "base": {"full": "Down", "1u": "🔉"}
@@ -616,7 +587,6 @@
       },
       {
         "code": 18665,
-        "legacyCode": 23785,
         "label": {
           "hint": {"full": "Volume", "1u": "Vol."},
           "base": {"full": "Up", "1u": "🔊"}
@@ -624,23 +594,26 @@
         "categories": ["consumer"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 18637,
+        "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
+        "categories": ["consumer"]
       },
-      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
       {
-        "code": 2097,
-        "label": {"hint": null, "base": "|"},
-        "categories": ["with-modifiers", "shift"],
-        "baseCode": 49
+        "code": 18614,
+        "label": {"base": {"full": "Previous track", "1u": "⏮"}},
+        "categories": ["consumer"]
+      },
+      {
+        "code": 18613,
+        "label": {"base": {"full": "Next track", "1u": "⏭"}},
+        "categories": ["consumer"]
       }
     ],
     [
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 18846,
+        "label": {"base": {"full": "Lock Screen", "1u": "Lock"}},
+        "categories": ["platform_apple"]
       },
       {
         "code": 65535,
@@ -666,118 +639,6 @@
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20552,
-        "label": {
-          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Back"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20546,
-        "label": {
-          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Right"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20497,
-        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20545,
-        "label": {
-          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Left"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20516,
-        "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "West", "1u": "West"}
-        },
-        "categories": ["mousekeys"]
       },
       {
         "code": 20517,
@@ -788,10 +649,15 @@
         "categories": ["mousekeys"]
       },
       {
-        "code": 20513,
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 20548,
         "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "North", "1u": "North"}
+          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
+          "base": "Middle"
         },
         "categories": ["mousekeys"]
       },
@@ -834,291 +700,10 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 18846,
+        "label": {"base": {"full": "Lock Screen", "1u": "Lock"}},
+        "categories": ["platform_apple"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20498,
-        "label": {
-          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
-          "base": "Down"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20498,
-        "label": {
-          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
-          "base": "Down"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20484,
-        "label": {"hint": "Mouse", "base": "Left"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20482,
-        "label": {"hint": "Mouse", "base": "Down"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20481,
-        "label": {"hint": "Mouse", "base": "Up"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20488,
-        "label": {"hint": "Mouse", "base": "Right"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20520,
-        "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "East", "1u": "East"}
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20576,
-        "label": {"hint": {"full": "Mouse Warp", "1u": "Warp"}, "base": "End"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20560,
-        "label": {
-          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
-          "base": "Forward"
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20497,
-        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 20518,
-        "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "South-West", "1u": "SW"}
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20514,
-        "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "South", "1u": "South"}
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 20522,
-        "label": {
-          "hint": {"full": "Mouse Warp", "1u": "Warp"},
-          "base": {"full": "South-East", "1u": "SE"}
-        },
-        "categories": ["mousekeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      }
-    ],
-    [
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {"code": 58, "label": {"base": "F1"}},
-      {"code": 59, "label": {"base": "F2"}},
-      {"code": 60, "label": {"base": "F3"}},
-      {"code": 61, "label": {"base": "F4"}},
-      {"code": 62, "label": {"base": "F5"}},
-      {
-        "code": 17152,
-        "label": {"hint": {"full": "LEDEffect", "1u": "LED"}, "base": "Next"},
-        "categories": ["ledkeys"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 18543,
-        "legacyCode": 23663,
-        "label": {
-          "hint": {"full": "Brightness", "1u": "Brght."},
-          "base": {"full": "Up", "1u": "🔆"}
-        },
-        "categories": ["consumer"]
-      },
-      {"code": 63, "label": {"base": "F6"}},
-      {"code": 64, "label": {"base": "F7"}},
-      {"code": 65, "label": {"base": "F8"}},
-      {"code": 66, "label": {"base": "F9"}},
-      {"code": 67, "label": {"base": "F10"}},
-      {"code": 68, "label": {"base": "F11"}},
-      {"code": 43, "label": {"base": "Tab"}},
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 4688,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+Cm+"},
-          "base": {"full": "Left Arrow", "1u": "←"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 80
-      },
-      {
-        "code": 4119,
-        "label": {"hint": {"full": "Command+", "1u": "Cm+"}, "base": "t"},
-        "categories": ["with-modifiers", "gui"],
-        "baseCode": 23
-      },
-      {
-        "code": 4687,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+Cm+"},
-          "base": {"full": "Right Arrow", "1u": "→"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 79
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {"code": 76, "label": {"base": {"full": "Delete", "1u": "Del"}}},
-      {
-        "code": 556,
-        "label": {"hint": {"full": "Alt+", "1u": "A+"}, "base": "Space"},
-        "categories": ["with-modifiers", "alt"],
-        "baseCode": 44
-      },
-      {
-        "code": 18544,
-        "legacyCode": 23664,
-        "label": {
-          "hint": {"full": "Brightness", "1u": "Brght."},
-          "base": {"full": "Down", "1u": "🔅"}
-        },
-        "categories": ["consumer"]
-      },
-      {
-        "code": 18613,
-        "legacyCode": 22709,
-        "label": {"base": {"full": "Next track", "1u": "⏭"}},
-        "categories": ["consumer"]
-      },
-      {
-        "code": 2095,
-        "label": {"hint": null, "base": "{"},
-        "categories": ["with-modifiers", "shift"],
-        "baseCode": 47
-      },
-      {
-        "code": 2096,
-        "label": {"hint": null, "base": "}"},
-        "categories": ["with-modifiers", "shift"],
-        "baseCode": 48
-      },
-      {"code": 47, "label": {"base": "[", "shifted": "{"}},
-      {"code": 48, "label": {"base": "]", "shifted": "}"}},
-      {"code": 69, "label": {"base": "F12"}},
-      {"code": 74, "label": {"base": "Home"}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -1153,9 +738,78 @@
         "categories": ["blanks"]
       },
       {
+        "code": 20518,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-West", "1u": "SW"}
+        },
+        "categories": ["mousekeys"]
+      },
+      {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
+      },
+      {
+        "code": 20545,
+        "label": {
+          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
+          "base": "Left"
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20522,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-East", "1u": "SE"}
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 4125,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "z"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 29
+      },
+      {
+        "code": 4121,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "v"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 25
+      },
+      {
+        "code": 4102,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "c"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 6
+      },
+      {
+        "code": 4123,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "x"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 27
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 224,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "left",
+        "categories": ["modifier"]
       },
       {
         "code": 226,
@@ -1165,11 +819,352 @@
       },
       {
         "code": 227,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "Cm"}},
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
         "location": "left",
         "categories": ["modifier"]
       },
-      {"code": 101, "label": {"base": "Menu"}},
+      {
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 4144,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "]"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 48
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 20546,
+        "label": {
+          "hint": {"full": "Mouse Button", "1u": "M.Btn"},
+          "base": "Right"
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20576,
+        "label": {"hint": {"full": "Mouse Warp", "1u": "Warp"}, "base": "End"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20484,
+        "label": {"hint": "Mouse", "base": "Left"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20482,
+        "label": {"hint": "Mouse", "base": "Down"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20481,
+        "label": {"hint": "Mouse", "base": "Up"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20488,
+        "label": {"hint": "Mouse", "base": "Right"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 4688,
+        "label": {
+          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
+          "base": {"full": "Left Arrow", "1u": "←"}
+        },
+        "categories": ["with-modifiers", "alt", "gui"],
+        "baseCode": 80
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 4687,
+        "label": {
+          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
+          "base": {"full": "Right Arrow", "1u": "→"}
+        },
+        "categories": ["with-modifiers", "alt", "gui"],
+        "baseCode": 79
+      },
+      {
+        "code": 4143,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "["},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 47
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 20500,
+        "label": {
+          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
+          "base": "Left"
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20497,
+        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20498,
+        "label": {
+          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
+          "base": "Down"
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20504,
+        "label": {
+          "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
+          "base": "Right"
+        },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      }
+    ],
+    [
+      {
+        "code": 17497,
+        "label": {"hint": "MoveTo", "base": "#5"},
+        "target": 5,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
+      },
+      {"code": 58, "label": {"base": "F1"}},
+      {"code": 59, "label": {"base": "F2"}},
+      {"code": 60, "label": {"base": "F3"}},
+      {"code": 61, "label": {"base": "F4"}},
+      {"code": 62, "label": {"base": "F5"}},
+      {
+        "code": 17152,
+        "label": {"hint": {"full": "LEDEffect", "1u": "LED"}, "base": "Next"},
+        "categories": ["ledkeys"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 18543,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Up", "1u": "🔆"}
+        },
+        "categories": ["consumer"]
+      },
+      {"code": 63, "label": {"base": "F6"}},
+      {"code": 64, "label": {"base": "F7"}},
+      {"code": 65, "label": {"base": "F8"}},
+      {"code": 66, "label": {"base": "F9"}},
+      {"code": 67, "label": {"base": "F10"}},
+      {"code": 68, "label": {"base": "F11"}},
+      {
+        "code": 18846,
+        "label": {"base": {"full": "Lock Screen", "1u": "Lock"}},
+        "categories": ["platform_apple"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 336,
+        "label": {
+          "hint": {"full": "Ctrl+", "1u": "C+"},
+          "base": {"full": "Left Arrow", "1u": "←"}
+        },
+        "categories": ["with-modifiers", "ctrl"],
+        "baseCode": 80
+      },
+      {
+        "code": 19103,
+        "label": {"base": {"full": "Exposé"}},
+        "categories": ["platform_apple"]
+      },
+      {
+        "code": 335,
+        "label": {
+          "hint": {"full": "Ctrl+", "1u": "C+"},
+          "base": {"full": "Right Arrow", "1u": "→"}
+        },
+        "categories": ["with-modifiers", "ctrl"],
+        "baseCode": 79
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17153,
+        "label": {
+          "hint": {"full": "LEDEffect", "1u": "LED"},
+          "base": {"full": "Previous", "1u": "Prev."}
+        },
+        "categories": ["ledkeys"]
+      },
+      {"code": 76, "label": {"base": {"full": "Delete", "1u": "Del"}}},
+      {
+        "code": 556,
+        "label": {"hint": {"full": "Alt+", "1u": "A+"}, "base": "Space"},
+        "categories": ["with-modifiers", "alt"],
+        "baseCode": 44
+      },
+      {
+        "code": 18544,
+        "label": {
+          "hint": {"full": "Brightness", "1u": "Brght."},
+          "base": {"full": "Down", "1u": "🔅"}
+        },
+        "categories": ["consumer"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2095,
+        "label": {"hint": {"full": "", "1u": ""}, "base": "{"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 47
+      },
+      {
+        "code": 2096,
+        "label": {"hint": {"full": "", "1u": ""}, "base": "}"},
+        "categories": ["with-modifiers", "shift"],
+        "baseCode": 48
+      },
+      {"code": 47, "label": {"base": "[", "shifted": "{"}},
+      {"code": 48, "label": {"base": "]", "shifted": "}"}},
+      {"code": 69, "label": {"base": "F12"}},
+      {"code": 74, "label": {"base": "Home"}},
+      {
+        "code": 224,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 226,
+        "label": {"base": "Alt"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 227,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 4144,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "]"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 48
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 4396,
+        "label": {
+          "hint": {"full": "Ctrl+Command+", "1u": "C+⌘+"},
+          "base": "Space"
+        },
+        "categories": ["with-modifiers", "ctrl", "gui"],
+        "baseCode": 44
+      },
       {"code": 80, "label": {"base": {"full": "Left Arrow", "1u": "←"}}},
       {"code": 81, "label": {"base": {"full": "Down Arrow", "1u": "↓"}}},
       {"code": 82, "label": {"base": {"full": "Up Arrow", "1u": "↑"}}},
@@ -1181,18 +1176,40 @@
       },
       {
         "code": 4145,
-        "label": {"hint": {"full": "Command+", "1u": "Cm+"}, "base": "\\"},
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "\\"},
         "categories": ["with-modifiers", "gui"],
         "baseCode": 49
       },
       {"code": 77, "label": {"base": "End"}},
       {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
-      {"code": 73, "label": {"base": {"full": "Insert", "1u": "Ins"}}},
       {
-        "code": 4122,
-        "label": {"hint": {"full": "Command+", "1u": "Cm+"}, "base": "w"},
+        "code": 4688,
+        "label": {
+          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
+          "base": {"full": "Left Arrow", "1u": "←"}
+        },
+        "categories": ["with-modifiers", "alt", "gui"],
+        "baseCode": 80
+      },
+      {
+        "code": 19106,
+        "label": {"base": {"full": "Mission Control", "1u": "Mission"}},
+        "categories": ["platform_apple"]
+      },
+      {
+        "code": 4687,
+        "label": {
+          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
+          "base": {"full": "Right Arrow", "1u": "→"}
+        },
+        "categories": ["with-modifiers", "alt", "gui"],
+        "baseCode": 79
+      },
+      {
+        "code": 4143,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "["},
         "categories": ["with-modifiers", "gui"],
-        "baseCode": 26
+        "baseCode": 47
       },
       {
         "code": 65535,
@@ -1214,25 +1231,9 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 18658,
-        "legacyCode": 19682,
-        "label": {"base": "Mute"},
-        "categories": ["consumer"]
-      },
+      {"code": 18658, "label": {"base": "Mute"}, "categories": ["consumer"]},
       {
         "code": 18666,
-        "legacyCode": 23786,
         "label": {
           "hint": {"full": "Volume", "1u": "Vol."},
           "base": {"full": "Down", "1u": "🔉"}
@@ -1241,7 +1242,6 @@
       },
       {
         "code": 18665,
-        "legacyCode": 23785,
         "label": {
           "hint": {"full": "Volume", "1u": "Vol."},
           "base": {"full": "Up", "1u": "🔊"}
@@ -1250,339 +1250,179 @@
       },
       {
         "code": 18637,
-        "legacyCode": 22733,
         "label": {"base": {"full": "Play / pause", "1u": "⏯"}},
         "categories": ["consumer"]
       },
       {"code": 49, "label": {"base": "\\", "shifted": "|"}},
       {
         "code": 2097,
-        "label": {"hint": null, "base": "|"},
+        "label": {"hint": {"full": "", "1u": ""}, "base": "|"},
         "categories": ["with-modifiers", "shift"],
         "baseCode": 49
       }
     ],
     [
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17492,
+        "label": {"hint": "MoveTo", "base": "#0"},
+        "target": 0,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
+      },
+      {"code": 30, "label": {"base": "1", "shifted": "!"}},
+      {"code": 31, "label": {"base": "2", "shifted": "@"}},
+      {"code": 32, "label": {"base": "3", "shifted": "#"}},
+      {"code": 33, "label": {"base": "4", "shifted": "$"}},
+      {"code": 34, "label": {"base": "5", "shifted": "%"}},
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {
+        "code": 227,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "left",
+        "categories": ["modifier"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 231,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "right",
+        "categories": ["modifier"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24577,
+        "label": {"hint": "Macro", "base": "#1"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
+      },
+      {"code": 35, "label": {"base": "6", "shifted": "^"}},
+      {"code": 36, "label": {"base": "7", "shifted": "&"}},
+      {"code": 37, "label": {"base": "8", "shifted": "*"}},
+      {"code": 38, "label": {"base": "9", "shifted": "("}},
+      {"code": 39, "label": {"base": "0", "shifted": ")"}},
+      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
+      {"code": 53, "label": {"base": "`", "shifted": "~"}},
+      {"code": 20, "label": {"base": "q", "shifted": "Q"}},
+      {"code": 26, "label": {"base": "w", "shifted": "W"}},
+      {"code": 8, "label": {"base": "e", "shifted": "E"}},
+      {"code": 21, "label": {"base": "r", "shifted": "R"}},
+      {"code": 23, "label": {"base": "t", "shifted": "T"}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 44, "label": {"base": "Space"}},
+      {"code": 40, "label": {"base": "Enter"}},
+      {"code": 28, "label": {"base": "y", "shifted": "Y"}},
+      {"code": 24, "label": {"base": "u", "shifted": "U"}},
+      {"code": 12, "label": {"base": "i", "shifted": "I"}},
+      {"code": 18, "label": {"base": "o", "shifted": "O"}},
+      {"code": 19, "label": {"base": "p", "shifted": "P"}},
+      {"code": 46, "label": {"base": "=", "shifted": "+"}},
+      {"code": 75, "label": {"base": {"full": "Page Up", "1u": "PgUp"}}},
+      {
+        "code": 49173,
+        "baseCode": 4,
+        "label": {"hint": "Control/", "base": "a"},
+        "modifier": "Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "ctrl"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 49703,
+        "baseCode": 22,
+        "label": {"hint": "Alt/", "base": "s"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 49944,
+        "baseCode": 7,
+        "label": {"hint": "Command/", "base": "d"},
+        "modifier": "Command",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
+      },
+      {"code": 9, "label": {"base": "f", "shifted": "F"}},
+      {"code": 10, "label": {"base": "g", "shifted": "G"}},
+      {"code": 41, "label": {"base": "Esc"}},
+      {"code": 43, "label": {"base": "Tab"}},
+      {"code": 40, "label": {"base": "Enter"}},
+      {
+        "code": 230,
+        "label": {"base": {"full": "AltGr", "1u": "AGr"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 11, "label": {"base": "h", "shifted": "H"}},
+      {"code": 13, "label": {"base": "j", "shifted": "J"}},
+      {
+        "code": 49951,
+        "baseCode": 14,
+        "label": {"hint": "Command/", "base": "k"},
+        "modifier": "Command",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "gui"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 49696,
+        "baseCode": 15,
+        "label": {"hint": "Alt/", "base": "l"},
+        "modifier": "Alt",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "alt"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 49220,
+        "baseCode": 51,
+        "label": {"hint": "Control/", "base": ";"},
+        "modifier": "Control",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "ctrl"]
+      },
+      {"code": 52, "label": {"base": "'", "shifted": "\""}},
+      {"code": 78, "label": {"base": {"full": "Page Down", "1u": "PgDn"}}},
+      {
+        "code": 52015,
+        "baseCode": 29,
+        "label": {"hint": "Layer #3/", "base": "z"},
+        "target": 3,
+        "rangeStart": 51218,
+        "categories": ["layer", "dualuse"]
+      },
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 6, "label": {"base": "c", "shifted": "C"}},
+      {"code": 25, "label": {"base": "v", "shifted": "V"}},
+      {"code": 5, "label": {"base": "b", "shifted": "B"}},
+      {
+        "code": 17454,
+        "label": {"hint": "ShiftTo", "base": "#4"},
+        "target": 4,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 225,
+        "label": {"base": "Shift"},
+        "location": "left",
+        "categories": ["modifier"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 229,
+        "label": {"base": "Shift"},
+        "location": "right",
+        "categories": ["modifier"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17454,
+        "label": {"hint": "ShiftTo", "base": "#4"},
+        "target": 4,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      }
+      {"code": 17, "label": {"base": "n", "shifted": "N"}},
+      {"code": 16, "label": {"base": "m", "shifted": "M"}},
+      {"code": 54, "label": {"base": ",", "shifted": "<"}},
+      {"code": 55, "label": {"base": ".", "shifted": ">"}},
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
+      {"code": 45, "label": {"base": "-", "shifted": "_"}}
     ],
     [
       {
@@ -1908,9 +1748,48 @@
     ],
     [
       {
+        "code": 17492,
+        "label": {"hint": "MoveTo", "base": "#0"},
+        "target": 0,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
+      },
+      {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 40, "label": {"base": "Enter"}},
+      {
+        "code": 228,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "right",
+        "categories": ["modifier"]
       },
       {
         "code": 65535,
@@ -1983,10 +1862,24 @@
         "categories": ["blanks"]
       },
       {
+        "code": 228,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 44, "label": {"base": "Space"}},
+      {"code": 40, "label": {"base": "Enter"}},
+      {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 82, "label": {"base": {"full": "Up Arrow", "1u": "↑"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -2037,6 +1930,21 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 80, "label": {"base": {"full": "Left Arrow", "1u": "←"}}},
+      {"code": 81, "label": {"base": {"full": "Down Arrow", "1u": "↓"}}},
+      {"code": 79, "label": {"base": {"full": "Right Arrow", "1u": "→"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -2052,6 +1960,8 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -2067,131 +1977,9 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -2234,6 +2022,7 @@
       15,
       15,
       15,
+      11,
       15,
       15,
       15,
@@ -2257,17 +2046,16 @@
       15,
       15,
       15,
+      1,
+      15,
+      1,
+      1,
+      1,
+      1,
+      1,
       15,
       15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
+      1,
       15,
       15,
       15,
@@ -2295,6 +2083,72 @@
       15,
       15,
       15
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      2,
+      0,
+      0,
+      2,
+      2,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      11,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      11,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0
     ],
     [
       15,
@@ -2363,6 +2217,142 @@
       15
     ],
     [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      12,
+      2,
+      2,
+      2,
+      2,
+      2,
+      12,
+      12,
+      12,
+      12,
+      2,
+      2,
+      2,
+      2,
+      2,
+      12,
+      2,
+      0,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      15,
+      0,
+      2,
+      2,
+      2,
+      2,
+      0,
+      15,
+      15,
+      0,
+      2,
+      2,
+      2,
+      2,
+      0,
+      15,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      0,
+      0,
+      15,
+      11,
+      13,
+      2,
+      1,
+      2,
+      0,
+      1,
+      0,
+      13,
+      13,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      13,
+      13,
+      2,
+      2,
+      15,
+      15,
+      11,
+      11,
+      1,
+      15,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      15,
+      1,
+      14,
+      14,
+      15,
+      14,
+      0,
+      2,
+      13,
+      13,
+      15,
+      0,
+      14,
+      14,
+      0,
+      15,
+      13,
+      13,
+      15,
+      0,
+      14,
+      10,
+      2,
+      15,
+      13,
+      13,
+      13,
+      10,
+      2
+    ],
+    [
+      15,
+      15,
+      15,
+      14,
       15,
       15,
       15,
@@ -2386,20 +2376,16 @@
       15,
       15,
       15,
+      14,
       15,
+      14,
+      1,
+      1,
+      1,
+      1,
+      14,
       15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
+      14,
       15,
       15,
       15,
@@ -2466,300 +2452,104 @@
       15,
       15,
       15,
+      10,
+      15,
+      15,
+      15,
+      15,
+      0,
+      4,
+      10,
       15,
       15,
       15,
       15,
       15,
       15,
+      10,
+      10,
       15,
       15,
       15,
       15,
       15,
       15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
+      10,
       15,
       15,
       15,
       15
     ],
     [
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15
-    ],
-    [
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15
-    ],
-    [
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15
-    ],
-    [
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      15,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ]
   ],
   "palette": [
+    {"r": 190, "g": 21, "b": 21, "rgb": "rgb(190, 21, 21)"},
+    {"r": 97, "g": 221, "b": 69, "rgb": "rgb(97, 221, 69)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
@@ -2768,13 +2558,92 @@
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 43, "g": 95, "b": 47, "rgb": "rgb(43, 95, 47)"},
+    {"r": 243, "g": 145, "b": 8, "rgb": "rgb(243, 145, 8)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 21, "g": 200, "b": 187, "rgb": "rgb(21, 200, 187)"},
+    {"r": 78, "g": 48, "b": 138, "rgb": "rgb(78, 48, 138)"},
+    {"r": 45, "g": 93, "b": 43, "rgb": "rgb(45, 93, 43)"},
+    {"r": 0, "g": 4, "b": 0, "rgb": "rgb(0, 4, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
-    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
-    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
-    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
-    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 14, "g": 14, "b": 0, "rgb": "rgb(14, 14, 0)"},
+    {"r": 0, "g": 238, "b": 238, "rgb": "rgb(0, 238, 238)"},
+    {"r": 0, "g": 0, "b": 224, "rgb": "rgb(0, 0, 224)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"}
-  ]
+  ],
+  "deviceConfiguration": {
+    "colormap.map": "15 15 15 11 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 1 15 1 1 1 1 1 15 15 1 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 2 2 2 2 2 2 2 0 2 2 2 0 0 2 2 0 2 2 2 2 2 2 2 2 11 15 15 15 15 15 15 15 15 15 15 11 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 0 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 2 2 2 2 2 2 12 2 2 2 2 2 12 12 12 12 2 2 2 2 2 12 2 0 0 2 2 2 2 2 2 2 0 0 0 0 0 2 15 0 2 2 2 2 0 15 15 0 2 2 2 2 0 15 2 2 2 2 2 2 2 2 0 0 15 11 13 2 1 2 0 1 0 13 13 0 1 0 0 1 0 13 13 2 2 15 15 11 11 1 15 1 1 1 1 1 1 15 1 14 14 15 14 0 2 13 13 15 0 14 14 0 15 13 13 15 0 14 10 2 15 13 13 13 10 2 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 14 1 1 1 1 14 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 10 15 15 15 15 0 4 10 15 15 15 15 15 15 10 10 15 15 15 15 15 15 10 15 15 15 15 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 15 2 2 2 2 2 2 2 2 2 2 2 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 2 2 2 2",
+    "escape_oneshot.cancel_key": "41",
+    "idleleds.time_limit": "600",
+    "keymap.custom": "17409 30 31 32 33 34 35 224 226 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 4 22 7 9 10 41 227 40 556 11 13 14 15 51 52 78 52015 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 65535 65535 65535 65535 65535 65535 17154 65535 65535 24576 65535 36 37 38 86 65535 17499 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 33 34 35 87 65535 65535 65535 80 81 79 65535 65535 65535 65535 65535 65535 30 31 32 46 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 39 55 85 84 40 65535 58 59 60 61 62 57 65535 65535 65535 63 64 65 66 67 68 43 65535 20481 65535 20546 20576 20521 76 40 65535 65535 2095 2096 47 48 69 74 20484 20482 20488 20545 20517 20522 65535 65535 101 80 81 82 79 65535 65535 77 70 73 65535 20548 20518 65535 65535 65535 65535 18658 18666 18665 18637 18614 18613 18846 65535 65535 65535 65535 65535 20517 65535 20548 20521 65535 65535 65535 65535 65535 65535 18846 65535 336 19103 335 65535 20518 65535 20545 20522 4125 4121 4102 4123 65535 65535 65535 224 226 227 225 65535 4144 65535 20546 20576 20484 20482 20481 20488 65535 65535 65535 65535 4688 65535 4687 4143 65535 65535 65535 65535 20500 20497 20498 20504 65535 65535 17497 58 59 60 61 62 17152 65535 65535 18543 63 64 65 66 67 68 18846 65535 336 19103 335 65535 17153 76 556 18544 65535 2095 2096 47 48 69 74 224 226 227 225 65535 4144 65535 65535 4396 80 81 82 79 65535 4145 77 70 4688 19106 4687 4143 65535 65535 65535 65535 18658 18666 18665 18637 49 2097 17492 30 31 32 33 34 35 227 231 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 49173 49703 49944 9 10 41 43 40 230 11 13 49951 49696 49220 52 78 52015 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 17492 65535 65535 65535 65535 65535 65535 40 228 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 228 44 40 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 29 44 65535 65535 80 81 79 65535 65535 65535 29 27 65535 65535 65535 27 27 42 65535 65535 65535 65535 65535 65535 65535",
+    "layernames": {
+      "storageSize": 136,
+      "names": ["HOME", "NUM", "#2", "MOUSE", "NAV", "ALT", "#6", "GAME"]
+    },
+    "keymap.onlyCustom": true,
+    "led.brightness": "255",
+    "led_mode.default": "0",
+    "macros.map": "255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 2 35 48 2 35 49 2 35 50 2 35 51 2 35 52 2 35 53 2 35 54 2 35 55",
+    "mousekeys.accel_duration": "1500",
+    "mousekeys.base_speed": "150",
+    "mousekeys.init_speed": "1",
+    "mousekeys.scroll_interval": "50",
+    "oneshot.auto_layers": "0",
+    "oneshot.auto_mods": "0",
+    "oneshot.double_tap_timeout": "-1",
+    "oneshot.hold_timeout": "250",
+    "oneshot.stickable_keys": "65535",
+    "oneshot.timeout": "2500",
+    "palette": "190 21 21 97 221 69 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 43 95 47 243 145 8 0 0 0 21 200 187 78 48 138 45 93 43 0 4 0 0 0 0 0 0 0 0 0 0 14 14 0 0 238 238 0 0 224 0 0 0",
+    "settings.defaultLayer": "0",
+    "spacecadet.mode": "1",
+    "spacecadet.timeout": "200",
+    "help": [
+      "keymap.custom",
+      "keymap.default",
+      "keymap.onlyCustom",
+      "help",
+      "device.reset",
+      "led.modes",
+      "plugins",
+      "settings.defaultLayer",
+      "settings.valid?",
+      "settings.version",
+      "settings.crc",
+      "eeprom.contents",
+      "eeprom.free",
+      "eeprom.erase",
+      "version",
+      "keymap.layerNames",
+      "led_mode.default",
+      "led.brightness",
+      "spacecadet.mode",
+      "spacecadet.timeout",
+      "oneshot.timeout",
+      "oneshot.hold_timeout",
+      "oneshot.double_tap_timeout",
+      "oneshot.stickable_keys",
+      "oneshot.auto_mods",
+      "oneshot.auto_layers",
+      "escape_oneshot.cancel_key",
+      "macros.map",
+      "macros.trigger",
+      "mousekeys.scroll_interval",
+      "mousekeys.init_speed",
+      "mousekeys.base_speed",
+      "mousekeys.accel_duration",
+      "mousekeys.warp_grid_size",
+      "palette",
+      "colormap.map",
+      "idleleds.time_limit"
+    ],
+    "version": "0.0.0",
+    "plugins": "EEPROMKeymap\r\nLayerNames\r\nDefaultLEDModeConfig\r\nLEDBrightnessConfig\r\nQukeys\r\nSpaceCadet\r\nOneShot\r\nOneShotConfig\r\nEscapeOneShot\r\nMacros\r\nDynamicMacros\r\nMouseKeys\r\nMagicCombo\r\nGeminiPR\r\nColormapEffect\r\nPersistentIdleLEDs",
+    "eeprom.free": "13840",
+    "settings.valid?": "true",
+    "settings.version": "1",
+    "settings.crc": "15875/48133"
+  }
 }
