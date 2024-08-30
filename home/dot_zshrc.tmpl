@@ -89,6 +89,7 @@ plugins=(
   macos
 {{- end }}
   git
+  kubectl
   zsh-autosuggestions
   zsh-syntax-highlighting # Must be last
 )
@@ -138,6 +139,9 @@ alias chezmoicd="cd $(chezmoi source-path)"
 # Load 1Password SSH environment
 [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
 
+# Load asdf version manager
+[[ ! -f ~/.asdf/asdf.sh ]] || source ~/.asdf/asdf.sh
+
 {{- if eq .chezmoi.os "darwin" }}
 
 alias manp=man-preview
@@ -150,7 +154,7 @@ alias manp=man-preview
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Docker Desktop
-[[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
+#[[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
 
 {{ end -}}
 # Load additional dev environment
