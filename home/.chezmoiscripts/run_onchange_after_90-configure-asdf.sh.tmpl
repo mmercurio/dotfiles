@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "darwin" "linux" -}}
+
+#!/bin/bash
+# This script runs after all other packages (especially asdf) are installed.
+
+set -eufo pipefail
+
+source "$HOME/.asdf/asdf.sh"
+
+asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+asdf install kubectl latest
+
+{{ end -}}
