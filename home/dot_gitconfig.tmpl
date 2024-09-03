@@ -2,26 +2,34 @@
 	email = {{ .email }}
 	name = {{ .name }}
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHujLfoZWksndFOY4ZJNgfVtiSOmf9vVZ+J8ECccPAFe
-
 [gpg]
 	format = ssh # requires git 2.34 of later
-
 [commit]
 	gpgsign = true
-
 [push]
 	autoSetupRemote = true
-
 [pull]
 	ff = only
-
 [alias]
+	a = add
 	diffchar = diff --color-words=.
 	br = !git --no-pager branch
+	ca = commit --amend
+	cane = commit --amend --no-edit
+	cm = commit --message
+	co	= checkout
+	cob = checkout -b
+	d = diff
+	dc = diff --cached
+	l = log --graph --pretty=format:'%C(bold yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	la = l --all
 	lo = !git --no-pager  log -n20 --graph --decorate --pretty=oneline --abbrev-commit
-	loa = log --all --graph --decorate --pretty=oneline --abbrev-commit
+	loa = l --all
+	p = push
+	pf = push --force-with-lease
+	ri = rebase --interactive
+	st = status -sb
 	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
-
 [core]
 	excludesfile = ~/.gitignore_global
 {{- if eq .chezmoi.os "windows" }}
@@ -31,41 +39,40 @@
 	pager = delta
 {{- end }}
 
-[diff]
-	colorMoved = default
-	tool = vscode-diff
-
-[difftool]
-	prompt = false
-
-[difftool "vscode-diff"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-
-[merge]
-	tool = vscode-merge
-	conflictstyle = diff3
-
-[mergetool]
-	keepBackup = false
-
-[mergetool "vscode-merge"]
-	cmd = code --wait $MERGED
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[init]
+	defaultBranch = main
+[rebase]
+	autosquash = true
 
 {{ if ne .chezmoi.os "windows" -}}
 [interactive]
 	diffFilter = delta --color-only
-
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or `light = true`, or omit for auto-detection
+    line-numbers = true
+	features = decorations
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow
+	hunk-header-decoration-style = cyan box ul
+[merge]
+    conflictStyle = zdiff3
 {{ end -}}
 
 [color]
 	ui = true
-
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
-
 [color "diff"]
 	meta = 11
 	frag = magenta bold
@@ -75,22 +82,5 @@
 	new = green bold
 	whitespace = red reverse
 
-[delta]
-	# https://dandavison.github.io/delta/
-	features = line-numbers decorations navigate
-
-[delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow
-	hunk-header-decoration-style = cyan box ul
-[rerere]
-	enabled = true
-
-[column]
-	ui = auto
-
-[branch]
-	sort = -committerdate
-
-[init]
-    defaultBranch = main
+[include]
+	path = ~/.gitconfig.local
