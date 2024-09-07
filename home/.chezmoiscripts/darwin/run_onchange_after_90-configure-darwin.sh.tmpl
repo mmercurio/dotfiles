@@ -97,14 +97,13 @@ echo 'Show the /Volumes folder...'
 defaults write com.apple.dock autohide -bool true
 
 # Remove all itema and then re-add just a few
-# Commenting out until the new 3.x version of dockutil is available as brew package
-# https://github.com/kcrawford/dockutil/issues/127
-#dockutil --remove all --no-restart
-#dockutil --add /System/Applications/Launchpad.app --no-restart
-#dockutil --add /Applications/iTerm.app --no-restart
-#dockutil --add /Applications/Safari.app --no-restart
-#dockutil --add /Applications/Google\ Chrome.app --no-restart
-#dockutil --add '~/Downloads' --display folder --view fan --sort datemodified
+dockutil --remove all --no-restart
+dockutil --add /System/Applications/Launchpad.app --no-restart
+dockutil --add /Applications/iTerm.app --no-restart
+dockutil --add /Applications/Safari.app --no-restart
+dockutil --add /Applications/Brave\ Browser.app --no-restart
+dockutil --add /Applications/Google\ Chrome.app --no-restart
+dockutil --add '~/Downloads' --display folder --view fan --sort datemodified
 
 ###############################################################################
 # Terminal                                                                    #
