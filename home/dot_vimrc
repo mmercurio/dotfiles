@@ -11,7 +11,7 @@ set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-set expandtab
+"set expandtab
 
 " Create highlight group for extra whitespace
 "   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
