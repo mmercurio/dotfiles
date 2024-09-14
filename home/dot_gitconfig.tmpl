@@ -21,7 +21,7 @@
 	cob = checkout -b
 	d = diff
 	dc = diff --cached
-	l = log --graph --pretty=format:'%C(bold yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l = log --graph --pretty=format:'%C(auto)%h%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	la = l --all
 	lo = !git --no-pager  log -n20 --graph --decorate --pretty=oneline --abbrev-commit
 	loa = lo --all
