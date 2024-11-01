@@ -23,7 +23,7 @@
 	dc = diff --cached
 	l = log --graph --pretty=format:'%C(auto)%h%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	la = l --all
-	lo = !git --no-pager  log -n20 --graph --decorate --pretty=oneline --abbrev-commit
+	lo = !git --no-pager l -n20
 	loa = lo --all
 	p = push
 	pf = push --force-with-lease
