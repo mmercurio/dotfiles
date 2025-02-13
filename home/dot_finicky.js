@@ -24,6 +24,7 @@ module.exports = {
         "github.com/TheLevelUp/*", "github.com/GrubHubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
         "grubhub.slack.com/*",
+        "*.amazonaws.com/*"
       ],
       browser: GH,
     },
