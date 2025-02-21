@@ -31,8 +31,9 @@ module.exports = {
     {
       match: [
         "github.com/mmercurio/*", "*.github.com/mmercurio/*",
-        "*.icloud.com*",
-        "*.cloudspotter.org*"
+		"*.apple.com/*"
+        "*.icloud.com/*",
+        "*.cloudspotter.org/*"
       ],
       browser: PERSONAL
     },
