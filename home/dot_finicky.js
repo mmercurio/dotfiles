@@ -21,8 +21,8 @@ module.exports = {
         "*.heroku.com/*",
         "*.datadoghq.com/*",
         "*.newrelic.com/*",
-        "github.com/TheLevelUp/*", "github.com/GrubHubProd/*",
-        "*.github.com/TheLevelUp/*", "*.github.com/GrubHubProd/*",
+        "github.com/TheLevelUp/*", "github.com/GrubhubProd/*",
+        "*.github.com/TheLevelUp/*", "*.github.com/GrubhubProd/*",
         "grubhub.slack.com/*",
         "*.amazonaws.com/*"
       ],
@@ -31,7 +31,7 @@ module.exports = {
     {
       match: [
         "github.com/mmercurio/*", "*.github.com/mmercurio/*",
-		"*.apple.com/*"
+		"*.apple.com/*",
         "*.icloud.com/*",
         "*.cloudspotter.org/*"
       ],
