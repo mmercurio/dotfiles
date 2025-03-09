@@ -38,6 +38,13 @@ module.exports = {
       browser: PERSONAL
     },
     {
+      match: [
+        "*.youtube.com/*", "youtube.com/*",
+        "*.youtu.be/*", "youtu.be/*"
+      ],
+      browser: "Brave Browser",
+    },
+    {
       // You can get the path of the process that triggered Finicky
       match: ({ sourceProcessPath }) =>
         sourceProcessPath &&
