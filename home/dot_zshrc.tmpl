@@ -139,6 +139,8 @@ alias zcp='zmv -C'
 alias zln='zmv -L'
 
 alias chezmoicd="cd $(chezmoi source-path)"
+# Allow SSH via password when required
+alias sshpw='ssh -o PasswordAuthentication=yes -o PubkeyAuthentication=no -o IdentityAgent=no'
 
 # Load 1Password SSH environment
 [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
