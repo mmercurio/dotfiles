@@ -139,8 +139,24 @@ alias zcp='zmv -C'
 alias zln='zmv -L'
 
 alias chezmoicd="cd $(chezmoi source-path)"
-# Allow SSH via password when required
-alias sshpw='ssh -o PasswordAuthentication=yes -o PubkeyAuthentication=no -o IdentityAgent=no'
+
+### SSH aliases and functions
+#
+# These are used because ~/.ssh/config disables password auth by default.
+# Occcasoinally, I need to auth with a password when my public keys
+# are not yet installed. These aliases and shell functions make it
+# easier to install keys and login with a password when needed.
+
+# SSH via password when required
+alias sshpw='ssh -o PasswordAuthentication=yes -o IdentityAgent=no'
+
+# copy public key but using password to auth
+alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o IdentityAgent=no -f -i ~/.ssh/id_ed25519.pub'
+
+# copy key and then login using password to auth
+sshid () {
+	sshpw-id $* && ssh $*
+}
 
 # Load 1Password SSH environment
 [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
