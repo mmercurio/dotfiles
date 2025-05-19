@@ -1,6 +1,7 @@
 set number
 set ai
 set cursorline
+set ruler
 " set mouse=a
 set clipboard=autoselect
 syntax enable
