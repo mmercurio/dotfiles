@@ -2,10 +2,9 @@
 
 Import-Module -Name Terminal-Icons
 Import-Module -Name PSReadLine
-Import-Module oh-my-posh
 
-oh-my-posh --init --shell pwsh --config ~/jandedobbeleer.omp.json | Invoke-Expression
-Set-PoshPrompt -Theme paradox
+# https://ohmyposh.dev/docs
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_classic.omp.json" | Invoke-Expression
 
 # Ensure git uses OpenSSH instead of the ssh that comes with git
 # This can be set using global git config: core.sshcommand
@@ -25,3 +24,10 @@ Set-Alias psadmin Invoke-RunAsAdmin
 
 $Env:Path="$HOME\bin;$Env:Path"
 function chezmoicd { cd $(chezmoi source-path) }
+function cdc([String]$arg) {
+<#
+.Description
+cdc changes directory and clears the screen.
+#>
+     Clear-Host; Set-Location $arg 
+}
