@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" }}
+{{-   if stat "/opt/homebrew/opt/zip/bin/zip" }}
+/opt/homebrew/opt/zip/bin/zip
+{{-   end }}
+{{- end }}
