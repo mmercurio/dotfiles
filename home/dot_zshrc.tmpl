@@ -158,6 +158,23 @@ sshid () {
 	sshpw-id $* && ssh $*
 }
 
+# When in tmux refresh SSH_AUTH_SOCK and DISPLAY
+# https://babushk.in/posts/renew-environment-tmux.html
+if [[ -n "$TMUX" ]]; then
+    function refresh {
+        eval $(tmux showenv -s SSH_AUTH_SOCK)
+        eval $(tmux showenv -s DISPLAY)
+    }
+else
+    function refresh { }
+fi
+
+# zsh executes preexec before each command
+function preexec {
+    # Refresh environment if inside tmux
+    refresh
+}
+
 # Load 1Password SSH environment
 [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
 
