@@ -17,6 +17,9 @@ if [ "$PS1" ]; then
     alias ls='ls -FG'
     alias ldot='ls -da .*'
 
+    # Load 1Password SSH environment
+    [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
+
     # set a fancy prompt
     if [ -f ~/.git-completion.bash ]; then
         source ~/.git-completion.bash
