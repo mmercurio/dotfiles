@@ -25,7 +25,7 @@ I've found that out of the box, 1Password SSH Agent and CLI don't provide the be
 
 ### Use Case
 
-Assume I have 1Password installed on all of my macOS and Linux desktop systems, and I SSH from a Linux desktop into a macOS system. SSH agent forwarding will mostly take care of using 1Password SSH Agent over SSH with a [carefully configured tmux](https://blog.testdouble.com/posts/2016-11-18-reconciling-tmux-and-ssh-agent-forwarding/).
+Assume I have 1Password installed on all of my macOS and Linux desktop systems, and I SSH from a Linux desktop into a macOS system. SSH agent forwarding will mostly take care of using 1Password SSH Agent over SSH with a [carefully configured tmux](https://babushk.in/posts/renew-environment-tmux.html).
 
 However, trying to use scripts that rely on 1Password CLI while logged in remotely over SSH will not work very well because the [1Password CLI communicates with the 1Password app](https://developer.1password.com/docs/cli/app-integration-security/#how-does-1password-cli-communicate-with-the-1password-app) running on the same host. In this example, the authorization prompt for CLI access goes to a the macOS desktop (i.e., the system I'm logged in remotely to) instead of the Linux desktop where I'm logged in locally and have access to the 1Password desktop app.
 
