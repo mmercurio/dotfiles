@@ -21,6 +21,7 @@ module.exports = {
         "*.heroku.com/*",
         "*.datadoghq.com/*",
         "*.newrelic.com/*",
+        "grubhub.pagerduty.com/*",
         "github.com/TheLevelUp/*", "github.com/GrubhubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubhubProd/*",
         "grubhub.slack.com/*",
