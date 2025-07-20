@@ -193,7 +193,7 @@ alias manp=man-preview
 # Unlock seat0 for remote RDP to GNOME
 function unlock () {
     seat=${1:-seat0}
-    session=$(loginctl list-sessions | awk -v pattern="${seat}" '$0 ~ pattern { print $1 }')
+    session=$(loginctl list-sessions | awk -v pattern="${USER} ${seat}" '$0 ~ pattern { print $1 }')
     if [[ -z "${session}" ]]; then
         echo "loginctl session not found for seat ${seat}!" >&2
         loginctl list-sessions
