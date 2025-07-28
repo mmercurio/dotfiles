@@ -206,7 +206,13 @@ else
 fi
 
 # zsh executes preexec before each command
-function preexec {
+#  experiementing with periodic instead of preexec:
+#    periodic will be executed every $PERIOD seconds before the prompt.
+#    https://zsh.sourceforge.io/Doc/Release/Functions.html
+#    this may be slightly more efficient at the cost of occasionaly
+#    being out of date.
+PERIOD=300
+function periodic {
     # Refresh environment if inside tmux
     refresh
 }
