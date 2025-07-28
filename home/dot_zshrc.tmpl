@@ -110,6 +110,8 @@ export LSCOLORS=ExFxCxDxBxegedabagaced
 export LANG=en_US.UTF-8
 
 export EDITOR=vim
+# https://unix.stackexchange.com/a/108840/449635
+export LESS_TERMCAP_md=$(tput bold; tput setaf 2)  # green for bold in less & man
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
