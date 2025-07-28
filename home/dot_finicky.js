@@ -22,6 +22,7 @@ module.exports = {
         "*.datadoghq.com/*",
         "*.newrelic.com/*",
         "grubhub.pagerduty.com/*",
+        "grubhub.1password.com",
         "github.com/TheLevelUp/*", "github.com/GrubhubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubhubProd/*",
         "grubhub.slack.com/*",
