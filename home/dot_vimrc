@@ -1,9 +1,11 @@
 set number
 set ai
+set expandtab
 set cursorline
 set ruler
-" set mouse=a
-set clipboard=autoselect
+set mouse=a
+"set clipboard=autoselect
+set clipboard=unnamed
 syntax enable
 
 filetype plugin indent on
