@@ -9,7 +9,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AutoHideTmuxClientSession</key>
@@ -1580,6 +1580,8 @@
 			<true/>
 			<key>ASCII Ligatures</key>
 			<false/>
+			<key>Allow Paste Bracketing</key>
+			<true/>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Allow Title Setting</key>
@@ -1838,6 +1840,8 @@
 			<false/>
 			<key>Disable Window Resizing</key>
 			<true/>
+			<key>Enable Triggers in Interactive Apps</key>
+			<false/>
 			<key>Flashing Bell</key>
 			<true/>
 			<key>Foreground Color</key>
@@ -2177,9 +2181,11 @@
 			<key>Normal Font</key>
 			<string>MesloLGS-NF-Regular 12</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
+			<key>Right Option Key Changeable</key>
+			<true/>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -2332,8 +2338,35 @@
 			<integer>3</integer>
 			<key>Transparency</key>
 			<real>0.022450031725888324</real>
+			<key>Treat Option as Alt</key>
+			<false/>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>PasswordTrigger</string>
+					<key>disabled</key>
+					<true/>
+					<key>parameter</key>
+					<string></string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>^\(mercurio@10\.\d+\.\d+\.\d+\) Password:</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>PasswordTrigger</string>
+					<key>disabled</key>
+					<true/>
+					<key>parameter</key>
+					<string>Grubhub Okta / Active Directory — mercurio</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>^\(mercurio@10\.\d{2,3}\.\d{1,3}\.\d{1,3}\) Password:</string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -11504,6 +11537,8 @@
 			<string>/Users/michael</string>
 		</dict>
 	</array>
+	<key>OnePasswordAccount</key>
+	<string></string>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -11513,7 +11548,7 @@
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
-	<integer>0</integer>
+	<integer>2</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PassOnControlClick</key>
