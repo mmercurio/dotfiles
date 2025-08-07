@@ -4,7 +4,7 @@ const GH = {
   profile: "Profile 1", // on MBP and Air
 }
 
-module.exports = {
+export default {
   defaultBrowser: "Browserosaurus", // "Safari"
   handlers: [
     {
@@ -23,6 +23,7 @@ module.exports = {
         "*.newrelic.com/*",
         "grubhub.pagerduty.com/*",
         "grubhub.1password.com",
+        "grubhub.splunkcloud.com/*",
         "github.com/TheLevelUp/*", "github.com/GrubhubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubhubProd/*",
         "grubhub.slack.com/*",
