@@ -1,7 +1,7 @@
 const PERSONAL = "Safari"
 const GH = {
   name: "Google Chrome",
-  profile: "Profile 1", // on MBP and Air
+  profile: "Grubhub", // on MBP and Air
 }
 
 export default {
@@ -27,7 +27,7 @@ export default {
         "github.com/TheLevelUp/*", "github.com/GrubhubProd/*",
         "*.github.com/TheLevelUp/*", "*.github.com/GrubhubProd/*",
         "grubhub.slack.com/*",
-        "*.amazonaws.com/*",
+        "*.amazonaws.com/*", "*.aws.amazon.com/*",
         "http://127.0.0.1:8000/*",
       ],
       browser: GH,
