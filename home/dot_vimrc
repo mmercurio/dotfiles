@@ -3,9 +3,17 @@ set ai
 set expandtab
 set cursorline
 set ruler
+" i = mouse reporting for insert mode
+" set mouse=i
+" a = mouse reporting for all modes
 set mouse=a
-"set clipboard=autoselect
-set clipboard=unnamed
+
+" selection is auto copied to system cliboard
+" yank is using * (system clipboard)
+" works well on macOS
+" https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
+set clipboard=autoselect,unnamed
+
 syntax enable
 
 filetype plugin indent on
