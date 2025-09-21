@@ -21,6 +21,8 @@
 	cob = checkout -b
 	d = diff
 	dc = diff --cached
+    deja = "!f() { n=${1:-5}; git log -n \"$n\" --author=\"$(git config user.name)\" --name-only --pretty=format: | grep . | sort | uniq -c | sort -nr; }; f"
+	deja2 = "!f() { n=${1:-5}; git log -n \"$n\" --author=\"$(git config user.name)\" --name-only --pretty=format: | grep . | sort | uniq -c | sort -n; }; f"
 	l = log --graph --pretty=format:'%C(auto)%h%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	la = l --all
 	lo = !git --no-pager l -n20
