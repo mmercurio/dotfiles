@@ -3,13 +3,13 @@
 # This template file will trigger prompts to fill-in machine-specific
 # templateable values. The resulting file is then created at
 # `~/.config/chezmoi/chezmoi.toml`
-# See https://www.chezmoi.io/docs/reference/#special-files-and-directories
+# See https://www.chezmoi.io/reference/special-files/chezmoi-format-tmpl/
 #
 
 {{/* boolean feature tags */}}
 {{- $brewcasks := true -}}{{/* true to install brew casks on macOS */}}
 
-{{ $email := promptString "Git email address" }}
+{{ $email := promptString "Git email address" "mmercurio@users.noreply.github.com"}}
 {{ $name := "Michael Mercurio" }}
 
 {{- if eq .chezmoi.os "darwin" -}}
