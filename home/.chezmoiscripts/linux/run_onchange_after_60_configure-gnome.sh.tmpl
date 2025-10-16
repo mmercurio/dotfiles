@@ -1,0 +1,32 @@
+{{ if not .headless -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+{{-   if eq .osid "linux-pop" }}
+
+# Set favorite apps in dock
+gsettings set org.gnome.shell favorite-apps "[\
+    'pop-cosmic-launcher.desktop', \
+    'pop-cosmic-workspaces.desktop', \
+    'pop-cosmic-applications.desktop', \
+    'google-chrome.desktop', \
+    'firefox.desktop', \
+    'org.wezfurlong.wezterm.desktop', \
+    'terminator.desktop',  \
+    'org.gnome.Nautilus.desktop', \
+    'io.elementary.appcenter.desktop', \
+    'gnome-control-center.desktop' \
+]"
+
+gsettings set org.gnome.shell.extensions.pop-cosmic clock-alignment 'RIGHT'
+gsettings set org.gnome.shell.extensions.pop-shell active-hint true
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Shift><Super>m']"
+
+{{-   end }}
+
+echo "Install UTCClock GNOME extension:"
+echo "   https://extensions.gnome.org/extension/1183/utcclock/"
+open https://extensions.gnome.org/extension/1183/utcclock/
+
+{{- end }}

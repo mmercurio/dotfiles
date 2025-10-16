@@ -50,31 +50,28 @@
     stripComponents = 1
     refreshPeriod = "672h"
 {{- end }}
-{{- $fontDir := "" }}
-{{- if eq .chezmoi.os "darwin" }}
-{{-   $fontDir = "Library/Fonts" }}
-{{- else if eq .chezmoi.os "linux" }}
-{{-   $fontDir = ".local/share/fonts" }}
-{{- else if eq .chezmoi.os "windows" }}
-{{-   $fontDir = "Downloads" }}
-{{- end }}
-["{{ $fontDir }}/MesloLGS NF Regular.ttf"]
+
+{{- if not .headless }}
+{{-   $fontDir := "" }}
+{{-   if eq .chezmoi.os "darwin" }}
+{{-     $fontDir = "Library/Fonts" }}
+{{-   else if eq .chezmoi.os "linux" }}
+{{-     $fontDir = ".local/share/fonts" }}
+{{-   else if eq .chezmoi.os "windows" }}
+{{-     $fontDir = "Downloads" }}
+{{-   end }}
+{{-   range (list
+        "MesloLGS NF Regular.ttf"
+        "MesloLGS NF Bold.ttf"
+        "MesloLGS NF Italic.ttf"
+        "MesloLGS NF Bold Italic.ttf") }}
+["{{ $fontDir }}/{{ . }}"]
     type = "file"
-    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf"
-    refreshPeriod = "672h"
-["{{ $fontDir }}/MesloLGS NF Bold.ttf"]
-    type = "file"
-    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf"
-    refreshPeriod = "672h"
-["{{ $fontDir }}/MesloLGS NF Italic.ttf"]
-    type = "file"
-    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf"
-    refreshPeriod = "672h"
-["{{ $fontDir }}/MesloLGS NF Bold Italic.ttf"]
-    type = "file"
-    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
-    refreshPeriod = "672h"
+    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/{{ . }}"
+    refreshPeriod = "627h"
+{{-   end }}
 ["{{ $fontDir }}/Caskaydia Cove Regular Nerd Font Complete.ttf"]
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/CascadiaCode/complete/Caskaydia Cove Nerd Font Complete.ttf"
     refreshPeriod = "672h"
+{{- end }}

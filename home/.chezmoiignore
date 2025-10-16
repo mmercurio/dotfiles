@@ -21,9 +21,12 @@ Library
 
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
+{{-   if .headless }}
 .config/gtk-3.0
 .config/terminator
+.config/wezterm
 .local/share/fonts
+{{-   end }}
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}

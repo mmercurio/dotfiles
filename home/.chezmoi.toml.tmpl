@@ -8,15 +8,37 @@
 
 {{/* boolean feature tags */}}
 {{- $brewcasks := true -}}{{/* true to install brew casks on macOS */}}
+{{- $headless := false -}}{{/* true if this machine has no keyboard and screen */}}
+{{- $debian := false -}}{{/* true if this machine is Debian based Linux */}}
 
-{{ $email := promptString "Git email address" "mmercurio@users.noreply.github.com"}}
-{{ $name := "Michael Mercurio" }}
+{{- $name := "Michael Mercurio" }}
+{{- $email := promptStringOnce . "email" "Git email address" "mmercurio@users.noreply.github.com" }}
+
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "linux" -}}
+{{-   $headless := promptBoolOnce . "headless" "headless" false -}}
+{{-   if hasKey .chezmoi.osRelease "id" -}}
+{{-     $debian = eq .chezmoi.osRelease.id "debian" "pop" "ubuntu" -}}
+{{-     if not $debian -}}
+{{-       if hasKey .chezmoi.osRelease "idLike" -}}
+{{-         $debian = contains "debian" .chezmoi.osRelease.idLike -}}
+{{-       end -}}
+{{-     end -}}
+{{-   end -}}
+{{- end -}}
 
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   $brewcasks = promptBool "Install brew casks" true -}}
 {{- end -}}
 
 [data]
-  email = {{ $email | quote }}
   name = {{ $name | quote }}
+  email = {{ $email | quote }}
   brewcasks = {{ $brewcasks }}
+  headless = {{ $headless }}
+  osid = {{ $osid | quote }}
+  debian = {{ $debian }}

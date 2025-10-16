@@ -1,9 +1,0 @@
-Future updates:
-- Nerd Fronts availabe as homebrew packages now
-
-Experimenting with and not yet in chezmoi:
-
-Consider moving https://github.com/romkatv/powerlevel10k
-  - to auto update from main branch monthly
-
- Consider using 1Password integration to add some private info such as ~/.aws/config
