@@ -23,6 +23,7 @@ Library
 .chezmoiscripts/linux/**
 .config/gtk-3.0
 .config/terminator
+.config/wezterm
 .local/share/fonts
 {{- end }}
 

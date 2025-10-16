@@ -1,4 +1,4 @@
-{{ if (or (eq .chezmoi.osRelease.id "debian" "ubuntu") (eq .chezmoi.osRelease.idLike "debian" "ubuntu" "ubuntu debian")) -}}
+{{ if .debian -}}
 #!/usr/bin/env bash
 
 set -eufo pipefail
@@ -23,8 +23,17 @@ packages=(
 	ripgrep
 	tmux
 	htop
-	vim
 	zsh
+{{- if .headless -}}
+	vim
+{{- else -}}{{/* GUI apps */}}
+	vim-gtk3
+	gnome-tweaks
+	terminator
+{{-   if eq .osid "linux-pop" }}
+	google-chrome-stable
+{{-   end }}
+{{- end }}
 )
 
 echo 'Installing packages...'
