@@ -184,10 +184,10 @@ alias chezmoicd="cd $(chezmoi source-path)"
 # easier to install keys and login with a password when needed.
 
 # SSH via password when required
-alias sshpw='ssh -o PasswordAuthentication=yes -o IdentityAgent=no'
+alias sshpw='ssh -o PasswordAuthentication=yes -o IdentityAgent=none'
 
 # copy public key but using password to auth
-alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o IdentityAgent=no -f -i ~/.ssh/id_ed25519.pub'
+alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o IdentityAgent=none -f -i ~/.ssh/id_ed25519.pub'
 
 # copy key and then login using password to auth
 sshid () {
