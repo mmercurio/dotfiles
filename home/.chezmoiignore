@@ -8,6 +8,7 @@
 .pyenv/versions
 
 {{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
 .bash_profile
 .bashrc
 .finicky.js
@@ -19,12 +20,14 @@ Library
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
 .config/gtk-3.0
 .config/terminator
 .local/share/fonts
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
 Documents
 {{- else }}
 .asdf

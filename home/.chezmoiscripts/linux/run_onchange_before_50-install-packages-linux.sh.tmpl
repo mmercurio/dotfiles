@@ -1,4 +1,3 @@
-{{ if (eq .chezmoi.os "linux") -}}
 {{ if (or (eq .chezmoi.osRelease.id "debian" "ubuntu") (eq .chezmoi.osRelease.idLike "debian" "ubuntu" "ubuntu debian")) -}}
 #!/usr/bin/env bash
 
@@ -33,5 +32,4 @@ set -x
 sudo apt update
 sudo apt install -y ${packages[@]}
 
-{{ end -}}
 {{ end -}}

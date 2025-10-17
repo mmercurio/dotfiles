@@ -1,5 +1,4 @@
-{{- if (eq .chezmoi.os "linux") -}}
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eufo pipefail
 
@@ -8,4 +7,3 @@ if [ "$loginshell" != "/usr/bin/zsh" ]; then
   echo 'chsh to zsh...'
   ( set -x; chsh -s /usr/bin/zsh )
 fi
-{{ end -}}
