@@ -1,5 +1,3 @@
-{{- if (eq .chezmoi.os "windows") -}}
-
 # If winget is not available, fallback to Chocolatey as the legacy package manager.
 
 # Winget packages
@@ -42,6 +40,4 @@ Write-Host "Installing packages via Chocolatey."
 
 {{- range ($choco_packages | uniq) }}
 choco install {{ . }} -y
-{{- end }}
-
 {{- end }}

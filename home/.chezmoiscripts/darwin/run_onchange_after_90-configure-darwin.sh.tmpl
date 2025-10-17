@@ -1,4 +1,3 @@
-{{- if (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 # More goodies here: https://macos-defaults.com/
 
@@ -153,5 +152,3 @@ for app in "cfprefsd" "Dock" "Finder"; do
 done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
-
-{{ end -}}
