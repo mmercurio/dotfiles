@@ -21,12 +21,17 @@ gsettings set org.gnome.shell favorite-apps "[\
 
 gsettings set org.gnome.shell.extensions.pop-cosmic clock-alignment 'RIGHT'
 gsettings set org.gnome.shell.extensions.pop-shell active-hint true
-gsettings set org.gnome.desktop.wm.keybindings minimize "['<Shift><Super>m']"
 
 {{-   end }}
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Shift><Super>m']"
+# Disable keybinding to show notification messages
+gsettings set org.gnome.shell.keybindings toggle-message-tray '[]'
 
-echo "Install UTCClock GNOME extension:"
+echo "Install UTCClock GNOME extension (via browser extension):"
 echo "   https://extensions.gnome.org/extension/1183/utcclock/"
 open https://extensions.gnome.org/extension/1183/utcclock/
+
+echo ""
+echo "Logout may be needed for all GNOME changes to take effect."
 
 {{- end }}

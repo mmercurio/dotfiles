@@ -22,6 +22,7 @@ Library
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 .config/gtk-3.0
+.config/pop-shell
 .config/terminator
 .config/wezterm
 .local/share/fonts

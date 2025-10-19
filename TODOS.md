@@ -1,8 +1,8 @@
 Linux desktop:
 
-- [ ] GNOME and Pop Shell configs
 - [ ] GNOME tweaks, keyboard shortcuts and other customizations.
 - [ ] personal extras: sudo insults, edit
+- [x] GNOME and Pop Shell configs
 - [x] configure wezterm as default terminal
 - [x] UTC clock extension: https://extensions.gnome.org/extension/1183/utcclock/
 - [x] vim-gtk3 vs vim
