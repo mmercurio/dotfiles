@@ -20,7 +20,7 @@
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" -}}
-{{-   $headless := promptBoolOnce . "headless" "headless" false -}}
+{{-   $headless = promptBoolOnce . "headless" "headless" false -}}
 {{-   if hasKey .chezmoi.osRelease "id" -}}
 {{-     $debian = eq .chezmoi.osRelease.id "debian" "pop" "ubuntu" -}}
 {{-     if not $debian -}}
