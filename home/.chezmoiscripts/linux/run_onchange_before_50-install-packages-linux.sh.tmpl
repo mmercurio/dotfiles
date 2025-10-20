@@ -24,9 +24,9 @@ packages=(
 	tmux
 	htop
 	zsh
-{{- if .headless -}}
+{{- if .headless }}
 	vim
-{{- else -}}{{/* GUI apps */}}
+{{- else }}{{/* GUI apps */}}
 	vim-gtk3
 	gnome-tweaks
 	terminator
