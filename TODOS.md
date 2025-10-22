@@ -1,6 +1,8 @@
 Linux desktop:
 
 - [ ] configure GNOME tweaks
+- [ ] configure 1Password preferences (e.g hotkeys)
+- [ ] Pop Shell: dock does not extend to edge
 - [ ] personal extras: sudo insults, edit
 - [x] GNOME and Pop Shell configs
 - [x] GNOME keyboard shortcuts
