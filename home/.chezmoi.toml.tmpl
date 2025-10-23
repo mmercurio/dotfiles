@@ -11,6 +11,7 @@
 {{- $brewcasks := false -}}{{/* true to install brew casks on macOS */}}
 {{- $headless := false -}}{{/* true if this machine has no keyboard and screen */}}
 {{- $debian := false -}}{{/* true if this machine is Debian based Linux */}}
+{{- $headlessKnown := false -}}{{/* Keep track of whether we know this is headlss or not */}}
 
 {{- $name := "Michael Mercurio" }}
 {{- $email := promptStringOnce . "email" "Git email address" "mmercurio@users.noreply.github.com" }}
@@ -29,15 +30,18 @@
 {{- if eq $hostname "Leon" "Anubis" -}}
 {{-   $personal = true -}}
 {{-   $brewcasks = true -}}
+{{-   $headlessKnown = true -}}
 {{- else if eq $hostname "bptvl13" "irdis" "lafcadiotp" -}}
 {{-   $personal = true -}}
+{{-   $headlessKnown = true -}}
 {{- else if eq $hostname "rafael" -}}
 {{-   $personal = true -}}
 {{-   $headless = true -}}
+{{-   $headlessKnown = true -}}
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" -}}
-{{-   if not $headless -}}
+{{-   if and (not $headless) (not $headlessKnown) -}}
 {{-     $headless = promptBoolOnce . "headless" "headless" false -}}
 {{-   end -}}
 {{-   if hasKey .chezmoi.osRelease "id" -}}
