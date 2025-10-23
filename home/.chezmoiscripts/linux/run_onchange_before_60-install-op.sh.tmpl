@@ -4,6 +4,7 @@ set -eufo pipefail
 
 # https://support.1password.com/install-linux/#debian-or-ubuntu
 echo 'Installing 1Password...'
+set -x
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
     sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
 
