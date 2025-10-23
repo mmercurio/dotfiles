@@ -26,4 +26,4 @@ Consider moving https://github.com/romkatv/powerlevel10k
 
  macOS
 
- - [ ] Fix brewcasks so it defaults to false for non macOs
+ - [x] Fix brewcasks so it defaults to false for non macOs
