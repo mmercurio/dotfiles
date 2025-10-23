@@ -10,6 +10,10 @@ Linux desktop:
 - [x] UTC clock extension: https://extensions.gnome.org/extension/1183/utcclock/
 - [x] vim-gtk3 vs vim
 
+Linux/macOS:
+
+- [x] personal ssh config
+
 Future updates:
 - Nerd Fronts availabe as homebrew packages now
 

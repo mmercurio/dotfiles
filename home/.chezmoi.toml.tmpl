@@ -7,7 +7,8 @@
 #
 
 {{/* boolean feature tags */}}
-{{- $brewcasks := true -}}{{/* true to install brew casks on macOS */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $brewcasks := false -}}{{/* true to install brew casks on macOS */}}
 {{- $headless := false -}}{{/* true if this machine has no keyboard and screen */}}
 {{- $debian := false -}}{{/* true if this machine is Debian based Linux */}}
 
@@ -19,8 +20,26 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
+{{- if eq $hostname "Leon" "Anubis" -}}
+{{-   $personal = true -}}
+{{-   $brewcasks = true -}}
+{{- else if eq $hostname "bptvl13" "irdis" "lafcadiotp" -}}
+{{-   $personal = true -}}
+{{- else if eq $hostname "rafael" -}}
+{{-   $personal = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
 {{- if eq .chezmoi.os "linux" -}}
-{{-   $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-   if not $headless -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-   end -}}
 {{-   if hasKey .chezmoi.osRelease "id" -}}
 {{-     $debian = eq .chezmoi.osRelease.id "debian" "pop" "ubuntu" -}}
 {{-     if not $debian -}}
@@ -32,13 +51,21 @@
 {{- end -}}
 
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   $brewcasks = promptBool "Install brew casks" true -}}
+{{-   if not $brewcasks -}}
+{{-     $brewcasks = promptBoolOnce . "brewcasks" "Install brew casks" true -}}
+{{-   end -}}
+{{- end -}}
+
+{{- if not $personal -}}
+{{-   $personal = promptBoolOnce . "personal" "Personal secrets" false -}}
 {{- end -}}
 
 [data]
   name = {{ $name | quote }}
   email = {{ $email | quote }}
+  personal = {{ $personal }}
   brewcasks = {{ $brewcasks }}
   headless = {{ $headless }}
   osid = {{ $osid | quote }}
   debian = {{ $debian }}
+  hostname = {{ $hostname | quote }}

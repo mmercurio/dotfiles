@@ -1,0 +1,20 @@
+{{- if and .personal (eq .chezmoi.os "linux" "darwin") -}}
+#!/usr/bin/env bash
+#
+# On personal machines, setup defaults for:
+#    ~/.ssh/config
+#    ~/.ssh/authorized_keys
+#
+# if the files don't already exist.
+
+set -eufo pipefail
+umask 077
+
+if [[ ! -f ~/.ssh/authorized_keys ]]; then
+   cp ~/.ssh/github_keys ~/.ssh/authorized_keys
+fi
+
+if [[ ! -f ~/.ssh/config ]]; then
+    echo "Include ~/.ssh/default_config" > ~/.ssh/config
+fi
+{{- end }}
