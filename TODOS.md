@@ -3,6 +3,7 @@ Linux desktop:
 - [ ] configure GNOME tweaks
 - [ ] configure 1Password preferences (e.g hotkeys)
 - [ ] personal extras: sudo insults, edit
+- [ ] Pop! OS COSMIC Desktop (24.04 LTS)
 - [x] Pop Shell: dock does not extend to edge
 - [x] GNOME and Pop Shell configs
 - [x] GNOME keyboard shortcuts

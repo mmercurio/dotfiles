@@ -4,6 +4,7 @@
 set -eufo pipefail
 
 {{-   if eq .osid "linux-pop" }}
+{{-     if eq .chezmoi.osRelease.versionID "22.04" }}
 
 # Set favorite apps in dock
 gsettings set org.gnome.shell favorite-apps "[\
@@ -27,6 +28,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 
+{{-     end }}
 {{-   end }}
 
 gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 11'
