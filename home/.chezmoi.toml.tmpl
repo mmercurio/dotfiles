@@ -7,16 +7,69 @@
 #
 
 {{/* boolean feature tags */}}
-{{- $brewcasks := true -}}{{/* true to install brew casks on macOS */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $brewcasks := false -}}{{/* true to install brew casks on macOS */}}
+{{- $headless := false -}}{{/* true if this machine has no keyboard and screen */}}
+{{- $debian := false -}}{{/* true if this machine is Debian based Linux */}}
+{{- $headlessKnown := false -}}{{/* Keep track of whether we know this is headlss or not */}}
 
-{{ $email := promptString "Git email address" "mmercurio@users.noreply.github.com"}}
-{{ $name := "Michael Mercurio" }}
+{{- $name := "Michael Mercurio" }}
+{{- $email := promptStringOnce . "email" "Git email address" "mmercurio@users.noreply.github.com" }}
+
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
+{{- if eq $hostname "Leon" "Anubis" -}}
+{{-   $personal = true -}}
+{{-   $brewcasks = true -}}
+{{-   $headlessKnown = true -}}
+{{- else if eq $hostname "bptvl13" "irdis" "lafcadiotp" -}}
+{{-   $personal = true -}}
+{{-   $headlessKnown = true -}}
+{{- else if eq $hostname "rafael" -}}
+{{-   $personal = true -}}
+{{-   $headless = true -}}
+{{-   $headlessKnown = true -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if and (not $headless) (not $headlessKnown) -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" false -}}
+{{-   end -}}
+{{-   if hasKey .chezmoi.osRelease "id" -}}
+{{-     $debian = eq .chezmoi.osRelease.id "debian" "pop" "ubuntu" -}}
+{{-     if not $debian -}}
+{{-       if hasKey .chezmoi.osRelease "idLike" -}}
+{{-         $debian = contains "debian" .chezmoi.osRelease.idLike -}}
+{{-       end -}}
+{{-     end -}}
+{{-   end -}}
+{{- end -}}
 
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   $brewcasks = promptBool "Install brew casks" true -}}
+{{-   if not $brewcasks -}}
+{{-     $brewcasks = promptBoolOnce . "brewcasks" "Install brew casks" true -}}
+{{-   end -}}
+{{- end -}}
+
+{{- if not $personal -}}
+{{-   $personal = promptBoolOnce . "personal" "Personal secrets" false -}}
 {{- end -}}
 
 [data]
-  email = {{ $email | quote }}
   name = {{ $name | quote }}
+  email = {{ $email | quote }}
+  personal = {{ $personal }}
   brewcasks = {{ $brewcasks }}
+  headless = {{ $headless }}
+  osid = {{ $osid | quote }}
+  debian = {{ $debian }}
+  hostname = {{ $hostname | quote }}

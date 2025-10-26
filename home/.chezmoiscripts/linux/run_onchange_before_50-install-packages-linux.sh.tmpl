@@ -1,30 +1,40 @@
-{{ if (or (eq .chezmoi.osRelease.id "debian" "ubuntu") (eq .chezmoi.osRelease.idLike "debian" "ubuntu" "ubuntu debian")) -}}
+{{ if .debian -}}
 #!/usr/bin/env bash
 
 set -eufo pipefail
 
 packages=(
-	curl
-	dstat
-	git
-	gnupg2
-	httpie
-	iperf3
-	jq
-	keychain
-	libbz2-dev
-	liblzma-dev
-	libssl-dev
-	netcat-openbsd
-	net-tools
-	openssh-server
-	python3
-	python3-venv
-	ripgrep
-	tmux
-	htop
-	vim
-	zsh
+    bind9-dnsutils
+    curl
+    dstat
+    git
+    gnupg2
+    httpie
+    iperf3
+    jq
+    keychain
+    libbz2-dev
+    liblzma-dev
+    libssl-dev
+    netcat-openbsd
+    net-tools
+    openssh-server
+    python3
+    python3-venv
+    ripgrep
+    tmux
+    htop
+    zsh
+{{- if .headless }}
+    vim
+{{- else }}{{/* GUI apps */}}
+    vim-gtk3
+    gnome-tweaks
+    terminator
+{{-   if eq .osid "linux-pop" }}
+    google-chrome-stable
+{{-   end }}
+{{- end }}
 )
 
 echo 'Installing packages...'
