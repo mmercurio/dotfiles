@@ -5,7 +5,7 @@ const GH = {
 }
 
 export default {
-  defaultBrowser: "Browserosaurus", // "Safari"
+  defaultBrowser: "Browserino", // "Safari"
   handlers: [
     {
       match: [
