@@ -54,7 +54,6 @@ eval "$(/usr/local/bin/brew shellenv)"
      "flux"
      "finicky"
      "brave-browser"
-     "browserosaurus"
      "fantastical"
      "cardhop"
      "google-chrome"
@@ -79,3 +78,5 @@ cask "{{ . }}"
 {{   end }}
 {{ end -}}
 EOF
+
+brew install --cask AlexStrNik/Browserino/browserino
