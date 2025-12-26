@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -ex
+echo "flushing DNS cache..."
+sudo bash -c 'dscacheutil -flushcache; killall -HUP mDNSResponder'

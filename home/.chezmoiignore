@@ -15,6 +15,7 @@
 .git-completion.bash
 .iterm2*
 .1password
+bin/flushdns
 bin/ssh-wrapper
 Library
 {{- end }}
@@ -45,6 +46,7 @@ Documents
 .vimrc
 .zshrc
 .zprofile
+bin/loopy.sh
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
