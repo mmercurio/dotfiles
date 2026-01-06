@@ -145,6 +145,18 @@ export EDITOR=vim
 # https://unix.stackexchange.com/a/108840/449635
 export LESS_TERMCAP_md=$(tput bold; tput setaf 2)  # green for bold in less & man
 
+# Use bat for man if available
+# https://github.com/sharkdp/bat
+# Ubuntu/Debian rename bat to batcat
+if BATCOMMAND=`command -v bat` ; then
+    export BATCOMMAND
+    alias man=batman
+elif BATCOMMAND=`command -v batcat` ; then
+    export BATCOMMAND
+    alias bat=batcat
+    alias man=batman
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
