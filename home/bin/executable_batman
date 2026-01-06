@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# https://github.com/sharkdp/bat
+if [[ -n $BATCOMMAND ]]; then
+    MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | $BATCOMMAND -p -lman'" man $*
+else
+    man $*
+fi

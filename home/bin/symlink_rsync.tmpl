@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" }}
+{{-   if stat "/opt/homebrew/bin/rsync" }}
+/opt/homebrew/bin/rsync
+{{-   end }}
+{{- end }}

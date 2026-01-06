@@ -1,3 +1,7 @@
+macOS Apps:
+
+- [ ] [UTC Time](https://sindresorhus.com/utc-time)
+
 Linux desktop:
 
 - [ ] configure GNOME tweaks
