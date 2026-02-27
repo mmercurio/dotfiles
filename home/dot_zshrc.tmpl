@@ -177,18 +177,26 @@ alias lls='ls -lFhSr'
 alias llt='ls -lFhtr'
 alias cdc='clear; cd'
 alias ch=chezmoi
-alias gitlog='git --no-pager log -n20 --graph --decorate --pretty=oneline --abbrev-commit'
+# These git aliases rely on aliased git commands in ~/.gitconfig
+alias g=git
+alias gcob='git cob'
+alias gdc='git diff --cached'
+alias gitlog='git lo'
+alias glo=gitlog
+alias gloa='git loa'
 # use ripgrep to highlight text
 alias hl='rg --passthru'
 
 # worddiff using git diff: wd file1 file2
 alias wd='git diff -U0 --word-diff --word-diff-regex=. --no-index -- '
+alias dw=wd
 
 autoload -U zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
 
 alias chezmoicd="cd $(chezmoi source-path)"
+alias chcd=chezmoicd
 
 ### SSH aliases and functions
 #
