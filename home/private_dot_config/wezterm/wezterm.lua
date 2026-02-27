@@ -11,15 +11,15 @@ config.font_size = 14
 config.initial_cols = 100
 config.initial_rows = 28
 
--- config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.enable_tab_bar = false
+-- config.hide_tab_bar_if_only_one_tab = true
 
 -- window_decorations =
 --   "NONE" - disables titlebar and border (borderless mode),
 --   "TITLE" - disable the resizable border and enable only the title bar
 --   "RESIZE" - disable the title bar but enable the resizable border
 --   "TITLE | RESIZE" - Enable titlebar and border. This is the default.
-config.window_decorations = "TITLE | RESIZE"
+config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.95
 
@@ -28,6 +28,12 @@ config.color_scheme = 'AlienBlood'
 -- mouse_bindins: right click paste
 -- https://github.com/wez/wezterm/discussions/3541
 local act = wezterm.action
+
+config.keys = {
+  { key = 'd', mods = 'CMD', action = act.SplitHorizontal { domain =  'CurrentPaneDomain' } },
+  { key = 'd', mods = 'CMD|SHIFT', action = act.SplitVertical { domain =  'CurrentPaneDomain' } },
+  { key = 'w', mods = 'CMD', action = act.CloseCurrentPane { confirm = false } },
+}
 
 config.mouse_bindings = {
         {
