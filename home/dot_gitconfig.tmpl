@@ -28,7 +28,7 @@
 	lo = !git --no-pager l -n20
 	loa = lo --all
 	p = push
-	pf = push --force-with-lease
+	pf = push --force-with-lease --force-if-includes
 	ri = rebase --interactive
 	st = status -sb
 	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
