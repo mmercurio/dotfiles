@@ -2,6 +2,17 @@ macOS Apps:
 
 - [ ] [UTC Time](https://sindresorhus.com/utc-time)
 
+Linux Pop!_OS COSMIC:
+
+- [ ] Power Settings (disable autosuspend)
+- [ ] Panel settings, including widgets (date/time, disable unused, etc)
+- [ ] Dock settings, including auto-hide, favorite apps
+- [ ] Default apps - Terminal and WebBrowser
+- [ ] Desktop hotkeys (e.g. Terminal Hotkey for WezTerm, Minimize/Maximize)
+- [ ] UTC clock extension
+- [ ] some GTK3 settings
+- [ ] 1Password hotkey settings
+
 Linux desktop:
 
 - [ ] configure GNOME tweaks
