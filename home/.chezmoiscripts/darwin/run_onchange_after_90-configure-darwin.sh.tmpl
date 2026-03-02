@@ -104,6 +104,20 @@ dockutil --add /Applications/Brave\ Browser.app --no-restart
 dockutil --add /Applications/Google\ Chrome.app --no-restart
 dockutil --add '~/Downloads' --display folder --view fan --sort datemodified
 
+
+###############################################################################
+# AreoSpace: so Mission Control and Spaces play nicer with AeroSpace
+###############################################################################
+
+# Group windows by application so Mission Control works with AeroSpace
+# https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
+defaults write com.apple.dock expose-group-apps -bool true
+
+# Displays have separate Spaces for better multi-display support
+# https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
+
 ###############################################################################
 # Terminal                                                                    #
 ###############################################################################
