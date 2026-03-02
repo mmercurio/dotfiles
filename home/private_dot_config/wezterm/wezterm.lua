@@ -22,11 +22,20 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.95
+config.macos_window_background_blur = 20
 
 config.color_scheme = 'AlienBlood'
 
--- mouse_bindins: right click paste
--- https://github.com/wez/wezterm/discussions/3541
+-- Use the defaults as a base
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- make JIRA issues clickable
+-- the first matched regex group is captured in $1.
+table.insert(config.hyperlink_rules, {
+  regex = [[\b([A-Z]{3,5}-\d{3,5})\b]],
+  format = 'https://jira.grubhub.com/secure/QuickSearch.jspa?searchString=$1',
+})
+
 local act = wezterm.action
 
 config.keys = {
@@ -35,6 +44,8 @@ config.keys = {
   { key = 'w', mods = 'CMD', action = act.CloseCurrentPane { confirm = false } },
 }
 
+-- mouse_bindins: right click paste
+-- https://github.com/wez/wezterm/discussions/3541
 config.mouse_bindings = {
         {
                 event = { Down = { streak = 1, button = "Right" } },
