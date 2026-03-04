@@ -24,6 +24,10 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 "set expandtab
 
+" Needed for color scheems to work properly
+" on some terminals on macOS (e.g., WezTerm)
+set background=dark
+
 " Create highlight group for extra whitespace
 "   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
