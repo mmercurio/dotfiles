@@ -1,8 +1,11 @@
+set autoindent smartindent
+set cursorline cursorcolumn
 set number
-set ai
-set expandtab
-set cursorline
+"set numberwidth=5
 set ruler
+set incsearch
+set hlsearch
+
 " i = mouse reporting for insert mode
 " set mouse=i
 " a = mouse reporting for all modes
@@ -14,19 +17,21 @@ set mouse=a
 " https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
 set clipboard=autoselect,unnamed
 
-syntax enable
-
 filetype plugin indent on
+
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-"set expandtab
+set expandtab
+
+syntax enable
 
 " Needed for color scheems to work properly
 " on some terminals on macOS (e.g., WezTerm)
 set background=dark
+set termguicolors
 
 " Create highlight group for extra whitespace
 "   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
@@ -66,6 +71,6 @@ call plug#end()
 
 " Do NOT change background color:
 "    https://vi.stackexchange.com/a/18221
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 colorscheme ghdark
