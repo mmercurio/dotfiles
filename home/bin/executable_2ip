@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Usage: 2ip [hostname ...]
+#
+#  Extract IP addresses from AWS EC2-style hostnames such as:
+#
+#    ip-10-173-42-1
+#    ip-10-173-42-1.optional.domain
+#
+#  Output the IP address or original hostname if the IP address
+#  cannot be extracted. Hostnames are specified on the command
+#  line or read from stdin.
+
+host_pattern='^ip-[0-9]{1,3}-[0-9]{1,3}-[0-9]{1,3}-[0-9]{1,3}'
+
+# hosts2ip hostname [hostname ...]
+#   For each hostname, echo the IP address if the hostname is
+#   an EC2-style hostname such as ip-10-172-42-1.optional.domain.
+#   Otherwise just echo the original hostname.
+function hosts2ip() {
+    for host in "$@"; do
+        if [[ "$host" =~ $host_pattern ]]; then
+            echo "$host" | sed -e 's/^ip-//' -e 's/\..*$//' -e 's/-/./g'
+        else
+            echo "$host"
+        fi
+    done
+}
+
+if [[ $# -lt 1 ]]; then
+    # Read hostnames from stdin
+    while read -r -a hosts; do
+        hosts2ip "${hosts[@]}"
+    done
+else
+    hosts2ip "$@"
+fi
