@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: 2ip [hostname ...]
+# Usage: 2ip [host ...]
 #
 #  Extract IP addresses from AWS EC2-style hostnames such as:
 #
@@ -14,6 +14,8 @@
 
 host_pattern='^ip-([0-9]{1,3})-([0-9]{1,3})-([0-9]{1,3})-([0-9]{1,3})($|\.)'
 
+# Attempt to extract IP address from single hostname as the first arg.
+# IP address or original hostname is sent to stdout.
 function host2ip() {
     local host=$1
     if [[ "$host" =~ $host_pattern ]]; then
