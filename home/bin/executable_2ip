@@ -23,7 +23,9 @@ function host2ip() {
                 return
             fi
         done
-        echo "$host" | sed -e 's/^ip-//' -e 's/\..*$//' -e 's/-/./g'
+        host=${host/#ip-/}    # remove "ip-" prefix
+        host=${host/%\.*/}    # remove optional domain suffix
+        echo "${host//-/.}"   # transpose "-" to "."
     else
         echo "$host"
     fi
