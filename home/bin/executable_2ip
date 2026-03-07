@@ -17,15 +17,17 @@ host_pattern='^ip-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)'
 function host2ip() {
     local host=$1
     if [[ "$host" =~ $host_pattern ]]; then
+        local -a octets
         for octet in "${BASH_REMATCH[@]:1:4}"; do
+            octet=$((10#$octet))  # force base 10 to remove leading zeros if any
             if [[ octet -gt 255 ]]; then
                 echo "$host"
                 return
             fi
+            octets+=("${octet}")
         done
-        host=${host/#ip-/}    # remove "ip-" prefix
-        host=${host/%\.*/}    # remove optional domain suffix
-        echo "${host//-/.}"   # transpose "-" to "."
+        local IFS=.
+        echo "${octets[*]}" # each octet separated by "." (IFS)
     else
         echo "$host"
     fi
