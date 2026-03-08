@@ -13,7 +13,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget open -a WezTerm.app',
+     #'exec-and-forget open -na WezTerm.app',
      # https://github.com/FelixKratz/JankyBorders
      # NB: use of borders to highlight the active window is likely not needed when using
      #     on-focus-changed callback with 'move-mouse window-lazy-center' because the
@@ -97,7 +97,11 @@ outer.right =      8
 #   'wezterm cli spawn' only works if WezTerm app is already running.
 #   This ensure WezTerm is running and then creates a new window.
 #   If WezTerm is already running, the already running instance is used.
-alt-enter = 'exec-and-forget open -a WezTerm && wezterm cli spawn --new-window'
+#alt-enter = 'exec-and-forget open -a WezTerm && wezterm cli spawn --new-window'
+#
+# This appears to work as desired: new window is always opened and focused
+# and existing instance of WezTerm is used if already running.
+alt-enter = 'exec-and-forget open -na WezTerm'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
