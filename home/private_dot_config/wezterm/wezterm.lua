@@ -72,7 +72,7 @@ local passrelay_settings = {
     label_path = "title"
   },
   get_password = "~/bin/op item get %user --fields password --reveal",
-  hotkey = { mods = 'CTRL', key = 'p' },
+  hotkey = { mods = 'SUPER', key = 'p' },
 }
 wezterm.plugin.require("https://github.com/dfaerch/passrelay.wezterm").apply_to_config(config, passrelay_settings)
 
