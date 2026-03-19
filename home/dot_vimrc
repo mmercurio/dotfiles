@@ -3,8 +3,15 @@ set cursorline cursorcolumn
 set number
 "set numberwidth=5
 set ruler
+
 set incsearch
-set hlsearch
+
+"" highlight all matches only while searching
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter /,\? :set hlsearch
+  autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
 
 " i = mouse reporting for insert mode
 " set mouse=i
