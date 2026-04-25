@@ -6,7 +6,7 @@ set ruler
 
 set incsearch
 
-"" highlight all matches only while searching
+" highlight all matches only while searching
 augroup vimrc-incsearch-highlight
   autocmd!
   autocmd CmdlineEnter /,\? :set hlsearch
