@@ -60,7 +60,7 @@ function! TrimWhitespace()
 endfunction
 command! TrimWhitespace call TrimWhitespace()
 nnoremap <F5> :call TrimWhitespace()<CR>
-noremap <Leader>w :call TrimWhitespace()<CR>
+nnoremap <Leader>w :call TrimWhitespace()<CR>
 
 " Switch off using :match
 
