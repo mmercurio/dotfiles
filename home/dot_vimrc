@@ -1,8 +1,18 @@
+set autoindent smartindent
+set cursorline cursorcolumn
 set number
-set ai
-set expandtab
-set cursorline
+"set numberwidth=5
 set ruler
+
+set incsearch
+
+" highlight all matches only while searching
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter /,\? :set hlsearch
+  autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+
 " i = mouse reporting for insert mode
 " set mouse=i
 " a = mouse reporting for all modes
@@ -14,19 +24,21 @@ set mouse=a
 " https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
 set clipboard=autoselect,unnamed
 
-syntax enable
-
 filetype plugin indent on
+
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-"set expandtab
+set expandtab
+
+syntax enable
 
 " Needed for color scheems to work properly
 " on some terminals on macOS (e.g., WezTerm)
 set background=dark
+set termguicolors
 
 " Create highlight group for extra whitespace
 "   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
@@ -37,6 +49,18 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\s\+$/
 " Show trailing whitespace, except when typing at the end of a line:
 match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Quickly remove trailing whitespace
+" https://vim.fandom.com/wiki/Remove_unwanted_spaces
+" https://vi.stackexchange.com/a/2285/35205
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+command! TrimWhitespace call TrimWhitespace()
+nnoremap <F5> :call TrimWhitespace()<CR>
+nnoremap <Leader>w :call TrimWhitespace()<CR>
 
 " Switch off using :match
 
@@ -64,8 +88,9 @@ Plug 'wojciechkepka/vim-github-dark'
 " Initialize plugin system
 call plug#end()
 
-" Do NOT change background color:
+" Optional workaround to keep the colorscheme from setting a background:
 "    https://vi.stackexchange.com/a/18221
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+" Disabled by default to preserve the colorscheme's current behavior:
+" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 colorscheme ghdark
