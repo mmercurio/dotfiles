@@ -88,8 +88,9 @@ Plug 'wojciechkepka/vim-github-dark'
 " Initialize plugin system
 call plug#end()
 
-" Do NOT change background color:
+" Optional workaround to keep the colorscheme from setting a background:
 "    https://vi.stackexchange.com/a/18221
+" Disabled by default to preserve the colorscheme's current behavior:
 " autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 colorscheme ghdark
