@@ -53,7 +53,7 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " Quickly remove trailing whitespace
 " https://vim.fandom.com/wiki/Remove_unwanted_spaces
 " https://vi.stackexchange.com/a/2285/35205
-function TrimWhitespace()
+function! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
