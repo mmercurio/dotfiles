@@ -36,7 +36,7 @@ config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- the first matched regex group is captured in $1.
 table.insert(config.hyperlink_rules, {
   regex = [[\b([A-Z]{3,5}-\d{3,5})\b]],
-  format = 'https://jira.grubhub.com/secure/QuickSearch.jspa?searchString=$1',
+  format = 'https://grubhub.atlassian.net/secure/QuickSearch.jspa?searchString=$1',
 })
 
 local act = wezterm.action
