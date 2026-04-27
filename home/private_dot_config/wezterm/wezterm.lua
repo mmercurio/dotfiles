@@ -6,13 +6,13 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.font = wezterm.font("MesloLGS NF")
+config.font = wezterm.font_with_fallback { 'MesloLGS NF', 'JetBrains Mono' }
 config.font_size = 14
 config.initial_cols = 100
 config.initial_rows = 28
 
-config.enable_tab_bar = false
--- config.hide_tab_bar_if_only_one_tab = true
+-- config.enable_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 -- window_decorations =
 --   "NONE" - disables titlebar and border (borderless mode),
@@ -21,10 +21,13 @@ config.enable_tab_bar = false
 --   "TITLE | RESIZE" - Enable titlebar and border. This is the default.
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 20
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 10
 
 config.color_scheme = 'AlienBlood'
+-- config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
+-- config.color_scheme = 'Mono Amber (Gogh)'
+-- config.color_scheme = 'Mono Yellow (Gogh)'
 
 -- Use the defaults as a base
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
@@ -72,7 +75,7 @@ local passrelay_settings = {
     label_path = "title"
   },
   get_password = "~/bin/op item get %user --fields password --reveal",
-  hotkey = { mods = 'SUPER', key = 'p' },
+  hotkey = { mods = 'ALT|CTRL', key = 'p' },
 }
 wezterm.plugin.require("https://github.com/dfaerch/passrelay.wezterm").apply_to_config(config, passrelay_settings)
 
