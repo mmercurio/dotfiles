@@ -52,6 +52,11 @@ key-mapping.preset = 'qwerty'
 #on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
+# https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
+# Need to add $HOME/bin and homebrew dirs
+[exec.env-vars]
+    PATH = '${HOME}/bin:/opt/homebrew/bin:/usr/local/bin:${PATH}'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -198,6 +203,9 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+# display keybindings dialog
+alt-shift-slash = 'exec-and-forget aerospace_keybindings.sh'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
@@ -226,6 +234,7 @@ backspace = ['close-all-windows-but-current', 'mode main']
 #    Note, if 'main mode' is not included at end, then the mode stays
 #    in service mode.
 z = ['fullscreen', 'mode main']
+slash = ['exec-and-forget aerospace_keybindings.sh', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
