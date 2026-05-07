@@ -271,7 +271,8 @@ function unlock () {
 
 {{ end -}}
 # Load additional dev environment
-[[ -z $DEVENV ]] || source $DEVENV
+export DEVENV_REPOS=~/GrubhubProd
+[[ -z "$DEVENV" ]] || source "$DEVENV"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 if [[ "$ZSH_THEME" =~ "powerlevel" ]]; then
