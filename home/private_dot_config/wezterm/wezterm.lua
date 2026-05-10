@@ -47,7 +47,7 @@ config.keys = {
   { key = 'w', mods = 'CMD', action = act.CloseCurrentPane { confirm = false } },
 }
 
--- mouse_bindins: right click paste
+-- mouse_bindings: right click paste
 -- https://github.com/wez/wezterm/discussions/3541
 config.mouse_bindings = {
         {
