@@ -25,7 +25,6 @@ Library
 .config/gtk-3.0
 .config/pop-shell
 .config/terminator
-.config/wezterm
 .local/share/fonts
 {{- end }}
 
