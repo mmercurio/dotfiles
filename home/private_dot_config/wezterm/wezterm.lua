@@ -33,6 +33,7 @@ config.color_scheme = 'AlienBlood'
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 -- make JIRA issues clickable
+-- Only matching very specific patterns; not every valid Jira issue key.
 -- the first matched regex group is captured in $1.
 table.insert(config.hyperlink_rules, {
   regex = [[\b([A-Z]{3,5}-\d{3,5})\b]],
@@ -50,19 +51,19 @@ config.keys = {
 -- mouse_bindings: right click paste
 -- https://github.com/wez/wezterm/discussions/3541
 config.mouse_bindings = {
-        {
-                event = { Down = { streak = 1, button = "Right" } },
-                mods = "NONE",
-                action = wezterm.action_callback(function(window, pane)
-                        local has_selection = window:get_selection_text_for_pane(pane) ~= ""
-                        if has_selection then
-                                window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
-                                window:perform_action(act.ClearSelection, pane)
-                        else
-                                window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
-                        end
-                end),
-        },
+  {
+    event = { Down = { streak = 1, button = "Right" } },
+    mods = "NONE",
+    action = wezterm.action_callback(function(window, pane)
+      local has_selection = window:get_selection_text_for_pane(pane) ~= ""
+      if has_selection then
+        window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
+        window:perform_action(act.ClearSelection, pane)
+      else
+        window:perform_action(act({ PasteFrom = "Clipboard" }), pane)
+      end
+    end),
+  },
 }
 
 -- https://github.com/dfaerch/passrelay.wezterm
