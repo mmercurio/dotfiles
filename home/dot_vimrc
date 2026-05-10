@@ -1,5 +1,6 @@
-set autoindent smartindent
+set autoindent  smartindent
 set cursorline cursorcolumn
+" set colorcolumn=76,120
 set number
 "set numberwidth=5
 set ruler
