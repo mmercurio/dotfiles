@@ -13,12 +13,17 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-     #'exec-and-forget open -na WezTerm.app',
-     # https://github.com/FelixKratz/JankyBorders
-     # NB: use of borders to highlight the active window is likely not needed when using
-     #     on-focus-changed callback with 'move-mouse window-lazy-center' because the
-     #     visual cue of the mouse moving is enough to identify the active window.
-    'exec-and-forget borders active_color=0xff348eb6 width=5'
+    # https://github.com/FelixKratz/JankyBorders
+    # NB: use of borders to highlight the active window is less needed when using
+    #     on-focus-changed callback with 'move-mouse window-lazy-center' because the
+    #     visual cue of the mouse moving is enough to identify the active window.
+    #
+    # TODO: on large 5K 27" display border width 8 makes sense, but on smaller
+    #       laptop displays, border 5 and less padding is better. May need to
+    #       make these adjustable.
+    #'exec-and-forget borders active_color=0xff348eb6 width=5'
+    #'exec-and-forget borders active_color=0xff01fe84 width=8'  # bright green cursor color
+    'exec-and-forget borders active_color=0xff8099e7 width=8'  # bright indigo - sometimes difficult to see against ligher backgrounds
 ]
 
 # Start AeroSpace at login
