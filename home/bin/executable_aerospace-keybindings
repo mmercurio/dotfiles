@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: aerospace-keybindings [ MODE ...]
+# Usage: aerospace-keybindings [MODE ...]
 #
 # Display swiftDialog with AeroSpace key bindings for the specified
 # modes or all modes if none specified.
