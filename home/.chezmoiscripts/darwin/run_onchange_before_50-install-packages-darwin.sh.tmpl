@@ -66,8 +66,11 @@ eval "$(/usr/local/bin/brew shellenv)"
      "1password-cli"
      "signal"
      "slack"
+     "swiftdialog"
      "visual-studio-code"
-     "wezterm" -}}
+     "wezterm"
+     "nikitabobko/tap/aerospace"
+-}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
 {{   $brews = concat $brews (list
