@@ -209,7 +209,7 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # display keybindings dialog
-alt-shift-slash = 'exec-and-forget aerospace_keybindings.sh'
+alt-shift-slash = 'exec-and-forget aerospace_keybindings'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -239,7 +239,7 @@ backspace = ['close-all-windows-but-current', 'mode main']
 #    Note, if 'main mode' is not included at end, then the mode stays
 #    in service mode.
 z = ['fullscreen', 'mode main']
-slash = ['exec-and-forget aerospace_keybindings.sh', 'mode main']
+slash = ['exec-and-forget aerospace_keybindings', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
