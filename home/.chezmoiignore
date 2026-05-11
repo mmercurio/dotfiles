@@ -18,7 +18,7 @@
 .1password
 bin/flushdns
 bin/ssh-wrapper
-bin/aerospace_keybindings
+bin/aerospace-keybindings
 Library
 {{- end }}
 

@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 #
-# Usage: aerospace_keybindings [ MODE ...]
+# Usage: aerospace-keybindings [ MODE ...]
 #
-# Display switftdialog with AeroSpace key bindings for the specified
+# Display swiftDialog with AeroSpace key bindings for the specified
 # modes or all modes if none specified.
 #
 # Examples:
 #
-# aerospace_keybindings service
+# aerospace-keybindings service
 #    Display key bindings for service mode.
 #
-# aerospace_keybindings main service
+# aerospace-keybindings main service
 #    Display key bindings for main and service modes.
 #
-# aerospace_keybindings
+# aerospace-keybindings
 #    Display key bindings for all modes.
 #
 # AeroSpace key bindings are displayed using https://swiftdialog.app
