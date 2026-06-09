@@ -1,18 +1,36 @@
-set autoindent  smartindent
-set cursorline cursorcolumn
-" set colorcolumn=76,120
+" --- from "mastering VIM"
+filetype plugin indent on " Enable file type based options.
+set nocompatible          " Don't run in backwards compatible mode.
+                          "  - This is the default in all recent versions of
+                          "    VIM. Unnecessary?
+set autoindent            " Respect indentation when starting new line.
+set expandtab             " Expand tabs to spaces. Essential in Python.
+set tabstop=4             " Number of spaces tab is counted for.
+set shiftwidth=4          " Number of spaces to use for autoindent.
+set backspace=2           " Fix backspace behavior on most terminals.
+
+" --- from "mastering VIM"
+
+
+let mapleader = " "
+set autoindent
+set smartindent
+set cursorline
+set cursorcolumn
+" colorcolumns
+let g:color_cols = "76,120"
+" toggle colorcolumn on/off with <leader>cc
+"" nnoremap <silent> <F5> :let &colorcolumn = (&colorcolumn ==# g:color_cols) ? '' : g:color_cols<CR>
+nnoremap <silent> <leader>cc :let &colorcolumn = (&colorcolumn ==# g:color_cols) ? '' : g:color_cols<CR>
+
 set number
 "set numberwidth=5
 set ruler
 
 set incsearch
-
-" highlight all matches only while searching
-augroup vimrc-incsearch-highlight
-  autocmd!
-  autocmd CmdlineEnter /,\? :set hlsearch
-  autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
+set hlsearch
+" clear search highlights
+nnoremap <leader>nh :nohl<CR>
 
 " i = mouse reporting for insert mode
 " set mouse=i
@@ -95,3 +113,35 @@ call plug#end()
 " autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 colorscheme ghdark
+
+highlight ColorColumn ctermbg=238 guibg=#444444
+
+" quickly exit insert mode with jk
+imap jk <ESC>
+
+" navigate panes with Ctrl + hjkl
+" using autocmd because something is overwriting these
+" mappings in new buffers. No clue why.
+augroup WindowNavigation
+    autocmd!
+    autocmd BufWinEnter * nnoremap <C-h> <C-w><C-h>
+    autocmd BufWinEnter * nnoremap <C-j> <C-w><C-j>
+    autocmd BufWinEnter * nnoremap <C-k> <C-w><C-k>
+    autocmd BufWinEnter * nnoremap <C-l> <C-w><C-l>
+augroup END
+
+set splitbelow
+set splitright
+
+" split virtcally and horizontally
+nnoremap <leader>sv :vsplit
+nnoremap <leader>sh :split
+nnoremap <leader>se <C-w>=
+nnoremap <leader>sx :close<CR>
+
+" tabs
+nnoremap <leader>to :tabnew<CR>
+nnoremap <leader>tx :tabclose<CR>
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
+nnoremap <leader>tf :tabnew %<CR>
