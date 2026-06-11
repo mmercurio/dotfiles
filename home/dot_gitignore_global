@@ -1,5 +1,7 @@
 .vscode
-*.DS_Store
+**/.DS_Store
 
 # Thumbnails
 ._*
+
+**/.claude/settings.local.json
