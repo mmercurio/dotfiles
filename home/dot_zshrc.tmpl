@@ -200,6 +200,14 @@ alias zln='zmv -L'
 alias chezmoicd="cd $(chezmoi source-path)"
 alias chcd=chezmoicd
 
+# Checking for GNU sed
+if GNU_SED=$(whence gsed) ; then
+    export GNU_SED
+    alias sed="$GNU_SED"
+elif sed --version 2>&1 | grep -q 'GNU sed' ; then
+    export GNU_SED=$(whence sed)
+fi
+
 ### SSH aliases and functions
 #
 # These are used because ~/.ssh/config disables password auth by default.
