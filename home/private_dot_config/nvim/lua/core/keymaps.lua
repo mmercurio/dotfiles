@@ -1,6 +1,7 @@
 vim.opt.autoindent = true
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+-- cursorcolumn not needed with indent-blankline plugin
+-- vim.opt.cursorcolumn = true
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
