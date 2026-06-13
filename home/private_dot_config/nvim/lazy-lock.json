@@ -1,4 +1,5 @@
 {
+  "catppuccin": { "branch": "main", "commit": "0303a7208dba448c459767486a38a6ec05c4216b" },
   "comment.nvim": { "branch": "fix/patch-treesitter", "commit": "f527e8701e33814d03d51a536de9fa77d8d62ce2" },
   "indent-blankline.nvim": { "branch": "master", "commit": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
