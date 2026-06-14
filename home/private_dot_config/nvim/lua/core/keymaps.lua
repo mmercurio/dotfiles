@@ -5,6 +5,8 @@ vim.opt.cursorline = true
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
+-- default indentation is 4 spaces
+--    filetype specific under ./ftplugin/<filetype>
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
