@@ -16,7 +16,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls" },
+      ensure_installed = { "lua_ls", "ts_ls" },
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -26,6 +26,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = false,
+    vim.lsp.config("ts_ls", {}),
+    vim.lsp.enable("ts_ls", {}),
+
     vim.lsp.config("lua_ls", {}),
     vim.lsp.enable({"lua_ls"}),
 
