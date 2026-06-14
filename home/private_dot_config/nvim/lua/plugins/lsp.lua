@@ -7,10 +7,10 @@ return {
         icons = {
           package_installed = "✓",
           package_pending = "➜",
-          package_uninstalled = "✗"
-        }
-      }
-    }
+          package_uninstalled = "✗",
+        },
+      },
+    },
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -30,24 +30,23 @@ return {
     vim.lsp.enable("ts_ls", {}),
 
     vim.lsp.config("lua_ls", {}),
-    vim.lsp.enable({"lua_ls"}),
+    vim.lsp.enable({ "lua_ls" }),
 
     vim.lsp.config("pyright", {}),
-    vim.lsp.enable({"pyright"}),
+    vim.lsp.enable({ "pyright" }),
 
     -- Toggle diagnostic virtual text
     -- vim.diagnostic.config({ virtual_text = true }),
-    vim.keymap.set('n', '<leader>lt', function()
+    vim.keymap.set("n", "<leader>lt", function()
       local config = vim.diagnostic.config() or {}
       local toggle_virtual_text = not config.virtual_text
       vim.diagnostic.config({ virtual_text = toggle_virtual_text })
-    end, { desc = 'Toggle LSP virtual text' }),
+    end, { desc = "Toggle LSP virtual text" }),
 
     vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show LSP diagnostics under cursor" }),
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" }),
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" }),
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "List implementations" }),
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" }),
-
-      }
-    }
+  },
+}
