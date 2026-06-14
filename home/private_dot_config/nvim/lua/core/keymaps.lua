@@ -46,7 +46,7 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 -- Remove trailing whitespace
 --    https://vim.fandom.com/wiki/Remove_unwanted_spaces
 --    https://vi.stackexchange.com/a/2285/35205
---` Original vimscript:` 
+--` Original vimscript:`
 -- local function TrimWhitespace()
 --   local save_view = vim.fn.winsaveview()
 --   vim.cmd([[keeppatterns %s/\s\+$//e]])
@@ -81,3 +81,13 @@ end
 
 vim.keymap.set("n", "<leader>w", TrimWhitespace, { desc = "Trim trailing whitespace" })
 
+
+-- Highlight trailing whitespace, migrated from .vimrc:
+--   Show trailing whitespace, except when typing at the end of a line.
+--   Create highlight group for extra whitespace.
+--   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+vim.cmd([[
+  match ExtraWhitespace /\s\+\%#\@<!$/
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+]])

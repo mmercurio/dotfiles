@@ -32,7 +32,7 @@ return {
     vim.lsp.config("pyright", {}),
     vim.lsp.enable({"pyright"}),
 
-    -- Toggle diagnostic virtual text 
+    -- Toggle diagnostic virtual text
     -- vim.diagnostic.config({ virtual_text = true }),
     vim.keymap.set('n', '<leader>lt', function()
       local config = vim.diagnostic.config() or {}
