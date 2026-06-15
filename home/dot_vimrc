@@ -12,6 +12,12 @@ set backspace=2           " Fix backspace behavior on most terminals.
 
 " --- from "mastering VIM"
 
+" -- Python indentation for open/close parens/braces
+let g:python_indent = {}
+let g:python_indent.open_paren = 'shiftwidth()'
+let g:python_indent.nested_paren = 'shiftwidth()'
+let g:python_indent.continue = 'shiftwidth()'
+let g:python_indent.closed_paren_align_last_line = v:false
 
 let mapleader = " "
 set autoindent
