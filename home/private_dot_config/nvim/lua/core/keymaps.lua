@@ -26,6 +26,14 @@ vim.opt.clipboard:append("unnamedplus")
 vim.o.list = true
 vim.o.listchars = 'tab:» ,trail:•,nbsp:␣'
 
+-- Python placement of open/close parens/braces
+vim.g.python_indent = {
+  open_paren = 'shiftwidth()',              -- Indent content by 1 level
+  nested_paren = 'shiftwidth()',            -- Indent nested lines by 1 level
+  continue = 'shiftwidth()',                -- Indent continuation lines by 1 level
+  closed_paren_align_last_line = false      -- Align closing brace with the START of the line (conf)
+}
+
 --
 -- keymaps
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
