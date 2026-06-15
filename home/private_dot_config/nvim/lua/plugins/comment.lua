@@ -1,6 +1,6 @@
 return {
   -- "numToStr/Comment.nvim",
-  --    patched for nvim 0.12 until PR is merged: 
+  --    patched for nvim 0.12 until PR is merged:
   --    https://github.com/numToStr/Comment.nvim/pull/521
   "neovim-plugins/comment.nvim",
   branch = "fix/patch-treesitter",
