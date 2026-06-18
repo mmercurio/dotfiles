@@ -36,7 +36,7 @@ if [ "$PS1" ]; then
 
     # If this is an xterm set the title to user@host:dir
     case $TERM in
-    xterm*)
+    xterm*|tmux*)
 #          PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 	PS1='\[\033]0;\h: \w\007
 \033[32m\]\u@\h \[\033[33m\w\033[0m\] $(__git_ps1 "(%s)")
