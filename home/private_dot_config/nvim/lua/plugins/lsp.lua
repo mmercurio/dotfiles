@@ -27,15 +27,35 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      vim.lsp.config("ts_ls", { capabilities = capabilities })
-      vim.lsp.config("lua_ls", { capabilities = capabilities })
-      vim.lsp.config("pyright", { capabilities = capabilities })
+      vim.lsp.config("ts_ls", {})
+      vim.lsp.config("lua_ls", {})
+      vim.lsp.config("pyright", {})
+      vim.lsp.config("codebook", {
+        filetypes = {
+          "c",
+          "css",
+          "gitcommit",
+          "html",
+          "java",
+          "javascript",
+          "lua",
+          "markdown",
+          "python",
+          "ruby",
+          "rust",
+          "toml",
+          "text",
+          "sh",
+          "typescript",
+          "yaml",
+        },
+      })
 
       vim.lsp.enable("ts_ls", {})
       vim.lsp.enable({ "pyright" })
       vim.lsp.enable({ "lua_ls" })
+      vim.lsp.enable("bashls")
+      vim.lsp.enable("codebook")
 
       -- Toggle diagnostic virtual text
       -- vim.diagnostic.config({ virtual_text = true })
