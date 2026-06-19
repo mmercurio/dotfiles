@@ -143,6 +143,7 @@ export LSCOLORS=ExFxCxDxBxegedabagaced
 export LANG=en_US.UTF-8
 
 export EDITOR=vim
+
 # https://unix.stackexchange.com/a/108840/449635
 export LESS_TERMCAP_md=$(tput bold; tput setaf 2)  # green for bold in less & man
 export LESS="$LESS -i"
@@ -179,6 +180,13 @@ alias lls='ls -lFhSr'
 alias llt='ls -lFhtr'
 alias cdc='clear; cd'
 alias ch=chezmoi
+alias cha='chezmoi add'
+alias che='chezmoi edit'
+alias chezmoicd="cd $(chezmoi source-path)"
+alias chcd=chezmoicd
+alias chd='chezmoi diff -r'
+alias chs='chezmoi status -r'
+
 # These git aliases rely on aliased git commands in ~/.gitconfig
 alias g=git
 alias gcob='git cob'
@@ -196,9 +204,6 @@ alias dw=wd
 autoload -U zmv
 alias zcp='zmv -C'
 alias zln='zmv -L'
-
-alias chezmoicd="cd $(chezmoi source-path)"
-alias chcd=chezmoicd
 
 # Checking for GNU sed
 if GNU_SED=$(whence gsed) ; then
