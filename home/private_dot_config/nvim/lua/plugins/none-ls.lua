@@ -5,6 +5,7 @@ return {
   -- e.g., for Python, we could use isort and black here.
   config = function()
     local null_ls = require("null-ls")
+
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua, -- stylua config is stylua.toml
