@@ -66,6 +66,9 @@ syntax enable
 set background=dark
 set termguicolors
 
+" treat .sh.txt like .sh
+autocmd BufRead,BufNewFile *.sh.txt setlocal filetype=sh
+
 " Create highlight group for extra whitespace
 "   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
