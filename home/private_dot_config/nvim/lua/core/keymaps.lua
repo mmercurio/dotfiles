@@ -1,7 +1,7 @@
 vim.opt.autoindent = true
 vim.opt.cursorline = true
--- cursorcolumn not needed with indent-blankline plugin
--- vim.opt.cursorcolumn = true
+-- cursorcolumn maybe? not needed with indent-blankline plugin
+vim.opt.cursorcolumn = true
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
@@ -20,6 +20,8 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
+vim.o.winborder = 'rounded'
+
 vim.opt.clipboard:append("unnamedplus")
 
 -- allows trailing whitespace to be visible
@@ -33,6 +35,13 @@ vim.g.python_indent = {
   continue = 'shiftwidth()',                -- Indent continuation lines by 1 level
   closed_paren_align_last_line = false      -- Align closing brace with the START of the line (conf)
 }
+
+-- treat *.sh.txt like *.sh
+vim.filetype.add({
+  pattern = {
+    [".*%.sh%.txt"] = "sh",
+  }
+})
 
 --
 -- keymaps
