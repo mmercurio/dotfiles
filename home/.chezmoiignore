@@ -34,7 +34,6 @@ Library
 .chezmoiscripts/windows/**
 Documents
 {{- else }}
-.asdf
 .nvm
 .rvm
 .oh-my-zsh
