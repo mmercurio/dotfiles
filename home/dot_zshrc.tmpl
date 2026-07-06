@@ -251,9 +251,6 @@ function preexec {
 # Load 1Password SSH environment
 [[ ! -f ~/.ssh/env_1password ]] || source ~/.ssh/env_1password
 
-# Load asdf version manager
-[[ ! -f ~/.asdf/asdf.sh ]] || source ~/.asdf/asdf.sh
-
 {{- if eq .chezmoi.os "darwin" }}
 
 alias manp=man-preview

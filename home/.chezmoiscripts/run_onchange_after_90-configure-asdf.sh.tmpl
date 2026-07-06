@@ -5,9 +5,12 @@
 
 set -eufo pipefail
 
-source "$HOME/.asdf/asdf.sh"
+if ! command -v asdf >/dev/null ; then
+    echo "$0: WARNING: asdf not found" >&2
+    exit
+fi
 
-asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
 asdf install kubectl latest
 
 {{ end -}}
