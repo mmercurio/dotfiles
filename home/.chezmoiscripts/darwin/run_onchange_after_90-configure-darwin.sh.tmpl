@@ -28,6 +28,9 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 # Set the Trackpod to enable three-finger drag
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
+# Turn off extra animations when switching windows
+defaults write com.apple.universalaccess reduceMotion -bool true
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -99,7 +102,6 @@ defaults write com.apple.dock autohide -bool true
 dockutil --remove all --no-restart
 dockutil --add /System/Applications/Apps.app --no-restart
 dockutil --add /Applications/WezTerm.app --no-restart
-dockutil --add /Applications/iTerm.app --no-restart
 dockutil --add /Applications/Safari.app --no-restart
 dockutil --add /Applications/Brave\ Browser.app --no-restart
 dockutil --add /Applications/Google\ Chrome.app --no-restart
