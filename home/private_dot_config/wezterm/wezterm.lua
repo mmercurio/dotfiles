@@ -21,9 +21,6 @@ config.hide_tab_bar_if_only_one_tab = true
 --   "TITLE | RESIZE" - Enable titlebar and border. This is the default.
 config.window_decorations = "RESIZE"
 
-config.window_background_opacity = 0.90
-config.macos_window_background_blur = 10
-
 config.color_scheme = 'AlienBlood'
 -- config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
 -- config.color_scheme = 'Mono Amber (Gogh)'
