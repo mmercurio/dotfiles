@@ -22,7 +22,9 @@ vim.opt.background = "dark"
 
 vim.o.winborder = 'rounded'
 
-vim.opt.clipboard:append("unnamedplus")
+-- Keep separate from system clipboard
+-- See keymapping below to use <leader>y and <leader>p
+-- vim.opt.clipboard:append("unnamedplus")
 
 -- allows trailing whitespace to be visible
 vim.o.list = true
@@ -45,9 +47,15 @@ vim.filetype.add({
 
 --
 -- keymaps
+vim.g.mapleader = " "
+
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-vim.g.mapleader = " "
+vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+
+vim.keymap.set("n", "<leader>y", "", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })

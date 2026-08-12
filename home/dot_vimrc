@@ -48,7 +48,15 @@ set mouse=a
 " yank is using * (system clipboard)
 " works well on macOS
 " https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
-set clipboard=autoselect,unnamed
+"" set clipboard=autoselect,unnamed
+" map leader y to yank to system clipboard: "+y
+" map leader Y to yank line to system clipboard: "+Y
+" map loader p to paste from system clipboard "+p
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 
 filetype plugin indent on
 
