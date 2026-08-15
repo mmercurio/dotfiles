@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.font = wezterm.font_with_fallback { 'MesloLGS NF', 'JetBrains Mono' }
+config.font = wezterm.font_with_fallback { "MesloLGS NF", "JetBrains Mono" }
 config.font_size = 14
 config.initial_cols = 100
 config.initial_rows = 28
@@ -21,7 +21,7 @@ config.hide_tab_bar_if_only_one_tab = true
 --   "TITLE | RESIZE" - Enable titlebar and border. This is the default.
 config.window_decorations = "RESIZE"
 
-config.color_scheme = 'AlienBlood'
+config.color_scheme = "AlienBlood"
 -- config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
 -- config.color_scheme = 'Mono Amber (Gogh)'
 -- config.color_scheme = 'Mono Yellow (Gogh)'
@@ -34,15 +34,15 @@ config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- the first matched regex group is captured in $1.
 table.insert(config.hyperlink_rules, {
   regex = [[\b([A-Z]{3,5}-\d{3,5})\b]],
-  format = 'https://grubhub.atlassian.net/secure/QuickSearch.jspa?searchString=$1',
+  format = "https://grubhub.atlassian.net/secure/QuickSearch.jspa?searchString=$1",
 })
 
 local act = wezterm.action
 
 config.keys = {
-  { key = 'd', mods = 'CMD', action = act.SplitHorizontal { domain =  'CurrentPaneDomain' } },
-  { key = 'd', mods = 'CMD|SHIFT', action = act.SplitVertical { domain =  'CurrentPaneDomain' } },
-  { key = 'w', mods = 'CMD', action = act.CloseCurrentPane { confirm = false } },
+  { key = "d", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  { key = "d", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  { key = "w", mods = "CMD", action = act.CloseCurrentPane({ confirm = false }) },
 }
 
 -- mouse_bindings: right click paste
@@ -64,17 +64,57 @@ config.mouse_bindings = {
 }
 
 -- https://github.com/dfaerch/passrelay.wezterm
--- https://github.com/dfaerch/passrelay.wezterm/blob/v1/integrations/1password_desktop.md
-local passrelay_settings = {
-  get_userlist = {
-    format='json',
-    command = "~/bin/op item list --tags wezterm --format=json",
-    id_path = "id",
-    label_path = "title"
-  },
-  get_password = "~/bin/op item get %user --fields password --reveal",
-  hotkey = { mods = 'ALT|CTRL', key = 'p' },
-}
+-- https://github.com/dfaerch/passrelay.wezterm/issues/11
+--
+-- IMPORTANT: 1Password CLI command `op read` MUST be used to read passwords because
+-- other methods (`op item get`) are not reliable when the password contains special
+-- characters such as quotes or commas.
+--
+-- `op_accounts` maps "title (vault name)" to "vault_id/item_id".
+-- `get_password` calls `op read` which needs the vault id together with the item id.
+-- The vault name is appended to the label so entries stay distinguishable (and searchable)
+-- when titles repeat across vaults. Note: duplicate titles within the *same* vault will
+-- collide making earlier same-titled items unreachable.
+local passrelay_settings = (function()
+  local op_bin = wezterm.home_dir .. "/bin/op"
+  local op_accounts = {}
+
+  local function get_userlist()
+    local success, stdout, stderr = wezterm.run_child_process({ op_bin, "item", "list", "--tags", "wezterm", "--format=json" })
+    if not success then
+      error("op item list failed: " .. tostring(stderr))
+    end
+
+    local items = wezterm.json_parse(stdout)
+    op_accounts = {}
+    local labels = {}
+    for _, item in ipairs(items) do
+      local label = item.title .. " (" .. item.vault.name .. ")"
+      op_accounts[label] = item.vault.id .. "/" .. item.id
+      table.insert(labels, label)
+    end
+    return labels
+  end
+
+  local function get_password(user)
+    local path = op_accounts[user]
+    if not path then
+      error("no known 1Password item for " .. tostring(user))
+    end
+
+    local success, stdout, stderr = wezterm.run_child_process({ op_bin, "read", "op://" .. path .. "/password" })
+    if not success then
+      error("op read failed: " .. tostring(stderr))
+    end
+    return stdout
+  end
+
+  return {
+    get_userlist = get_userlist,
+    get_password = get_password,
+    hotkey = { mods = 'ALT|CTRL', key = 'p' },
+  }
+end)()
 wezterm.plugin.require("https://github.com/dfaerch/passrelay.wezterm").apply_to_config(config, passrelay_settings)
 
 -- and finally, return the configuration to wezterm
