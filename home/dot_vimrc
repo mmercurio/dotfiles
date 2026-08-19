@@ -1,16 +1,27 @@
 " --- from "mastering VIM"
-filetype plugin indent on " Enable file type based options.
-set nocompatible          " Don't run in backwards compatible mode.
-                          "  - This is the default in all recent versions of
-                          "    VIM. Unnecessary?
-set autoindent            " Respect indentation when starting new line.
-set expandtab             " Expand tabs to spaces. Essential in Python.
-set tabstop=4             " Number of spaces tab is counted for.
-set shiftwidth=4          " Number of spaces to use for autoindent.
-set shiftround            " Indent round multiple of shiftwidth
-set backspace=2           " Fix backspace behavior on most terminals.
+"
+set number
+set ruler
 
+filetype plugin indent on " Enable file type based options.
+set backspace=2           " Fix backspace behavior on most terminals.
+set autoindent
+set smartindent
+
+" show existing tab with 4 spaces width
+set tabstop=4
+
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+" Indent round multiple of shiftwidth
+set shiftround
+
+" On pressing tab, insert 4 spaces
+set expandtab
+"
 " --- from "mastering VIM"
+
 
 " -- Python indentation for open/close parens/braces
 let g:python_indent = {}
@@ -20,8 +31,6 @@ let g:python_indent.continue = 'shiftwidth()'
 let g:python_indent.closed_paren_align_last_line = v:false
 
 let mapleader = " "
-set autoindent
-set smartindent
 set cursorline
 set cursorcolumn
 " colorcolumns
@@ -29,9 +38,6 @@ let g:color_cols = "80,120"
 " toggle colorcolumn on/off with <leader>cc
 "" nnoremap <silent> <F5> :let &colorcolumn = (&colorcolumn ==# g:color_cols) ? '' : g:color_cols<CR>
 nnoremap <silent> <leader>cc :let &colorcolumn = (&colorcolumn ==# g:color_cols) ? '' : g:color_cols<CR>
-
-set number
-set ruler
 
 set incsearch
 set hlsearch
@@ -45,7 +51,6 @@ set mouse=a
 
 " selection is auto copied to system cliboard
 " yank is using * (system clipboard)
-" works well on macOS
 " https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
 "" set clipboard=autoselect,unnamed
 " map leader y to yank to system clipboard: "+y
@@ -56,15 +61,6 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
-
-filetype plugin indent on
-
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
 
 syntax enable
 
