@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.font = wezterm.font_with_fallback { 'MesloLGS NF', 'JetBrains Mono' }
+config.font = wezterm.font_with_fallback { "MesloLGS NF", "JetBrains Mono" }
 config.font_size = 14
 config.initial_cols = 100
 config.initial_rows = 28
@@ -21,10 +21,10 @@ config.hide_tab_bar_if_only_one_tab = true
 --   "TITLE | RESIZE" - Enable titlebar and border. This is the default.
 config.window_decorations = "RESIZE"
 
-config.color_scheme = 'AlienBlood'
--- config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
--- config.color_scheme = 'Mono Amber (Gogh)'
--- config.color_scheme = 'Mono Yellow (Gogh)'
+config.color_scheme = "AlienBlood"
+-- config.color_scheme = "Atelierdune (dark) (terminal.sexy)"
+-- config.color_scheme = "Mono Amber (Gogh)"
+-- config.color_scheme = "Mono Yellow (Gogh)"
 
 -- Use the defaults as a base
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
@@ -34,15 +34,15 @@ config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- the first matched regex group is captured in $1.
 table.insert(config.hyperlink_rules, {
   regex = [[\b([A-Z]{3,5}-\d{3,5})\b]],
-  format = 'https://grubhub.atlassian.net/secure/QuickSearch.jspa?searchString=$1',
+  format = "https://grubhub.atlassian.net/secure/QuickSearch.jspa?searchString=$1",
 })
 
 local act = wezterm.action
 
 config.keys = {
-  { key = 'd', mods = 'CMD', action = act.SplitHorizontal { domain =  'CurrentPaneDomain' } },
-  { key = 'd', mods = 'CMD|SHIFT', action = act.SplitVertical { domain =  'CurrentPaneDomain' } },
-  { key = 'w', mods = 'CMD', action = act.CloseCurrentPane { confirm = false } },
+  { key = "d", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  { key = "d", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  { key = "w", mods = "CMD", action = act.CloseCurrentPane({ confirm = false }) },
 }
 
 -- mouse_bindings: right click paste
@@ -67,13 +67,13 @@ config.mouse_bindings = {
 -- https://github.com/dfaerch/passrelay.wezterm/blob/v1/integrations/1password_desktop.md
 local passrelay_settings = {
   get_userlist = {
-    format='json',
+    format = "json",
     command = "~/bin/op item list --tags wezterm --format=json",
     id_path = "id",
-    label_path = "title"
+    label_path = "title",
   },
   get_password = "~/bin/op item get %user --fields password --reveal",
-  hotkey = { mods = 'ALT|CTRL', key = 'p' },
+  hotkey = { mods = "ALT|CTRL", key = "p" },
 }
 wezterm.plugin.require("https://github.com/dfaerch/passrelay.wezterm").apply_to_config(config, passrelay_settings)
 
