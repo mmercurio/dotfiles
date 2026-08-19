@@ -22,9 +22,9 @@ config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
 config.color_scheme = "AlienBlood"
--- config.color_scheme = 'Atelierdune (dark) (terminal.sexy)'
--- config.color_scheme = 'Mono Amber (Gogh)'
--- config.color_scheme = 'Mono Yellow (Gogh)'
+-- config.color_scheme = "Atelierdune (dark) (terminal.sexy)"
+-- config.color_scheme = "Mono Amber (Gogh)"
+-- config.color_scheme = "Mono Yellow (Gogh)"
 
 -- Use the defaults as a base
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
