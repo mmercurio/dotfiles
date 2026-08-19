@@ -64,17 +64,57 @@ config.mouse_bindings = {
 }
 
 -- https://github.com/dfaerch/passrelay.wezterm
--- https://github.com/dfaerch/passrelay.wezterm/blob/v1/integrations/1password_desktop.md
-local passrelay_settings = {
-  get_userlist = {
-    format = "json",
-    command = "~/bin/op item list --tags wezterm --format=json",
-    id_path = "id",
-    label_path = "title",
-  },
-  get_password = "~/bin/op item get %user --fields password --reveal",
-  hotkey = { mods = "ALT|CTRL", key = "p" },
-}
+-- https://github.com/dfaerch/passrelay.wezterm/issues/11
+--
+-- IMPORTANT: 1Password CLI command `op read` MUST be used to read passwords because
+-- other methods (`op item get`) are not reliable when the password contains special
+-- characters such as quotes or commas.
+--
+-- `op_accounts` maps "title (vault name)" to "vault_id/item_id".
+-- `get_password` calls `op read` which needs the vault id together with the item id.
+-- The vault name is appended to the label so entries stay distinguishable (and searchable)
+-- when titles repeat across vaults. Note: duplicate titles within the *same* vault will
+-- collide making earlier same-titled items unreachable.
+local passrelay_settings = (function()
+  local op_bin = wezterm.home_dir .. "/bin/op"
+  local op_accounts = {}
+
+  local function get_userlist()
+    local success, stdout, stderr = wezterm.run_child_process({ op_bin, "item", "list", "--tags", "wezterm", "--format=json" })
+    if not success then
+      error("op item list failed: " .. tostring(stderr))
+    end
+
+    local items = wezterm.json_parse(stdout)
+    op_accounts = {}
+    local labels = {}
+    for _, item in ipairs(items) do
+      local label = item.title .. " (" .. item.vault.name .. ")"
+      op_accounts[label] = item.vault.id .. "/" .. item.id
+      table.insert(labels, label)
+    end
+    return labels
+  end
+
+  local function get_password(user)
+    local path = op_accounts[user]
+    if not path then
+      error("no known 1Password item for " .. tostring(user))
+    end
+
+    local success, stdout, stderr = wezterm.run_child_process({ op_bin, "read", "op://" .. path .. "/password" })
+    if not success then
+      error("op read failed: " .. tostring(stderr))
+    end
+    return stdout
+  end
+
+  return {
+    get_userlist = get_userlist,
+    get_password = get_password,
+    hotkey = { mods = 'ALT|CTRL', key = 'p' },
+  }
+end)()
 wezterm.plugin.require("https://github.com/dfaerch/passrelay.wezterm").apply_to_config(config, passrelay_settings)
 
 -- and finally, return the configuration to wezterm
