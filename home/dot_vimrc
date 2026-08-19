@@ -132,7 +132,7 @@ autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 "colorscheme ghdark
 colorscheme habamax
 
-highlight ColorColumn ctermbg=238 guibg=#444444
+highlight ColorColumn cterm=NONE ctermbg=235 guibg=#242424 guifg=NONE
 
 " quickly exit insert mode with jk
 imap jk <ESC>
@@ -163,3 +163,7 @@ nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tf :tabnew %<CR>
+
+" Substitute word under cursor
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
