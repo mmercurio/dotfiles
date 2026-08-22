@@ -1,13 +1,16 @@
 vim.opt.autoindent = true
 vim.opt.cursorline = true
--- cursorcolumn not needed with indent-blankline plugin
--- vim.opt.cursorcolumn = true
+-- cursorcolumn maybe? not needed with indent-blankline plugin
+vim.opt.cursorcolumn = true
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
+-- default indentation is 4 spaces
+--    filetype specific under ./ftplugin/<filetype>
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.shiftround = true
 vim.opt.softtabstop = 4
 
 -- search settings
@@ -17,17 +20,42 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-vim.opt.clipboard:append("unnamedplus")
+vim.o.winborder = 'rounded'
+
+-- Keep separate from system clipboard
+-- See keymapping below to use <leader>y and <leader>p
+-- vim.opt.clipboard:append("unnamedplus")
 
 -- allows trailing whitespace to be visible
 vim.o.list = true
 vim.o.listchars = 'tab:» ,trail:•,nbsp:␣'
 
+-- Python placement of open/close parens/braces
+vim.g.python_indent = {
+  open_paren = 'shiftwidth()',              -- Indent content by 1 level
+  nested_paren = 'shiftwidth()',            -- Indent nested lines by 1 level
+  continue = 'shiftwidth()',                -- Indent continuation lines by 1 level
+  closed_paren_align_last_line = false      -- Align closing brace with the START of the line (conf)
+}
+
+-- treat *.sh.txt like *.sh
+vim.filetype.add({
+  pattern = {
+    [".*%.sh%.txt"] = "sh",
+  }
+})
+
 --
 -- keymaps
+vim.g.mapleader = " "
+
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-vim.g.mapleader = " "
+vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+
+vim.keymap.set("n", "<leader>y", "", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
@@ -44,7 +72,7 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 -- Remove trailing whitespace
 --    https://vim.fandom.com/wiki/Remove_unwanted_spaces
 --    https://vi.stackexchange.com/a/2285/35205
---` Original vimscript:` 
+--` Original vimscript:`
 -- local function TrimWhitespace()
 --   local save_view = vim.fn.winsaveview()
 --   vim.cmd([[keeppatterns %s/\s\+$//e]])
@@ -79,3 +107,13 @@ end
 
 vim.keymap.set("n", "<leader>w", TrimWhitespace, { desc = "Trim trailing whitespace" })
 
+
+-- Highlight trailing whitespace, migrated from .vimrc:
+--   Show trailing whitespace, except when typing at the end of a line.
+--   Create highlight group for extra whitespace.
+--   https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+vim.cmd([[
+  match ExtraWhitespace /\s\+\%#\@<!$/
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+]])
