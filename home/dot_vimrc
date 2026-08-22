@@ -19,8 +19,18 @@ set shiftround
 
 " On pressing tab, insert 4 spaces
 set expandtab
+
+" Case-insensitive searching unless `\C` for capital letters used in search
+set ignorecase
+set smartcase
 "
-" --- from "mastering VIM"
+" ---end from "mastering VIM"
+
+set scrolloff=8
+
+" Make Y (shift-y) behave like y$ (yank from cursor to end of line)
+set nocompatible
+nnoremap Y y$
 
 
 " -- Python indentation for open/close parens/braces
@@ -161,5 +171,5 @@ nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tf :tabnew %<CR>
 
 " Substitute word under cursor
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nnoremap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
