@@ -10,6 +10,7 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua, -- stylua config is stylua.toml
         null_ls.builtins.formatting.prettier,
+        -- TODO add isort/black for Python
       },
     })
 
