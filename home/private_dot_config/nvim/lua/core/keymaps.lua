@@ -17,10 +17,22 @@ vim.opt.softtabstop = 4
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.scrolloff = 8
+
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 vim.o.winborder = 'rounded'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Enable undo/redo changes even after closing and reopening a file
+vim.o.undofile = true
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Keep separate from system clipboard
 -- See keymapping below to use <leader>y and <leader>p
@@ -48,6 +60,7 @@ vim.filetype.add({
 --
 -- keymaps
 vim.g.mapleader = " "
+vim.g.maplocalleader = ' '
 
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
@@ -69,6 +82,10 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
+-- Substitute word under cursor
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Substitute word under cursor" })
+
+-- [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
 -- Remove trailing whitespace
 --    https://vim.fandom.com/wiki/Remove_unwanted_spaces
 --    https://vi.stackexchange.com/a/2285/35205
@@ -108,6 +125,9 @@ end
 vim.keymap.set("n", "<leader>w", TrimWhitespace, { desc = "Trim trailing whitespace" })
 
 
+-- TODO: these highlight and color settings should be moved into a colorscheme module
+-- currently: under lua/plugins/catppuccin.lua (rename to colors.lua or similar)
+
 -- Highlight trailing whitespace, migrated from .vimrc:
 --   Show trailing whitespace, except when typing at the end of a line.
 --   Create highlight group for extra whitespace.
@@ -117,3 +137,22 @@ vim.cmd([[
   highlight ExtraWhitespace ctermbg=red guibg=red
   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 ]])
+
+-- from kickstart.nvim
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.hl.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function() vim.hl.on_yank() end,
+})
+
+
+--
+-- Toggle colorcolumn with <leader>cc
+--
+local color_cols = "80,120"
+vim.keymap.set("n", "<leader>cc", function()
+  vim.wo.colorcolumn = (vim.wo.colorcolumn == color_cols) and "" or color_cols
+end, { silent = true, desc = "Toggle colorcolumn" })
