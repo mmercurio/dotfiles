@@ -216,7 +216,7 @@ fi
 ### SSH aliases and functions
 #
 # These are used because ~/.ssh/config disables password auth by default.
-# Occcasoinally, I need to auth with a password when my public keys
+# Occasionally, I need to auth with a password when my public keys
 # are not yet installed. These aliases and shell functions make it
 # easier to install keys and login with a password when needed.
 
@@ -230,6 +230,9 @@ alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o IdentityAgent=none 
 sshid () {
 	sshpw-id $* && ssh $*
 }
+
+# SSH via public key only (override config)
+alias sshk='ssh -o IdentityAgent=$SSH_AUTH_SOCK -i ~/.ssh/id_ed25519.pub'
 
 # When in tmux refresh SSH_AUTH_SOCK and DISPLAY
 # https://babushk.in/posts/renew-environment-tmux.html
