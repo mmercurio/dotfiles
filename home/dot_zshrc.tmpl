@@ -283,8 +283,9 @@ function unlock () {
 #[[ ! -d ~/.docker/bin ]] || PATH="$PATH:$HOME/.docker/bin"
 
 {{ end -}}
+
 # Load additional dev environment
-[[ -z "$DEVENV" ]] || source "$DEVENV"
+[[ ! -f ~/.devenv/.devenv_shell.sh ]] || source ~/.devenv/.devenv_shell.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 if [[ "$ZSH_THEME" =~ "powerlevel" ]]; then
