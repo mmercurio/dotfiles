@@ -151,6 +151,7 @@ export LESS="$LESS -i"
 # Use bat for man if available
 # https://github.com/sharkdp/bat
 # Ubuntu/Debian rename bat to batcat
+export BAT_THEME_DARK="Coldark-Dark"
 if BATCOMMAND=`command -v bat` ; then
     export BATCOMMAND
     alias man=batman
