@@ -4,6 +4,11 @@
 # It's not necessary to copy all keys to your config.
 # If the key is missing in your config, "default-config.toml" will serve as a fallback
 
+# Config version for compatibility and deprecations
+# See: https://nikitabobko.github.io/AeroSpace/guide#config-version
+# Fallback value (if you omit the key): config-version = 1
+config-version = 2
+
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -62,6 +67,12 @@ on-focus-changed = ['move-mouse window-lazy-center']
 [exec.env-vars]
     PATH = '${HOME}/bin:/opt/homebrew/bin:/usr/local/bin:${PATH}'
 
+# List of workspaces that should stay alive even when they contain no windows,
+# even when they are invisible.
+# This config option is only available since 'config-version = 2'
+# Fallback value (if you omit the key): persistent-workspaces = []
+persistent-workspaces = ["1", "2", "3", "A", "B", "D", "N"]
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -102,13 +113,10 @@ outer.right =      8
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-# You can uncomment this line to open up terminal with alt + enter shortcut
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-#   'wezterm cli spawn' only works if WezTerm app is already running.
-#   This ensure WezTerm is running and then creates a new window.
-#   If WezTerm is already running, the already running instance is used.
-#alt-enter = 'exec-and-forget open -a WezTerm && wezterm cli spawn --new-window'
-#
+# Open new Chrome window.
+# Wonder if there's a way to make this configurable for which browser I use?
+shift-alt-enter = 'exec-and-forget open -na "Google Chrome" --args --new-window "https://www.google.com"'
+
 # This appears to work as desired: new window is always opened and focused
 # and existing instance of WezTerm is used if already running.
 alt-enter = 'exec-and-forget open -na WezTerm'
