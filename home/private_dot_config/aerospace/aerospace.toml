@@ -62,16 +62,16 @@ key-mapping.preset = 'qwerty'
 #on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
-# https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
-# Need to add $HOME/bin and homebrew dirs
-[exec.env-vars]
-    PATH = '${HOME}/bin:/opt/homebrew/bin:/usr/local/bin:${PATH}'
-
 # List of workspaces that should stay alive even when they contain no windows,
 # even when they are invisible.
 # This config option is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
 persistent-workspaces = ["1", "2", "3", "A", "B", "D", "N"]
+
+# https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
+# Need to add $HOME/bin and homebrew dirs
+[exec.env-vars]
+    PATH = '${HOME}/bin:/opt/homebrew/bin:/usr/local/bin:${PATH}'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
