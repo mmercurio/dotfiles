@@ -1,6 +1,5 @@
 vim.opt.autoindent = true
 vim.opt.cursorline = true
--- cursorcolumn maybe? not needed with indent-blankline plugin
 vim.opt.cursorcolumn = true
 vim.opt.number = true
 -- vim.opt.relativenumber = true
@@ -13,16 +12,16 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.softtabstop = 4
 
--- search settings
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
 vim.opt.scrolloff = 8
 
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 vim.o.winborder = 'rounded'
+
+  -- Configure how new splits should be opened
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -70,6 +69,7 @@ vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system cli
 
 vim.keymap.set("n", "<leader>y", "", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set('n', "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
@@ -156,3 +156,7 @@ local color_cols = "80,120"
 vim.keymap.set("n", "<leader>cc", function()
   vim.wo.colorcolumn = (vim.wo.colorcolumn == color_cols) and "" or color_cols
 end, { silent = true, desc = "Toggle colorcolumn" })
+
+
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
