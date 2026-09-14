@@ -173,6 +173,9 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   -- See `:help 'confirm'`
   vim.o.confirm = true
+
+  -- border style of floating windows
+  vim.o.winborder = 'rounded'
 end
 
 -- ============================================================
@@ -293,9 +296,9 @@ do
 
   -- Toggle colorcolumn with <leader>cc
   local color_cols = "80,120"
-  vim.keymap.set("n", "<leader>cc", function()
+  vim.keymap.set("n", "<leader>tc", function()
     vim.wo.colorcolumn = (vim.wo.colorcolumn == color_cols) and "" or color_cols
-  end, { silent = true, desc = "Toggle colorcolumn" })
+  end, { silent = true, desc = "[T]oggle [c]olorcolumn" })
 
 end
 
@@ -549,15 +552,22 @@ do
   vim.pack.add(telescope_plugins)
 
   -- See `:help telescope` and `:help telescope.setup()`
-  require('telescope').setup {
+  local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  telescope.setup {
     -- You can put your default mappings / updates / etc. in here
     --  All the info you're looking for is in `:help telescope.setup()`
     --
-    -- defaults = {
-    --   mappings = {
-    --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-    --   },
-    -- },
+    defaults = {
+      mappings = {
+        i = {
+          -- ['<c-enter>'] = 'to_fuzzy_refine'
+          ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+          ["<C-j>"] = actions.move_selection_next, -- move to next result
+          ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        },
+      },
+    },
     -- pickers = {}
     extensions = {
       ['ui-select'] = { require('telescope.themes').get_dropdown() },
