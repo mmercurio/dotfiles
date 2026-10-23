@@ -12,6 +12,10 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.softtabstop = 4
 
+-- search settings
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.scrolloff = 8
 
 vim.opt.termguicolors = true
@@ -19,7 +23,7 @@ vim.opt.background = "dark"
 
 vim.o.winborder = 'rounded'
 
-  -- Configure how new splits should be opened
+-- Configure how new splits should be opened
 vim.o.splitright = true
 vim.o.splitbelow = true
 
@@ -153,10 +157,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Toggle colorcolumn with <leader>cc
 --
 local color_cols = "80,120"
-vim.keymap.set("n", "<leader>cc", function()
+vim.keymap.set("n", "<leader>tc", function()
   vim.wo.colorcolumn = (vim.wo.colorcolumn == color_cols) and "" or color_cols
-end, { silent = true, desc = "Toggle colorcolumn" })
-
+end, { silent = true, desc = "[T]oggle [c]olorcolumn" })
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
