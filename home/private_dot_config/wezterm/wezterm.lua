@@ -4,6 +4,10 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+wezterm.on('window-config-reloaded', function(window, pane)
+  window:toast_notification('wezterm', 'configuration reloaded!', nil, 4000)
+end)
+
 -- This is where you actually apply your config choices
 
 config.font = wezterm.font_with_fallback { "MesloLGS NF", "JetBrains Mono" }
@@ -22,6 +26,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
 config.color_scheme = "AlienBlood"
+-- config.color_scheme = "tokyonight"
 -- config.color_scheme = "Atelierdune (dark) (terminal.sexy)"
 -- config.color_scheme = "Mono Amber (Gogh)"
 -- config.color_scheme = "Mono Yellow (Gogh)"
