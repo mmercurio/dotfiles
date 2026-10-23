@@ -216,7 +216,9 @@ do
 
   -- Substitute work under cursor...
   -- https://github.com/ThePrimeagen/init.lua/blob/249f3b14cc517202c80c6babd0f9ec548351ec71/lua/theprimeagen/remap.lua#L42
-  vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+  vim.keymap.set("n", "<leader>Sw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[S]ubstitute [w]word under cursor.' })
+  -- Substitute WORD under cursor across the entire file
+  vim.keymap.set("n", "<leader>SW", [[:%s/\V<C-r><C-a>/<C-r><C-a>/gI<Left><Left><Left>]], { desc = "[S]ubstitute [W]ORD under cursor" })
 
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -446,14 +448,10 @@ do
   --vim.cmd.colorscheme 'tokyonight-night'
 
   vim.pack.add { { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } }
+  require("catppuccin").setup({
+    transparent_background = true,
+  })
   vim.cmd.colorscheme 'catppuccin'
-
-  -- Apply transparency to the main editor background
-  -- Not setting this for now so I can more easily tell the difference between
-  -- nvim and nvim-kickstart.
-  -- In order to keep transparency, it needs to be set on multiple highlight
-  -- groups. Check with Gemini.
-  -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
 
   vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#2a2b3c" })
 
@@ -552,22 +550,15 @@ do
   vim.pack.add(telescope_plugins)
 
   -- See `:help telescope` and `:help telescope.setup()`
-  local telescope = require("telescope")
-  local actions = require("telescope.actions")
-  telescope.setup {
+  require('telescope').setup {
     -- You can put your default mappings / updates / etc. in here
     --  All the info you're looking for is in `:help telescope.setup()`
     --
-    defaults = {
-      mappings = {
-        i = {
-          -- ['<c-enter>'] = 'to_fuzzy_refine'
-          ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-          ["<C-j>"] = actions.move_selection_next, -- move to next result
-          ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        },
-      },
-    },
+    -- defaults = {
+    --   mappings = {
+    --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+    --   },
+    -- },
     -- pickers = {}
     extensions = {
       ['ui-select'] = { require('telescope.themes').get_dropdown() },
@@ -976,7 +967,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -1004,6 +995,11 @@ do
   vim.api.nvim_create_autocmd('FileType', {
     callback = function(args)
       local buf, filetype = args.buf, args.match
+
+      -- Skip CSV and TSV files so native syntax works
+      if filetype == 'csv' or filetype == 'tsv' then
+        return
+      end
 
       local language = vim.treesitter.language.get_lang(filetype)
       if not language then return end
@@ -1042,13 +1038,13 @@ do
   -- require 'kickstart.plugins.indent_line'
   -- require 'kickstart.plugins.lint'
   -- require 'kickstart.plugins.autopairs'
-  -- require 'kickstart.plugins.neo-tree'
-  -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
+  require 'kickstart.plugins.neo-tree'
+  require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
 
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- require 'custom.plugins'
+ require 'custom.plugins'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
