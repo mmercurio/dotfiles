@@ -198,6 +198,12 @@ alias gloa='git loa'
 # use ripgrep to highlight text
 alias hl='rg --passthru'
 
+# bat "plain" without decorations
+alias bp='bat -p'
+
+# query for my WAN IP address
+alias wanip='dig +short ANY @resolver1.opendns.com myip.opendns.com'
+
 # worddiff using git diff: wd file1 file2
 alias wd='git diff -U0 --word-diff --word-diff-regex=. --no-index -- '
 alias dw=wd
@@ -222,10 +228,10 @@ fi
 # easier to install keys and login with a password when needed.
 
 # SSH via password when required
-alias sshpw='ssh -o PasswordAuthentication=yes -o IdentityAgent=none'
+alias sshpw='ssh -o PasswordAuthentication=yes -o PubkeyAuthentication=no'
 
 # copy public key but using password to auth
-alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o IdentityAgent=none -f -i ~/.ssh/id_ed25519.pub'
+alias sshpw-id='ssh-copy-id -o PasswordAuthentication=yes -o PubkeyAuthentication=no -f -i ~/.ssh/id_ed25519.pub'
 
 # copy key and then login using password to auth
 sshid () {
