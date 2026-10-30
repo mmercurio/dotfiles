@@ -14,7 +14,7 @@ eval "$(/usr/local/bin/brew shellenv)"
      "asdf"
      "awscli"
      "bash"
-     "bash-completion2"
+     "bash-completion@2"
      "bat"
      "binutils"
      "curl"
@@ -72,6 +72,7 @@ eval "$(/usr/local/bin/brew shellenv)"
      "visual-studio-code"
      "wezterm"
      "nikitabobko/tap/aerospace"
+     "AlexStrNik/Browserino/browserino"
 -}}
 
 {{ if eq .chezmoi.arch "amd64" -}}
@@ -89,5 +90,3 @@ cask "{{ . }}"
 {{   end }}
 {{ end -}}
 EOF
-
-brew install --cask AlexStrNik/Browserino/browserino
