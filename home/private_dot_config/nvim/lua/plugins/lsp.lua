@@ -48,6 +48,7 @@ return {
           "sh",
           "typescript",
           "yaml",
+          "zsh",
         },
       })
 
@@ -59,11 +60,11 @@ return {
 
       -- Toggle diagnostic virtual text
       -- vim.diagnostic.config({ virtual_text = true })
-      vim.keymap.set("n", "<leader>lt", function()
+      vim.keymap.set("n", "<leader>td", function()
         local config = vim.diagnostic.config() or {}
         local toggle_virtual_text = not config.virtual_text
         vim.diagnostic.config({ virtual_text = toggle_virtual_text })
-      end, { desc = "Toggle LSP virtual text" })
+      end, { desc = "[T]oggle [D]iagnostic LSP virtual text" })
 
       vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show LSP diagnostics under cursor" })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

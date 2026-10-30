@@ -1,0 +1,10 @@
+dictionaries = ["en_us"]
+
+words = [
+    "codebook",
+    "breakpoint",
+    "linters",
+    "Neovim",
+    "nvim",
+    "tmux",
+]

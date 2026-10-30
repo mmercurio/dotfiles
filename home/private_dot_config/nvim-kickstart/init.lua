@@ -199,7 +199,7 @@ do
     underline = { severity = { min = vim.diagnostic.severity.WARN } },
 
     -- Can switch between these as you prefer
-    virtual_text = true, -- Text shows up at the end of the line
+    virtual_text = false, -- Text shows up at the end of the line
     virtual_lines = false, -- Text shows up underneath the line, with virtual lines
 
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
@@ -213,6 +213,20 @@ do
       end,
     },
   }
+
+  -- Toggle diagnostic virtual text
+  vim.keymap.set("n", "<leader>td", function()
+    local config = vim.diagnostic.config() or {}
+    local toggle_virtual_text = not config.virtual_text
+    vim.diagnostic.config({ virtual_text = toggle_virtual_text })
+  end, { desc = "[T]oggle [D]iagnostic LSP virtual text" })
+
+  -- Toggle diagnostic signs
+  vim.keymap.set("n", "<leader>ts", function()
+    local config = vim.diagnostic.config() or {}
+    local toggle_signs = not config.signs
+    vim.diagnostic.config({ signs = toggle_signs })
+  end, { desc = "[T]oggle diagnostic [S]igns" })
 
   -- Substitute work under cursor...
   -- https://github.com/ThePrimeagen/init.lua/blob/249f3b14cc517202c80c6babd0f9ec548351ec71/lua/theprimeagen/remap.lua#L42
@@ -752,16 +766,42 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
+    bashls = {},
+
     -- clangd = {},
     -- gopls = {},
-    -- pyright = {},
+    pyright = {},
+
+    -- codebook-lsp spellchecker for code
+    codebook = {
+      filetypes = {
+        "c",
+        "css",
+        "gitcommit",
+        "html",
+        "java",
+        "javascript",
+        "lua",
+        "markdown",
+        "python",
+        "ruby",
+        "rust",
+        "toml",
+        "text",
+        "sh",
+        "typescript",
+        "yaml",
+        "zsh",
+      },
+    },
+
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
-    -- ts_ls = {},
+    ts_ls = {},
 
     stylua = {}, -- Used to format Lua code
 
