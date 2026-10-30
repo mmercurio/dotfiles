@@ -32,6 +32,10 @@
 	ri = rebase --interactive
 	st = status -sb
 	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+
+[url "git@github.com:"]
+       insteadOf = https://github.com
+
 [core]
 	excludesfile = ~/.gitignore_global
 {{- if eq .chezmoi.os "windows" }}
