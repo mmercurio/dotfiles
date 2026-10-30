@@ -16,6 +16,8 @@ return {
             i = {
               ["<C-k>"] = actions.move_selection_previous, -- move to prev result
               ["<C-j>"] = actions.move_selection_next, -- move to next result
+              ["<C-h>"] = actions.preview_scrolling_left, -- scroll window left
+              ["<C-l>"] = actions.preview_scrolling_right, -- scroll window right
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
             },
           },
