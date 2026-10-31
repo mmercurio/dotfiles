@@ -31,20 +31,22 @@ return {
       vim.lsp.config("lua_ls", {})
       vim.lsp.config("pyright", {})
       vim.lsp.config("codebook", {
+        -- code only. Using vim's spell for prose.
         filetypes = {
+          "bash",
           "c",
           "css",
-          "gitcommit",
+          -- "gitcommit",
           "html",
           "java",
           "javascript",
           "lua",
-          "markdown",
+          -- "markdown",
           "python",
           "ruby",
           "rust",
           "toml",
-          "text",
+          -- "text",
           "sh",
           "typescript",
           "yaml",

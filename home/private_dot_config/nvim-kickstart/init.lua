@@ -316,6 +316,17 @@ do
     vim.wo.colorcolumn = (vim.wo.colorcolumn == color_cols) and "" or color_cols
   end, { silent = true, desc = "[T]oggle [c]olorcolumn" })
 
+  -- Built-in spell: prose only
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'markdown', 'text', 'gitcommit' },
+    callback = function()
+      vim.opt_local.spell = true
+      vim.opt_local.spelllang = 'en_us'
+      vim.opt_local.spelloptions:append('camel')
+  end,
+
+})
+
 end
 
 -- ============================================================
@@ -778,22 +789,23 @@ do
     -- gopls = {},
     pyright = {},
 
-    -- codebook-lsp spellchecker for code
+    -- codebook-lsp spellchecker for code only; using vim's spell for prose.
     codebook = {
       filetypes = {
+        "bash",
         "c",
         "css",
-        "gitcommit",
+        -- "gitcommit",
         "html",
         "java",
         "javascript",
         "lua",
-        "markdown",
+        -- "markdown",
         "python",
         "ruby",
         "rust",
         "toml",
-        "text",
+        -- "text",
         "sh",
         "typescript",
         "yaml",
