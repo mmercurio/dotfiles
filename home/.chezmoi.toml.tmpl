@@ -64,8 +64,10 @@
 {{-   $personal = promptBoolOnce . "personal" "Personal secrets" false -}}
 {{- end -}}
 
+{{- if ne .chezmoi.os "windows" }}
 [diff]
   pager = "delta"
+{{- end }}
 
 [data]
   name = {{ $name | quote }}

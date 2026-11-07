@@ -63,13 +63,12 @@
     navigate = true  # use n and N to move between diff sections
     dark = true      # or `light = true`, or omit for auto-detection
     line-numbers = true
-	features = decorations
+    features = decorations
 [delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow
-	hunk-header-decoration-style = cyan box ul
+    commit-decoration-style = bold yellow box ul
+    file-style = bold blue
 [merge]
-    conflictStyle = zdiff3
+    conflictStyle = zdiff3 # for delta
 {{ end -}}
 
 [color]
