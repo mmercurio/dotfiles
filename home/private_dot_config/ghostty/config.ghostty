@@ -1,0 +1,9 @@
+font-family = "MesloLGS NF"
+font-size = 14
+theme = Alien Blood
+copy-on-select = clipboard
+cursor-style = block
+cursor-style-blink = false
+macos-titlebar-style = hidden
+mouse-hide-while-typing = true
+shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo,path
