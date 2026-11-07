@@ -42,7 +42,7 @@
 	autocrlf = true
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 {{- else }}
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 {{- end }}
 
 [rerere]
@@ -55,23 +55,16 @@
 	defaultBranch = main
 [rebase]
 	autosquash = true
-[diff]
-	tool = vscode-diff
-[difftool]
-	prompt = false
-[difftool "vscode-diff"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-	tool = vscode-merge
-[mergetool]
-	keepBackup = false
-[mergetool "vscode-merge"]
-	cmd = code --wait $MERGED
 {{ if ne .chezmoi.os "windows" -}}
 [interactive]
-	diffFilter = diff-so-fancy --patch
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or `light = true`, or omit for auto-detection
+    line-numbers = true
+[merge]
+    conflictStyle = zdiff3 # for delta
 {{ end -}}
-
 [color]
 	ui = true
 [color "diff-highlight"]
