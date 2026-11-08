@@ -119,7 +119,13 @@ shift-alt-enter = 'exec-and-forget open -na "Google Chrome" --args --new-window 
 
 # This appears to work as desired: new window is always opened and focused
 # and existing instance of WezTerm is used if already running.
-alt-enter = 'exec-and-forget open -na WezTerm'
+#alt-enter = 'exec-and-forget open -na WezTerm'
+#alt-enter = 'exec-and-forget open -a Ghostty'
+alt-enter = '''exec-and-forget osascript -e '
+tell application "Ghostty"
+    new window
+end tell'
+'''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -295,3 +301,10 @@ run = "layout floating"
 [[on-window-detected]]
 if.app-id = "com.runningwithcrayons.Alfred-Preferences"
 run = "layout floating"
+
+# work-around for Ghotty tabs and AeroSpace
+# https://ghostty.org/docs/help/macos-tiling-wms#aerospace
+[[on-window-detected]]
+if = 'test %{app-bundle-id} = com.mitchellh.ghostty'
+run = 'layout tiling'
+
