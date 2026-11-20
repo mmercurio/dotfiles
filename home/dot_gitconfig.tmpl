@@ -6,6 +6,7 @@
 	format = ssh # requires git 2.34 of later
 [commit]
 	gpgsign = true
+	verbose = true
 [push]
 	autoSetupRemote = true
 [pull]
@@ -23,7 +24,7 @@
 	dc = diff --cached
     deja = "!f() { n=${1:-5}; git log -n \"$n\" --author=\"$(git config user.name)\" --name-only --pretty=format: | grep . | sort | uniq -c | sort -nr; }; f"
 	deja2 = "!f() { n=${1:-5}; git log -n \"$n\" --author=\"$(git config user.name)\" --name-only --pretty=format: | grep . | sort | uniq -c | sort -n; }; f"
-	l = log --graph --pretty=format:'%C(auto)%h%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l = log --graph --pretty=tformat:'%C(auto)%h%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	la = l --all
 	lo = !git --no-pager l -n20
 	loa = lo --all
@@ -34,7 +35,9 @@
 	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
 [url "git@github.com:"]
-       insteadOf = https://github.com
+	insteadOf = https://github.com
+[url "git@gist.github.com:"]
+	insteadOf = https://gist.github.com/
 
 [core]
 	excludesfile = ~/.gitignore_global
