@@ -173,3 +173,9 @@ nnoremap <leader>tf :tabnew %<CR>
 " Substitute word under cursor
 nnoremap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
+" enable spell checking for select files
+augroup prose_spell
+  autocmd!
+  autocmd FileType markdown,text,gitcommit
+        \ setlocal spell spelllang=en_us spelloptions+=camel
+augroup END
