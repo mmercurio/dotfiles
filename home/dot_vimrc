@@ -29,7 +29,6 @@ set smartcase
 set scrolloff=8
 
 " Make Y (shift-y) behave like y$ (yank from cursor to end of line)
-set nocompatible
 nnoremap Y y$
 
 
@@ -53,6 +52,7 @@ set incsearch
 set hlsearch
 " clear search highlights
 nnoremap <leader>nh :nohl<CR>
+nnoremap <silent><esc> :nohl<CR>
 
 " i = mouse reporting for insert mode
 " set mouse=i
@@ -80,6 +80,12 @@ syntax enable
 " on some terminals on macOS (e.g., WezTerm)
 set background=dark
 set termguicolors
+
+" Do not expand tabs for these files
+augroup NoExpandTabFiletypes
+  autocmd!
+  autocmd FileType gitconfig,make setlocal noexpandtab
+augroup END
 
 " treat .sh.txt like .sh
 autocmd BufRead,BufNewFile *.sh.txt setlocal filetype=sh
@@ -179,8 +185,11 @@ nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>tf :tabnew %<CR>
 
+" Need to find better key maps for these
 " Substitute word under cursor
 nnoremap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+" Substitute WORD under cursor across the entire file
+nnoremap <leader>W :%s/\V<C-r><C-a>/<C-r><C-a>/gI<Left><Left><Left>
 
 " enable spell checking for select files
 augroup prose_spell
