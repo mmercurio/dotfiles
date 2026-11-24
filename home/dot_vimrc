@@ -63,6 +63,7 @@ set mouse=a
 " yank is using * (system clipboard)
 " https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
 "" set clipboard=autoselect,unnamed
+set clipboard=unnamed,unnamedplus
 " map leader y to yank to system clipboard: "+y
 " map leader Y to yank line to system clipboard: "+Y
 " map loader p to paste from system clipboard "+p
