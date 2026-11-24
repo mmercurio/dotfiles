@@ -59,10 +59,12 @@ nnoremap <leader>nh :nohl<CR>
 " a = mouse reporting for all modes
 set mouse=a
 
-" selection is auto copied to system cliboard
-" yank is using * (system clipboard)
-" https://vimdoc.sourceforge.net/htmldoc/options.html#'clipboard'
+" see :help clipboard
+"   autoselect: selection is auto copied to system cliboard
+"   unnamed: yank is using * (system clipboard macOS, selection on Linux )
+"   unamedplus: yank is using + (system clipboard macOS and Linux)
 "" set clipboard=autoselect,unnamed
+set clipboard=unnamed,unnamedplus
 " map leader y to yank to system clipboard: "+y
 " map leader Y to yank line to system clipboard: "+Y
 " map loader p to paste from system clipboard "+p
