@@ -1,3 +1,5 @@
+source_up_if_exists
+
 # Convient for shell functions, aliases, and interacting with the shell.
 load-source() {
     local source_file="$PWD/.direnv/rc_load.sh"
