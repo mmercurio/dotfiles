@@ -1,0 +1,14 @@
+# Convient for shell functions, aliases, and interacting with the shell.
+load-source() {
+    local source_file="$PWD/.direnv/rc_load.sh"
+    echo '# sourced by shell after direnv loads environment' > "$source_file"
+    cat >> "$source_file"
+    export DIRENV_LOAD_SOURCE="$source_file"
+}
+
+unload-source() {
+    local source_file="$PWD/.direnv/rc_unload.sh"
+    echo '# sourced by shell after direnv unloads environment' > "$source_file"
+    cat >> "$source_file"
+    export DIRENV_UNLOAD_SOURCE="$source_file"
+}
